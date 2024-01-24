@@ -2809,12 +2809,12 @@ const useBoostStore = create( ( e, t ) => ( {
       isCompleted: !1,
     }, */
     {
-      id: 2,
+      id: 5,
       title: "Full Energy",
       description: jsxs( Fragment, { children: [ "Recharge your energy to the limit ", jsx( "br", {} ), "and do another round of mining" ] } ),
       icon: "⚡️",
       type: "fullEnergy",
-      max: 3,
+      max: 1,
       completions: 0,
       isCompleted: !1,
     },
@@ -2851,7 +2851,7 @@ const useBoostStore = create( ( e, t ) => ( {
     /* { id: 6, title: "Join Squad", icon: "🐤", type: "joinsquad", coins: 5e3, isCompleted: !1 },
     { id: 5, title: "Invite 10 frens", icon: "🐥", type: "10Referral", coins: 1e5, isCompleted: !1 }, */
     { id: 4, title: "Earn 100 NFCoin", icon: "🐣", type: "100Clicks", coins: 200, isCompleted: 0 },
-    { id: 4, title: "Earn 1000 NFCoin", icon: "🐤", type: "1000Clicks", coins: 2000, isCompleted: 0 },
+    { id: 3, title: "Earn 1000 NFCoin", icon: "🐤", type: "1000Clicks", coins: 2000, isCompleted: 0 },
   ],
   specialTasksData = [
     {
@@ -3147,14 +3147,14 @@ const beautifyMoney$2 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
       u = ( k ) => {
         s(), i( k ), o();
       },
-      y = async ( k ) => {
+      buyB = async ( k ) => {
         r ||
           ( a( !0 ),
             t( { message: "Buying...", type: "loading" } ),
             await buyBoost( k ).then( async ( h ) => {
               if ( h != null && h.ok ) await d(), e();
               else {
-                const b = h != null && h.data.message ? ( h == null ? void 0 : h.data.message ) : "¯_(ツ)_/¯ Buying error. Try again later.";
+                const b = h != null && h.data.message ? ( h == null ? void 0 : h.data.message ) : "¯\\_(ツ)_/¯ Buying error. Try again later.";
                 t( { message: b, type: "error" } );
               }
             } ),
@@ -3165,7 +3165,7 @@ const beautifyMoney$2 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
     return _
       ? jsxs( Fragment, {
         children: [
-          jsx( BoostSheet, { isOpened: n, onClose: o, boost: c, level: c ? getBoostLevel( c, f ) : null, buyBoost: y } ),
+          jsx( BoostSheet, { isOpened: n, onClose: o, boost: c, level: c ? getBoostLevel( c, f ) : null, buyBoost: buyB } ),
           jsx( Content, {
             fadeIn: !0,
             className: styles$U.taskCarousel,
@@ -4650,7 +4650,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
     const { addToast: t, hideToasts: s } = useToast(),
       [ n, o ] = useToggle( !1 ),
       [ r, a ] = reactExports.useState( null ),
-      { dailyTasks: c, fetchTasks: i, isLoaded: l, completeTask: d } = useTaskStore();
+      { dailyTasks: tasks, fetchTasks: i, isLoaded: l, completeTask: d } = useTaskStore();
     useClickerStore();
     const _ = ( u ) => {
       s(), a( u ), o();
@@ -4660,7 +4660,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
         const { ok: y } = await d( u );
         y ? ( await i(), e( "daily" ) ) : t( { message: "¯_(ツ)_/¯ Claiming error. Try again later.", type: "error" } );
       },
-      m = c.sort( ( u, y ) => ( u.id > y.id ? 1 : -1 ) ).sort( ( u ) => ( u.completions === u.max ? 1 : -1 ) );
+      m = tasks.sort( ( u, y ) => ( u.id > y.id ? 1 : -1 ) ).sort( ( u ) => ( u.completions === u.max ? 1 : -1 ) );
     return l
       ? jsxs( Fragment, {
         children: [
