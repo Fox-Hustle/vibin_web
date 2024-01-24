@@ -51,7 +51,7 @@ const Fragment = jsxRuntimeExports.Fragment,
     apiHost: "https://test.yescoin.space",
     tonConnectManifestUrl: "https://cdn.joincommunity.xyz/assets/manifest.json",
     tonConnectWalletsListSource: "https://cdn.joincommunity.xyz/assets/wallets.json",
-    botLink: "https://t.me/notcoin_bot",
+    botLink: "https://t.me/NFCoin_bot",
     //accessToken: {}.VITE_ACCESS_TOKEN,
   },
   prodConfig = {
@@ -59,7 +59,7 @@ const Fragment = jsxRuntimeExports.Fragment,
     apiHost: "https://clicker-api.joincommunity.xyz",
     tonConnectManifestUrl: "https://cdn.joincommunity.xyz/assets/manifest.json",
     tonConnectWalletsListSource: "https://cdn.joincommunity.xyz/assets/wallets.json",
-    botLink: "https://t.me/notcoin_bot",
+    botLink: "https://t.me/NFCoin_bot",
   };
 let config;
 switch ( "prod1" ) {
@@ -2799,7 +2799,7 @@ const useBoostStore = create( ( e, t ) => ( {
     {
       id: 36,
       type: "challengeCompleted",
-      title: "Witkoil",
+      title: "Foxhustle",
       icon: "https://yescoin.space/clicker/task-fanton.png",
       imageSize: "72",
       minLeagueId: 2,
@@ -2811,7 +2811,7 @@ const useBoostStore = create( ( e, t ) => ( {
     {
       id: 37,
       type: "challengeCompleted",
-      title: "Спиздили",
+      title: "Test",
       icon: "https://yescoin.space/clicker/task-tonstarter.png?1",
       imageSize: "72",
       minLeagueId: 2,
@@ -2823,7 +2823,7 @@ const useBoostStore = create( ( e, t ) => ( {
     {
       id: 38,
       type: "challengeCompleted",
-      title: "Open Builders socials",
+      title: "Antonzlo ",
       icon: "https://yescoin.space/clicker/task-openbuilders.png?1",
       imageSize: "72",
       minLeagueId: 2,
@@ -2899,7 +2899,7 @@ const useBoostStore = create( ( e, t ) => ( {
   onboardingTasksData = [
     { id: 6, title: "Join Squad", icon: "🐤", type: "joinsquad", coins: 5e3, isCompleted: !1 },
     { id: 5, title: "Invite 10 frens", icon: "🐥", type: "10Referral", coins: 1e5, isCompleted: !1 },
-    { id: 4, title: "Earn 1000 Notcoin", icon: "🐣", type: "1000Clicks", coins: 3e3, isCompleted: !1 },
+    { id: 4, title: "Earn 1000 NFCoin", icon: "🐣", type: "1000Clicks", coins: 3e3, isCompleted: !1 },
   ],
   specialTasksData = [
     {
@@ -3393,7 +3393,7 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
     multipleClicks: {
       title: "Multitap",
       description: jsxs( Fragment, {
-        children: [ "Increase amount of Notcoin", jsx( "br", {} ), " you can earn per one tap.", jsx( "br", {} ), jsx( "br", {} ), " +1 per tap for each level." ],
+        children: [ "Increase amount of NFCoin", jsx( "br", {} ), " you can earn per one tap.", jsx( "br", {} ), jsx( "br", {} ), " +1 per tap for each level." ],
       } ),
       icon: "☝️",
     },
@@ -3401,7 +3401,7 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
       icon: "🔋",
       title: "Energy Limit",
       description: jsxs( Fragment, {
-        children: [ "Increase your energy limit,", jsx( "br", {} ), " so you can mine more per session.", jsx( "br", {} ), jsx( "br", {} ), "+500 Notcoin for each level." ],
+        children: [ "Increase your energy limit,", jsx( "br", {} ), " so you can mine more per session.", jsx( "br", {} ), jsx( "br", {} ), "+500 NFCoin for each level." ],
       } ),
     },
     speedPerHour: {
@@ -3415,7 +3415,7 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
       title: "Tap bot",
       description: jsxs( Fragment, {
         children: [
-          "Hi sir! I will earn Notcoin for you,",
+          "Hi sir! I will earn NFCoin for you,",
           jsx( "br", {} ),
           "when you close the game.",
           jsx( "br", {} ),
@@ -3423,7 +3423,7 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
           "12 hours is my limit for auto-tap.",
           jsx( "br", {} ),
           jsx( "br", {} ),
-          "You need to claim Notcoin at least every 12 hour to empty my storage, so I can earn more for you.",
+          "You need to claim NFCoin at least every 12 hour to empty my storage, so I can earn more for you.",
         ],
       } ),
       icon: "🤖",
@@ -4440,7 +4440,7 @@ const price$1 = "_price_1gcic_1",
     },
     pizza: {
       title: "Pizza",
-      description: "I'll pay 10,000 notcoins for a pizza... like maybe one large so I have some left over for the next day.",
+      description: "I'll pay 10,000 coins for a pizza... like maybe one large so I have some left over for the next day.",
       icon: "https://cdn.joincommunity.xyz/clicker/skin-pizza.png"
     },
     cookie: {
@@ -4791,7 +4791,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
         b( !0 );
         const { ok: L } = [ "challengeCompleted", "telegramPremium", "welcomeToTon" ].indexOf( r ) !== -1 ? await claimPartnerReward( c ) : await f( c );
         L
-          ? ( await y(), k(), g( { message: `Task is done +${beautifyMoney$1( String( a ) )} Notcoin`, type: "success" } ) )
+          ? ( await y(), k(), g( { message: `Task is done +${beautifyMoney$1( String( a ) )} NFCoin`, type: "success" } ) )
           : m
             ? ( n && n( t ), o.openTelegramLink( `https://t.me/community_bot/join?startapp=id_${m}-b_nb` ) )
             : g( { message: "You've not completed the task.", type: "error" } ),
@@ -4883,7 +4883,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
     oneTitle: "Тапай по монетi на екранi",
     oneDescr: "Та дивись, як зростає баланс",
     twoTitle: "Прокачуй покращення",
-    twoDescr: "Та заробляй Notcoin виконуючи завдання",
+    twoDescr: "Та заробляй NFCoin виконуючи завдання",
     threeTitle: "Змагайся з iншими гравцями",
     threeDescr: "Та спробуй дiйти до Diamond лiги",
     fourTitle: "Приєднуйся до команд",
@@ -4894,10 +4894,10 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
   },
   ClickerBoostsExplanationPageL10n = {
     en: {
-      oneTitle: "Tap-to-earn Notcoin",
+      oneTitle: "Tap-to-earn NFCoin",
       oneDescr: "Yes, that’s easy",
       twoTitle: "Upgrade your Boosts",
-      twoDescr: "And earn Notcoin for tasks",
+      twoDescr: "And earn NFCoin for tasks",
       threeTitle: "Climb to the top",
       threeDescr: "Get to the Diamond league",
       fourTitle: "Join Squad!",
@@ -4908,7 +4908,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
     },
     ru: {
       oneTitle: "Жми на монету",
-      oneDescr: "И получай Notcoin",
+      oneDescr: "И получай NFCoin",
       twoTitle: "Прокачивай Boosts",
       twoDescr: "Чтобы получать больше монет",
       threeTitle: "Соревнуйся с другими",
@@ -4920,10 +4920,10 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
       button: "Погнали",
     },
     tr: {
-      oneTitle: "Notcoin kazanmak için dokun",
+      oneTitle: "NFCoin kazanmak için dokun",
       oneDescr: "Evet, bu kadar kolay",
       twoTitle: "Takviyelerini Yükselt",
-      twoDescr: "Görevler için Notcoin kazan",
+      twoDescr: "Görevler için NFCoin kazan",
       threeTitle: "Zirveye tırman",
       threeDescr: "Diamond Ligine git",
       fourTitle: "Ekibe Katıl!",
@@ -4933,10 +4933,10 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
       button: "Oyna",
     },
     fr: {
-      oneTitle: "Appuie pour gagner des Notcoin",
+      oneTitle: "Appuie pour gagner des NFCoin",
       oneDescr: "Oui, c'est facile",
       twoTitle: "Augmente tes Boosts",
-      twoDescr: "Et complète des tâches (pour gagner des Notcoin)",
+      twoDescr: "Et complète des tâches (pour gagner des NFCoin)",
       threeTitle: "Grimpe au sommet",
       threeDescr: "Vise la league de Diamond",
       fourTitle: "Rejoins une équipe!",
@@ -4975,14 +4975,14 @@ function ClickerBoostsExplanationPage() {
             spacingChild: "4",
             growChild: !0,
             children: [
-              jsxs( Button$1, { type: "basic", onClick: () => e.openTelegramLink( "https://t.me/notcoin" ), children: [ jsx( Icon, { name: "telegram" } ), " Join" ] } ),
+              jsxs( Button$1, { type: "basic", onClick: () => e.openTelegramLink( "https://t.me/NFCoin_bot" ), children: [ jsx( Icon, { name: "telegram" } ), " Join" ] } ),
               jsxs( Button$1, { type: "basic", onClick: () => e.openLink( "https://x.com/thenotcoin" ), children: [ jsx( Icon, { name: "x", colorFill: "primary" } ), " Follow" ] } ),
             ],
           } ),
           jsxs( "div", {
             className: styles$r.bodyVertical,
             children: [
-              jsx( Content, { column: !0, className: styles$r.title, children: jsx( Text, { type: "title-large", align: "center", children: "Notcoin" } ) } ),
+              jsx( Content, { column: !0, className: styles$r.title, children: jsx( Text, { type: "title-large", align: "center", children: "NFCoin" } ) } ),
               jsxs( Content, {
                 spacingChild: "40",
                 column: !0,
@@ -5418,7 +5418,7 @@ const root$3 = "_root_9azk3_2",
     const s = e.enum !== "influencer",
       n = e.enum === "influencer";
     return s
-      ? jsxs( "div", { className: styles$n.subTitle, children: [ "from ", beautifyLongNumber( t ), " Notcoin" ] } )
+      ? jsxs( "div", { className: styles$n.subTitle, children: [ "from ", beautifyLongNumber( t ), " NFCoin" ] } )
       : n
         ? jsx( Text, { type: "callout", center: !0, children: "Invite more frens and become the greatest" } )
         : null;
@@ -5809,7 +5809,7 @@ const root$3 = "_root_9azk3_2",
         const { ok: w, data: q } = await checkCompletionTaskApi( S.challengeId, i == null ? void 0 : i.user.telegramId );
         if ( w && q && q.isCompleted ) {
           const M = await claimPartnerReward( S.id );
-          P( null ), M.ok && ( await d(), r(), o( { message: `Task is done +${beautifyMoney$1( String( S.coins ) )} Notcoin`, type: "success" } ) );
+          P( null ), M.ok && ( await d(), r(), o( { message: `Task is done +${beautifyMoney$1( String( S.coins ) )} NFCoin`, type: "success" } ) );
         }
       }
     }, E ),
@@ -6316,7 +6316,7 @@ const title$7 = "_title_1fzam_1",
       r = () => {
         const c = encodeURI( e );
         n.openTelegramLink(
-          `https://t.me/share/url?url=${c}&text=Oi%20fren%2C%20let%27s%20click%20together%20%F0%9F%A4%99%0A%0A%F0%9F%8E%81%2010k%20notcoins%20for%20you%20and%20me%0A%F0%9F%8E%81%F0%9F%8E%81%F0%9F%8E%81%20100k%20if%20you%20have%20tg%20prem`
+          `https://t.me/share/url?url=${c}&text=Oi%20fren%2C%20let%27s%20click%20together%20%F0%9F%A4%99%0A%0A%F0%9F%8E%81%2010k%20NFCoins%20for%20you%20and%20me%0A%F0%9F%8E%81%F0%9F%8E%81%F0%9F%8E%81%20100k%20if%20you%20have%20tg%20prem`
         ),
           s();
       },
@@ -6526,7 +6526,7 @@ function ClickerStatisticsPage() {
   const e = useNavigate(),
     { userProfile: t } = useClickerStore(),
     { fetchStatistics: s, totalUsers: n, onlineUsers: o, onlineToday: r, totalBalance: a, totalBurned: c, isLoaded: i } = useStatisticsStore(),
-    l = `https://t.me/notcoin_bot/start?rp_${t == null ? void 0 : t.userId}`,
+    l = `https://t.me/NFCoin_bot/start?rp_${t == null ? void 0 : t.userId}`,
     [ d, _ ] = useToggle( !1 ),
     [ p, m ] = useToggle(),
     [ u, y ] = reactExports.useState( null ),
@@ -6561,7 +6561,7 @@ function ClickerStatisticsPage() {
           className: styles$d.pageInner,
           fadeIn: !0,
           children: [
-            jsx( "div", { className: styles$d.subTitle, children: "Total Notcoin Balance" } ),
+            jsx( "div", { className: styles$d.subTitle, children: "Total NFCoin Balance" } ),
             jsx( "div", { className: styles$d.title, children: jsx( Score, { score: a, size: 32, duration: 2 } ) } ),
             jsx( Button$1, {
               className: styles$d.buttonLink,
@@ -6646,7 +6646,7 @@ function ClickerStatisticsPage() {
           children: [
             jsx( "div", { className: styles$d.sheetTitle, children: "Details" } ),
             jsx( "div", { className: styles$d.sheetNumber, children: beautifyLongNumber( a, "standard" ) } ),
-            jsx( "div", { className: styles$d.sheetSubNumber, children: "Total Notcoin Balance" } ),
+            jsx( "div", { className: styles$d.sheetSubNumber, children: "Total NFCoin Balance" } ),
             jsx( "div", { className: cn( styles$d.sheetNumber, styles$d.sheetEqual ), children: "=" } ),
             jsx( "div", { className: styles$d.sheetNumber, children: beautifyLongNumber( c + a, "standard" ) } ),
             jsx( "div", { className: styles$d.sheetSubNumber, children: "Total Earned" } ),
@@ -6704,7 +6704,7 @@ function StatisticsBoard() {
               jsx( "div", { className: styles$c.ava, children: jsx( "img", { src: r } ) } ),
             ],
           } ),
-          jsxs( "div", { className: styles$c.title, children: [ beautifyLongNumber( n, "standard" ), " Notcoiners" ] } ),
+          jsxs( "div", { className: styles$c.title, children: [ beautifyLongNumber( n, "standard" ), " NFCoiners" ] } ),
           jsx( "div", { className: styles$c.separator, children: "・" } ),
           jsx( "div", { className: styles$c.link, children: "Stats" } ),
           jsx( Icon, { className: styles$c.linkIcon, name: "ChevronRight" } ),
@@ -7456,7 +7456,7 @@ function ClickerSquadDetailsPage() {
             spacingChild: "4",
             growChild: !0,
             children: [
-              jsxs( Button$1, { type: "basic", onClick: () => e.openTelegramLink( "https://t.me/notcoin" ), children: [ jsx( Icon, { name: "telegram" } ), " Join" ] } ),
+              jsxs( Button$1, { type: "basic", onClick: () => e.openTelegramLink( "https://t.me/nfc_main" ), children: [ jsx( Icon, { name: "telegram" } ), " Join" ] } ),
               jsxs( Button$1, { type: "basic", onClick: () => e.openLink( "https://x.com/thenotcoin" ), children: [ jsx( Icon, { name: "x", colorFill: "primary" } ), " Follow" ] } ),
             ],
           } ),
@@ -7713,7 +7713,7 @@ const ukranian = {
       how: "How it works?",
       total: "mined in squad",
       inviteTitle: "Invite to squad",
-      inviteSubtitle: "Get more Notcoin",
+      inviteSubtitle: "Get more NFCoin",
       inviteButton: "Invite a fren",
       leaveButton: "Leave squad",
       joinButton: "Join squad",
@@ -7753,7 +7753,7 @@ const ukranian = {
       how: "Nasıl çalışır?",
       total: "toplam puan",
       inviteTitle: "Ekibe davet et",
-      inviteSubtitle: "Daha fazla Notcoin al",
+      inviteSubtitle: "Daha fazla NFCoin al",
       inviteButton: "Bir arkadaşı davet et",
       leaveButton: "Ekibi terk et",
       joinButton: "Ekibe katıl",
@@ -7773,7 +7773,7 @@ const ukranian = {
       how: "Comment ça marche ?",
       total: "mined in squad",
       inviteTitle: "Inviter dans l'équipe",
-      inviteSubtitle: "Obtenez plus de Notcoin",
+      inviteSubtitle: "Obtenez plus de NFCoin",
       inviteButton: "Inviter un pote",
       leaveButton: "Quitter l'équipe",
       joinButton: "Rejoindre l'équipe",
