@@ -3911,7 +3911,7 @@ const placeAndLeague = "_placeAndLeague_xg9t0_1",
     const i = c.weekly.rank;
     return jsxs( "div", {
       className: cn( styles$E.placeAndLeague, e === "column" && styles$E.gridColumn ),
-      onClick: () => ( s ? a( "team-new" || `/clicker/league/${t}/${o === "user" ? "user" : "team"}` ) : () => { } ),
+      onClick: () => ( s ? a( `/clicker/league/${t}/${o === "user" ? "user" : "team"}` ) : () => { } ),
       children: [
         i
           ? jsxs( "div", {
