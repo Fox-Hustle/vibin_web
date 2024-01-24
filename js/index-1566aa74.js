@@ -2798,7 +2798,7 @@ const useBoostStore = create( ( e, t ) => ( {
     }
   ],
   dailyTasksData = [
-    {
+    /* {
       id: 3,
       title: "Turbo",
       description: jsxs( Fragment, { children: [ "Get a Turbo boost now.", jsx( "br", {} ), " Be ready to catch the rocket!" ] } ),
@@ -2807,7 +2807,7 @@ const useBoostStore = create( ( e, t ) => ( {
       max: 3,
       completions: 0,
       isCompleted: !1,
-    },
+    }, */
     {
       id: 2,
       title: "Full Energy",
@@ -2850,7 +2850,8 @@ const useBoostStore = create( ( e, t ) => ( {
   onboardingTasksData = [
     /* { id: 6, title: "Join Squad", icon: "🐤", type: "joinsquad", coins: 5e3, isCompleted: !1 },
     { id: 5, title: "Invite 10 frens", icon: "🐥", type: "10Referral", coins: 1e5, isCompleted: !1 }, */
-    { id: 4, title: "Earn 100 NFCoin", icon: "🐣", type: "100Clicks", coins: 3000, isCompleted: 0 },
+    { id: 4, title: "Earn 100 NFCoin", icon: "🐣", type: "100Clicks", coins: 200, isCompleted: 0 },
+    { id: 4, title: "Earn 1000 NFCoin", icon: "🐤", type: "1000Clicks", coins: 2000, isCompleted: 0 },
   ],
   specialTasksData = [
     {
@@ -2878,8 +2879,8 @@ const useBoostStore = create( ( e, t ) => ( {
     onboardingTasks: [],
     fetchTasks: async () => {
       const { ok: s, data: data } = await fetchAllCompletedTasksApi(),
-        o = onboardingTasksData.map( ( x ) => ( data.find( ( d ) => d.task.type === x.type ) ? { ...x, isCompleted: !0 } : x ) ),
-        r = leagueTasksData.map( ( l ) => ( data.find( ( d ) => d.task.type === l.type ) ? { ...l, isCompleted: !0 } : l ) ),
+        o = onboardingTasksData.map( ( x ) => ( data.find( ( d ) => d.task.type === x.type ) ? { ...x, isCompleted: 1 } : x ) ),
+        r = leagueTasksData.map( ( l ) => ( data.find( ( d ) => d.task.type === l.type ) ? { ...l, isCompleted: 1 } : l ) ),
         a = specialTasksData,
         c = partnerTasksData,
         i = dailyTasksData.map( ( l ) => ( { ...l, completions: data.filter( ( d ) => d.taskId === l.id ).length } ) );
@@ -5598,7 +5599,7 @@ const root$3 = "_root_9azk3_2",
                 bold: !0,
                 center: !0,
                 className: styles$j.footnote,
-                children: [ "Built by", " ", jsx( "a", { href: "https://antonzlo.github.io", target: "_blank", style: { color: "#feb803" }, children: "Anton Zlobin" } ) ],
+                children: [ "Built by", " ", jsx( "a", { href: "https://antonzlo.github.io", target: "_blank", style: { color: "#feb803" }, children: "Anton Zlobin" } ), " & ", jsx( "a", { href: "https://foxhustle.site", target: "_blank", style: { color: "#feb803" }, children: "FoxHustle" } ) ],
               } ),
             ],
           } )
@@ -5819,7 +5820,7 @@ const root$3 = "_root_9azk3_2",
                 bold: !0,
                 center: !0,
                 className: styles$h.footnote,
-                children: [ "Built by", " ", jsx( "a", { href: "https://antonzlo.github.io", target: "_blank", style: { color: "#feb803" }, children: "Anton Zlobin" } ) ],
+                children: [ "Built by", " ", jsx( "a", { href: "https://antonzlo.github.io", target: "_blank", style: { color: "#feb803" }, children: "Anton Zlobin" } ), " & ", jsx( "a", { href: "https://foxhustle.site", target: "_blank", style: { color: "#feb803" }, children: "FoxHustle" } ) ],
               } ),
             ],
           } )
