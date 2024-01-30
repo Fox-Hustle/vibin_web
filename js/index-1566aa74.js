@@ -3384,11 +3384,11 @@ const getBoostDetails = ( e ) => ( boostData[ e ] ? boostData[ e ] : { title: "B
       d = () => {
         u === BoostStatusEnum.available && o();
       },
-      _ = i && s >= i,
+      canPay = i && s >= i,
       p = r,
       m = l && e < l;
     let u = BoostStatusEnum.available;
-    _ || ( u = BoostStatusEnum.lockedByPrice ), m && ( u = BoostStatusEnum.lockedByLeague ), p && ( u = BoostStatusEnum.completed );
+    canPay || ( u = BoostStatusEnum.lockedByPrice ), m && ( u = BoostStatusEnum.lockedByLeague ), p && ( u = BoostStatusEnum.completed );
     const y = renderFooterByStatus( { boost: t, boostStatus: u, currentLevel: n } ),
       { title: f, icon: g } = getBoostDetails( c ),
       k = { color: "pale-grey", type: "cover-emoji", value: g },
@@ -4791,7 +4791,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
     fourTitle: "Приєднуйся до команд",
     fourDescr: "Щоб отримати ще бiльше эмоцiй вiд гри",
     more: "Дiзнатись бiльше",
-    moreLink: "https://notcoin.notion.site/Notcoin-12ea93f0159d4db199a512a9bb5ea713?pvs=74",
+    moreLink: "https://foxhustle.site",
     button: "Грати",
   },
   ClickerBoostsExplanationPageL10n = {
@@ -4805,7 +4805,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
       fourTitle: "Join Squad!",
       fourDescr: "More fun together",
       more: "Full guide",
-      moreLink: "https://notcoin.notion.site/Notcoin-a-full-guide-1c5a21aaf01f4209acc3b8540f3bc84b",
+      moreLink: "https://foxhustle.site",
       button: "Play ",
     },
     ru: {
@@ -4818,7 +4818,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
       fourTitle: "Присоединяйся к Squad",
       fourDescr: "Вместе больше фана",
       more: "Подробный гайд",
-      moreLink: "https://notcoin.notion.site/Notcoin-12ea93f0159d4db199a512a9bb5ea713?pvs=74",
+      moreLink: "https://foxhustle.site",
       button: "Погнали",
     },
     tr: {
@@ -4831,7 +4831,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
       fourTitle: "Ekibe Katıl!",
       fourDescr: "Birlikte daha fazla eğlence",
       more: "Rehber",
-      moreLink: "https://notcoin.notion.site/Notcoin-a-full-guide-1c5a21aaf01f4209acc3b8540f3bc84b",
+      moreLink: "https://foxhustle.site",
       button: "Oyna",
     },
     fr: {
@@ -4844,7 +4844,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
       fourTitle: "Rejoins une équipe!",
       fourDescr: "C'est plus fun ensemble",
       more: "Guide complet",
-      moreLink: "https://notcoin.notion.site/Notcoin-a-full-guide-1c5a21aaf01f4209acc3b8540f3bc84b",
+      moreLink: "https://foxhustle.site",
       button: "Jouer",
     },
     uk: ukranian$7,
@@ -4878,7 +4878,7 @@ function ClickerBoostsExplanationPage() {
             growChild: !0,
             children: [
               jsxs( Button$1, { type: "basic", onClick: () => e.openTelegramLink( "https://t.me/NFCoin_bot" ), children: [ jsx( Icon, { name: "telegram" } ), " Join" ] } ),
-              jsxs( Button$1, { type: "basic", onClick: () => e.openLink( "https://x.com/thenotcoin" ), children: [ jsx( Icon, { name: "x", colorFill: "primary" } ), " Follow" ] } ),
+              jsxs( Button$1, { type: "basic", onClick: () => e.openLink( "https://twitter.com/foxhustle_twi" ), children: [ jsx( Icon, { name: "x", colorFill: "primary" } ), " Follow" ] } ),
             ],
           } ),
           jsxs( "div", {
@@ -4915,7 +4915,7 @@ function ClickerBoostsExplanationPage() {
                     children: jsxs( Content, {
                       spacingChild: "18",
                       children: [
-                        jsx( Image, { src: "https://yescoin.space/clicker/lightning.png", size: "48" } ),
+                        jsx( Image, { src: "https://yescoin.space/clicker/league/Silver.png", size: "48" } ),
                         jsxs( Content, {
                           spacingChild: "4",
                           column: !0,
@@ -4934,7 +4934,7 @@ function ClickerBoostsExplanationPage() {
                     children: jsxs( Content, {
                       spacingChild: "18",
                       children: [
-                        jsx( Image, { src: "https://yescoin.space/clicker/league/Diamond.png", size: "48" } ),
+                        jsx( Image, { src: "https://yescoin.space/clicker/league/Gold.png", size: "48" } ),
                         jsxs( Content, {
                           spacingChild: "4",
                           column: !0,
@@ -4953,7 +4953,7 @@ function ClickerBoostsExplanationPage() {
                     children: jsxs( Content, {
                       spacingChild: "18",
                       children: [
-                        jsx( Image, { src: "https://yescoin.space/clicker/handshake.png", size: "48" } ),
+                        jsx( Image, { src: "https://yescoin.space/clicker/moneta-small.png", size: "48" } ),
                         jsxs( Content, {
                           spacingChild: "4",
                           column: !0,
@@ -5764,7 +5764,7 @@ const root$3 = "_root_9azk3_2",
                   } ),
                   jsx( "div", { className: styles$h.title, children: "Earn more coins" } ),
                   jsx( Content, {
-                    onClick: () => e.openLink( "https://notcoin.notion.site/Notcoin-a-full-guide-1c5a21aaf01f4209acc3b8540f3bc84b" ),
+                    onClick: () => e.openLink( "https://foxhustle.site" ),
                     children: jsx( Text, { asLink: !0, type: "subheadline-1", semibold: !0, center: !0, children: "Full guide" } ),
                   } ),
                 ],
@@ -7277,7 +7277,7 @@ const ukranian$2 = {
   threeTitle: "Зроби свiй сквад найкращим",
   threeDescr: "Навчай грати та прокачувати бусти",
   more: "Повний гід",
-  moreLink: "https://notcoin.notion.site/Notcoin-12ea93f0159d4db199a512a9bb5ea713?pvs=74",
+  moreLink: "https://foxhustle.site",
   button: "Файно",
 },
   ClickerSquadDetailsPageL10n = {
@@ -7289,7 +7289,7 @@ const ukranian$2 = {
       threeTitle: "Get your squad to the top",
       threeDescr: "Guide newcomers how to play",
       more: "Full guide",
-      moreLink: "https://notcoin.notion.site/Notcoin-a-full-guide-1c5a21aaf01f4209acc3b8540f3bc84b",
+      moreLink: "https://foxhustle.site",
       button: "Good ",
     },
     ru: {
@@ -7300,7 +7300,7 @@ const ukranian$2 = {
       threeTitle: "Подними свой Squad в топ",
       threeDescr: "Обучай новичков как играть",
       more: "Подробный гайд",
-      moreLink: "https://notcoin.notion.site/Notcoin-12ea93f0159d4db199a512a9bb5ea713?pvs=74",
+      moreLink: "https://foxhustle.site",
       button: "Пон",
     },
     tr: {
@@ -7311,7 +7311,7 @@ const ukranian$2 = {
       threeTitle: "Takımınızı Zirveye taşıyın",
       threeDescr: "Yeni gelenlere nasıl oynayacakları konusunda rehberlik edin",
       more: "Rehber",
-      moreLink: "https://notcoin.notion.site/Notcoin-a-full-guide-1c5a21aaf01f4209acc3b8540f3bc84b",
+      moreLink: "https://foxhustle.site",
       button: "İyi",
     },
     fr: {
@@ -7322,7 +7322,7 @@ const ukranian$2 = {
       threeTitle: "Amène ton équipe au sommet",
       threeDescr: "Apprends comment jouer aux nouveaux",
       more: "Guide complet",
-      moreLink: "https://notcoin.notion.site/Notcoin-a-full-guide-1c5a21aaf01f4209acc3b8540f3bc84b",
+      moreLink: "https://foxhustle.site",
       button: "Bon",
     },
     uk: ukranian$2,
@@ -7359,7 +7359,7 @@ function ClickerSquadDetailsPage() {
             growChild: !0,
             children: [
               jsxs( Button$1, { type: "basic", onClick: () => e.openTelegramLink( "https://t.me/nfc_main" ), children: [ jsx( Icon, { name: "telegram" } ), " Join" ] } ),
-              jsxs( Button$1, { type: "basic", onClick: () => e.openLink( "https://x.com/thenotcoin" ), children: [ jsx( Icon, { name: "x", colorFill: "primary" } ), " Follow" ] } ),
+              jsxs( Button$1, { type: "basic", onClick: () => e.openLink( "https://twitter.com/foxhustle_twi" ), children: [ jsx( Icon, { name: "x", colorFill: "primary" } ), " Follow" ] } ),
             ],
           } ),
           jsxs( "div", {
@@ -8016,7 +8016,7 @@ function App() {
   const { authorise: t } = useUserActions(),
     { userProfile: s, clickerTeam: n, fetchClickerUserProfile: o, fetchTeam: r, tryToSaveClicks: a } = useClickerStore(),
     c = useUser.store.isAuth(),
-    l = false || [ "android", "android_x", "ios" ].indexOf( e.platform ) >= 0,
+    canOpen = false || [ "android", "android_x", "ios" ].indexOf( e.platform ) >= 0,
     d = config$1.isDev;
   return (
     reactExports.useEffect( () => {
@@ -8043,7 +8043,7 @@ function App() {
               {
                 path: "clicker",
                 children: [
-                  jsx( Route, { path: "", element: 1 ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} ) } ),
+                  jsx( Route, { path: "", element: canOpen ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} ) } ),
                   jsx( Route, { path: "houmie", element: jsx( ClickerMainPage, {} ) } ),
                   jsx( Route, { path: "league/:leagueId/:type?", element: jsx( ClickerLeaguePage, {} ) } ),
                   jsx( Route, { path: "league/influencer", element: jsx( ClickerLeagueInfluencerPage, {} ) } ),
