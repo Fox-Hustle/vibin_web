@@ -2798,23 +2798,25 @@ const useBoostStore = create( ( e, t ) => ( {
     }
   ],
   dailyTasksData = [
-    /* {
+    {
       id: 3,
       title: "Turbo",
       description: jsxs( Fragment, { children: [ "Get a Turbo boost now.", jsx( "br", {} ), " Be ready to catch the rocket!" ] } ),
-      icon: "🚀",
+      icon: "📈",
       type: "oneTurbo",
       max: 3,
       completions: 0,
       isCompleted: !1,
-    }, */
+    },
     {
       id: 5,
-      title: "Full Energy",
+      title: "Full Solana",
       description: jsxs( Fragment, { children: [ "Recharge your energy to the limit ", jsx( "br", {} ), "and do another round of mining" ] } ),
-      icon: "⚡️",
+      // icon: "⚡️",
+      icon: "https://yescoin.space/clicker/coin-icon.png",
+      imageSize: "72",
       type: "fullEnergy",
-      max: 1,
+      max: 3,
       completions: 0,
       isCompleted: !1,
     },
@@ -3297,10 +3299,10 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
       description: jsxs( Fragment, {
         children: [ "Increase amount of NFCoin", jsx( "br", {} ), " you can earn per one tap.", jsx( "br", {} ), jsx( "br", {} ), " +1 per tap for each level." ],
       } ),
-      icon: "☝️",
+      icon: "🗣️️",
     },
     increaseLimit: {
-      icon: "🔋",
+      icon: "💳",
       title: "Energy Limit",
       description: jsxs( Fragment, {
         children: [ "Increase your energy limit,", jsx( "br", {} ), " so you can mine more per session.", jsx( "br", {} ), jsx( "br", {} ), "+500 NFCoin for each level." ],
@@ -3311,7 +3313,7 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
       description: jsxs( Fragment, {
         children: [ "Increase the energy recharging speed.", jsx( "br", {} ), jsx( "br", {} ), " +1 / sec for each level.", jsx( "br", {} ), "3 levels max limit." ],
       } ),
-      icon: "⚡️",
+      icon: "🤑",
     },
     robot: {
       title: "Tap bot",
@@ -5027,7 +5029,8 @@ const root$4 = "_root_do4sl_1",
   buttonGroup = "_buttonGroup_do4sl_81",
   button$1 = "_button_do4sl_81",
   icon$1 = "_icon_do4sl_118",
-  iconCoin = "_iconCoin_do4sl_127",
+  iconEarn = "_iconCoin_do4sl_127",
+  iconPowerUp = "_iconCoin_do4sl_128",
   text$1 = "_text_do4sl_134",
   styles$p = {
     root: root$4,
@@ -5043,7 +5046,8 @@ const root$4 = "_root_do4sl_1",
     buttonGroup,
     button: button$1,
     icon: icon$1,
-    iconCoin,
+    iconEarn,
+    iconPowerUp,
     text: text$1,
   };
 function Progress( { current: e, profile: t } ) {
@@ -5087,14 +5091,17 @@ function Progress( { current: e, profile: t } ) {
                 className: styles$p.button,
                 onClick: () => s( "/clicker/earn" ),
                 children: [
-                  jsx( "div", { className: styles$p.icon, children: jsx( "div", { className: styles$p.iconCoin } ) } ),
+                  jsx( "div", { className: styles$p.icon, children: jsx( "div", { className: styles$p.iconEarn } ) } ),
                   jsx( "div", { className: styles$p.text, children: "Earn" } ),
                 ],
               } ),
               jsxs( "div", {
                 className: styles$p.button,
                 onClick: () => s( "/clicker/boosts" ),
-                children: [ jsx( "div", { className: styles$p.icon, children: "🔥" } ), jsx( "div", { className: styles$p.text, children: "Boosts" } ) ],
+                children: [
+                  jsx( "div", { className: styles$p.icon, children: jsx( "div", { className: styles$p.iconPowerUp } ) } ),
+                  jsx( "div", { className: styles$p.text, children: "Power Up" } ),
+                ],
               } ),
             ],
           } ),
@@ -5591,8 +5598,6 @@ const root$3 = "_root_9azk3_2",
               jsx( Content, { padding: "0-0-14", className: styles$j.taskCarouselWrap, children: jsx( TaskCarousel, { onSuccess: p } ) } ),
               jsx( Content, { column: !0, padding: "16-0-12", spacingChild: "2", children: jsx( Text, { type: "title-2", weight: "semibold", children: "Boosters" } ) } ),
               jsx( Content, { padding: "0-0-24", className: styles$j.taskCarouselWrap, children: jsx( BoostCarousel, { onSuccess: p } ) } ),
-              jsx( Content, { column: !0, padding: "8-0-12", spacingChild: "2", children: jsx( Text, { type: "title-2", weight: "semibold", children: "Buy Skins" } ) } ),
-              jsx( Content, { padding: "0-0-24", className: styles$j.carouselWrap1, children: jsx( SkinCarousel, {} ) } ),
               jsxs( Text, {
                 type: "footnote",
                 margin: "0-0-12-0",
@@ -5763,10 +5768,6 @@ const root$3 = "_root_9azk3_2",
                     children: jsx( Image, { src: "https://yescoin.space/clicker/moneta-small.png", size: "100" } ),
                   } ),
                   jsx( "div", { className: styles$h.title, children: "Earn more coins" } ),
-                  jsx( Content, {
-                    onClick: () => e.openLink( "https://foxhustle.site" ),
-                    children: jsx( Text, { asLink: !0, type: "subheadline-1", semibold: !0, center: !0, children: "Full guide" } ),
-                  } ),
                 ],
               } ),
               jsx( Content, {
@@ -5784,7 +5785,7 @@ const root$3 = "_root_9azk3_2",
                       className: styles$h.priceAfterWrap,
                       children: [ jsx( "span", { className: styles$h.priceAfter, children: "up to 100K" } ), " for fren" ],
                     } ),
-                    before: jsx( MediaIcon, { media: { type: "cover-emoji", value: "🧸", color: "pale-grey" }, imageSize: "72", size: "72", borderRadius: "12" } ),
+                    before: jsx( MediaIcon, { media: { type: "cover-emoji", value: "🤝", color: "pale-grey" }, imageSize: "72", size: "72", borderRadius: "12" } ),
                     large: !0,
                     ripple: !0,
                     chevron: !0,
@@ -6174,7 +6175,7 @@ function ClickerFrensPage() {
                     column: !0,
                     fadeIn: !0,
                     children: [
-                      jsx( "p", { className: styles$f.placeholderEmoji, children: "🧸" } ),
+                      jsx( "p", { className: styles$f.placeholderEmoji, children: "🤝" } ),
                       jsx( Content, { padding: "12-0-24", children: jsx( Text, { type: "subheadline-1", color: "tertiary", center: !0, children: "No frens yet" } ) } ),
                     ],
                   } )
