@@ -32,8 +32,8 @@ import {
     return (
       o.integrity && ( r.integrity = o.integrity ),
       o.referrerPolicy && ( r.referrerPolicy = o.referrerPolicy ),
-      o.crossOrigin === "use-credentials" ? ( r.credentials = "include" ) : o.crossOrigin === "anonymous" ? ( r.credentials = "omit" ) : ( r.credentials = "same-origin" ),
-      r
+        o.crossOrigin === "use-credentials" ? ( r.credentials = "include" ) : o.crossOrigin === "anonymous" ? ( r.credentials = "omit" ) : ( r.credentials = "same-origin" ),
+        r
     );
   }
   function n( o ) {
@@ -99,19 +99,19 @@ const config$1 = config,
       reactExports.useEffect( () => {
         n && n.show();
       }, [] ),
-      reactExports.useEffect( () => {
-        t && n && n.hide();
-      }, [ t ] ),
-      reactExports.useEffect(
-        () => (
-          s == null || s.onEvent( "backButtonClicked", e ),
-          () => {
-            s == null || s.offEvent( "backButtonClicked", e );
-          }
+        reactExports.useEffect( () => {
+          t && n && n.hide();
+        }, [ t ] ),
+        reactExports.useEffect(
+          () => (
+            s == null || s.onEvent( "backButtonClicked", e ),
+              () => {
+                s == null || s.offEvent( "backButtonClicked", e );
+              }
+          ),
+          [ e ]
         ),
-        [ e ]
-      ),
-      null
+        null
     );
   },
   root$t = "_root_wsv3x_1",
@@ -537,33 +537,33 @@ const config$1 = config,
       let B = h ? { initial: "initial", animate: "enter", variants: fadeInVariants } : {};
       return (
         ( B = b ? { initial: "initial", animate: "exit", variants: fadeOutVariants } : B ),
-        jsx( e, {
-          onClick: C,
-          className: cn(
-            s,
-            n && styles$1f[ `padding-${n}` ],
-            d && styles$1f[ `spacing-bottom-${d}` ],
-            j && styles$1f[ `direction-${j}` ],
-            c && styles$1f[ `grow-${Number( c )}` ],
-            a && styles$1f[ `justify-${a}` ],
-            o && styles$1f[ `align-${o}` ],
-            r && styles$1f[ `align-self-${r}` ],
-            _ && styles$1f.wrap,
-            g && styles$1f[ `border-radius-${g}` ],
-            k && styles$1f[ `border-color-${k}` ],
-            p && styles$1f[ `background-${p}` ],
-            m && styles$1f[ `${L}-${m}` ],
-            u && styles$1f.shadow,
-            y && styles$1f.fullWidth,
-            f && styles$1f.growChild,
-            B.animate && styles$1f.willChange,
-            $ && styles$1f.rippleEffect
-          ),
-          ref: v,
-          ...x,
-          ...B,
-          children: t,
-        } )
+          jsx( e, {
+            onClick: C,
+            className: cn(
+              s,
+              n && styles$1f[ `padding-${n}` ],
+              d && styles$1f[ `spacing-bottom-${d}` ],
+              j && styles$1f[ `direction-${j}` ],
+              c && styles$1f[ `grow-${Number( c )}` ],
+              a && styles$1f[ `justify-${a}` ],
+              o && styles$1f[ `align-${o}` ],
+              r && styles$1f[ `align-self-${r}` ],
+              _ && styles$1f.wrap,
+              g && styles$1f[ `border-radius-${g}` ],
+              k && styles$1f[ `border-color-${k}` ],
+              p && styles$1f[ `background-${p}` ],
+              m && styles$1f[ `${L}-${m}` ],
+              u && styles$1f.shadow,
+              y && styles$1f.fullWidth,
+              f && styles$1f.growChild,
+              B.animate && styles$1f.willChange,
+              $ && styles$1f.rippleEffect
+            ),
+            ref: v,
+            ...x,
+            ...B,
+            children: t,
+          } )
       );
     }
   ),
@@ -1450,21 +1450,21 @@ const root$r = "_root_1ogsm_1",
       .map( ( t ) => `${t.charAt( 0 ).toUpperCase()}${t.slice( 1 )}` )
       .join( "" );
 function Icon( {
-  colorStroke: e,
-  colorFill: t,
-  color: s = "primary",
-  name: n,
-  width: o,
-  height: r,
-  className: a,
-  isDisabled: c,
-  style: i,
-  src: l,
-  element: d,
-  emoji: _,
-  size: p,
-  ...m
-} ) {
+                 colorStroke: e,
+                 colorFill: t,
+                 color: s = "primary",
+                 name: n,
+                 width: o,
+                 height: r,
+                 className: a,
+                 isDisabled: c,
+                 style: i,
+                 src: l,
+                 element: d,
+                 emoji: _,
+                 size: p,
+                 ...m
+               } ) {
   const u = cn( styles$1c.root, p && styles$1c[ `size-${p}` ], e && styles$1c[ `color-stroke-${e}` ], t && styles$1c[ `color-fill-${t}` ], n && libraryStyles[ `icon-${n}` ], a );
   if ( l !== void 0 ) return jsx( "img", { className: u, src: l } );
   if ( _ ) return jsx( "span", { className: u, children: _ } );
@@ -1659,28 +1659,28 @@ function getComponentByType( e ) {
   return e === "link" ? "a" : e === "button" || e === "option-button" ? "button" : "div";
 }
 function ListItem( {
-  className: e,
-  title: t,
-  divider: s = !0,
-  ripple: n = !0,
-  type: o = "text",
-  to: r = "",
-  prefix: a,
-  before: c,
-  beforeSize: i,
-  after: l,
-  header: d,
-  footer: _,
-  details: p,
-  active: m,
-  hideChevron: u,
-  large: y,
-  medium: f,
-  target: g,
-  onClick: k,
-  separate: h,
-  chevron: b = !1,
-} ) {
+                     className: e,
+                     title: t,
+                     divider: s = !0,
+                     ripple: n = !0,
+                     type: o = "text",
+                     to: r = "",
+                     prefix: a,
+                     before: c,
+                     beforeSize: i,
+                     after: l,
+                     header: d,
+                     footer: _,
+                     details: p,
+                     active: m,
+                     hideChevron: u,
+                     large: y,
+                     medium: f,
+                     target: g,
+                     onClick: k,
+                     separate: h,
+                     chevron: b = !1,
+                   } ) {
   const $ = "light",
     C = o === "link",
     x = getComponentByType( o ),
@@ -1737,37 +1737,37 @@ const root$k = "_root_15t8r_1",
       reactExports.useEffect( () => {
         l();
       }, [] ),
-      reactExports.useEffect( () => {
-        a && i && ( i.hide(), l() );
-      }, [ a ] ),
-      reactExports.useEffect( () => {
-        i && ( typeof r == "boolean" && ( r ? ( i.showProgress(), i.disable() ) : i.hideProgress() ), typeof e == "boolean" && ( e || r ? i.disable() : i.enable() ) );
-      }, [ e, r ] ),
-      reactExports.useEffect( () => {
-        if ( i ) {
-          if ( ( ( t || s ) && i.setParams( { color: t, text_color: s } ), !t ) ) {
-            const { button_color: d } = c.themeParams;
-            i.setParams( { color: d } );
-          }
-          if ( !s ) {
-            const { button_text_color: d } = c.themeParams;
-            i.setParams( { text_color: d } );
-          }
-        }
-      }, [ t, s ] ),
-      reactExports.useEffect( () => {
-        i && ( n ? ( i.setText( n ), !i.isVisible && i.show() ) : i.isVisible && i.hide() );
-      }, [ n ] ),
-      reactExports.useEffect( () => {
-        if ( i && o )
-          return (
-            i.onClick( o ),
-            () => {
-              i && i.offClick( o );
+        reactExports.useEffect( () => {
+          a && i && ( i.hide(), l() );
+        }, [ a ] ),
+        reactExports.useEffect( () => {
+          i && ( typeof r == "boolean" && ( r ? ( i.showProgress(), i.disable() ) : i.hideProgress() ), typeof e == "boolean" && ( e || r ? i.disable() : i.enable() ) );
+        }, [ e, r ] ),
+        reactExports.useEffect( () => {
+          if ( i ) {
+            if ( ( ( t || s ) && i.setParams( { color: t, text_color: s } ), !t ) ) {
+              const { button_color: d } = c.themeParams;
+              i.setParams( { color: d } );
             }
-          );
-      }, [ o ] ),
-      null
+            if ( !s ) {
+              const { button_text_color: d } = c.themeParams;
+              i.setParams( { text_color: d } );
+            }
+          }
+        }, [ t, s ] ),
+        reactExports.useEffect( () => {
+          i && ( n ? ( i.setText( n ), !i.isVisible && i.show() ) : i.isVisible && i.hide() );
+        }, [ n ] ),
+        reactExports.useEffect( () => {
+          if ( i && o )
+            return (
+              i.onClick( o ),
+                () => {
+                  i && i.offClick( o );
+                }
+            );
+        }, [ o ] ),
+        null
     );
   },
   icon$4 = "_icon_sfea9_1",
@@ -1858,12 +1858,12 @@ const root$k = "_root_15t8r_1",
     let a = null;
     const c = {};
     e.type &&
-      ( e.type === "cover-emoji" && ( c.emoji = e.value ),
-        e.type === "cover-src" && ( c.src = e.value ),
-        e.type === "cover-library" && ( c.name = e.value ),
-        e.colorFill && ( c.colorFill = e.colorFill ),
-        e.colorStroke && ( c.colorStroke = e.colorStroke ),
-        ( a = jsx( Icon, { ...c } ) ) );
+    ( e.type === "cover-emoji" && ( c.emoji = e.value ),
+    e.type === "cover-src" && ( c.src = e.value ),
+    e.type === "cover-library" && ( c.name = e.value ),
+    e.colorFill && ( c.colorFill = e.colorFill ),
+    e.colorStroke && ( c.colorStroke = e.colorStroke ),
+      ( a = jsx( Icon, { ...c } ) ) );
     const i = e != null && e.color ? e.color : "mild-blue";
     return jsx( "div", {
       className: cn(
@@ -1898,7 +1898,7 @@ const root$k = "_root_15t8r_1",
         ( ( i = ( c = window == null ? void 0 : window.Telegram ) == null ? void 0 : c.WebApp ) == null ? void 0 : i.platform ) === "windows" ||
         ( ( d = ( l = window == null ? void 0 : window.Telegram ) == null ? void 0 : l.WebApp ) == null ? void 0 : d.platform ) === "android" ||
         ( ( p = ( _ = window == null ? void 0 : window.Telegram ) == null ? void 0 : _.WebApp ) == null ? void 0 : p.platform ) === "unknown" ),
-      jsx( "div", { id: "page", className: cn( styles$13.root, s && styles$13.fullSpace, e ), ...o, children: t } )
+        jsx( "div", { id: "page", className: cn( styles$13.root, s && styles$13.fullSpace, e ), ...o, children: t } )
     );
   },
   root$h = "_root_15817_1",
@@ -2022,8 +2022,8 @@ const root$g = "_root_mhvp0_1",
   };
 function Tabs$1( { flat: e, onChange: t, children: s, className: n, activeIndex: o } ) {
   const r = ( p ) => {
-    t( p );
-  },
+      t( p );
+    },
     [ a, c ] = reactExports.useState( { transform: "", width: "" } ),
     i = React.Children.map( s, ( p, m ) => React.cloneElement( p, { index: m, activeIndex: o, onClick: r } ) ),
     l = "4px",
@@ -2033,7 +2033,7 @@ function Tabs$1( { flat: e, onChange: t, children: s, className: n, activeIndex:
     reactExports.useEffect( () => {
       c( { transform: `translateX(calc(${o} * 100% + ${o} * ${l}))`, width: `calc((100% - ${d} * 2 - ${l} * (${_} - 1)) / ${_})` } );
     }, [ o ] ),
-    jsxs( "div", { className: cn( e && styles$$.flatRoot, !e && styles$$.solidRoot, n ), children: [ i, jsx( "div", { className: cn( styles$$.activeBar ), style: a } ) ] } )
+      jsxs( "div", { className: cn( e && styles$$.flatRoot, !e && styles$$.solidRoot, n ), children: [ i, jsx( "div", { className: cn( styles$$.activeBar ), style: a } ) ] } )
   );
 }
 Tabs$1.displayName = "Tabs";
@@ -2210,28 +2210,28 @@ const root$f = "_root_1ii32_1",
     asLink,
   },
   Text = ( {
-    as: e = "div",
-    children: t,
-    type: s = "body",
-    weight: n,
-    color: o,
-    noWrap: r,
-    align: a,
-    left: c,
-    center: i,
-    right: l,
-    className: d,
-    uppercase: _,
-    margin: p,
-    inset: m,
-    sfRounded: u,
-    semibold: y,
-    lightbold: f,
-    bold: g,
-    medium: k,
-    asLink: h,
-    ...b
-  } ) => {
+             as: e = "div",
+             children: t,
+             type: s = "body",
+             weight: n,
+             color: o,
+             noWrap: r,
+             align: a,
+             left: c,
+             center: i,
+             right: l,
+             className: d,
+             uppercase: _,
+             margin: p,
+             inset: m,
+             sfRounded: u,
+             semibold: y,
+             lightbold: f,
+             bold: g,
+             medium: k,
+             asLink: h,
+             ...b
+           } ) => {
     let $ = null;
     c && ( $ = "left" ), i && ( $ = "center" ), l && ( $ = "right" ), a && ( $ = a );
     const C = cn(
@@ -2283,8 +2283,8 @@ const root$f = "_root_1ii32_1",
     return (
       reactExports.useEffect( () => {
         const l = setTimeout( () => {
-          a( t );
-        }, r + 1e3 ),
+            a( t );
+          }, r + 1e3 ),
           d = setTimeout( () => {
             i( !1 );
           }, r );
@@ -2292,67 +2292,67 @@ const root$f = "_root_1ii32_1",
           clearTimeout( l ), clearTimeout( d );
         };
       }, [ t, a ] ),
-      reactExports.useEffect( () => {
-        setTimeout( () => {
-          i( !0 );
-        }, 50 );
-      }, [] ),
-      jsx(
-        "div",
-        {
-          className: cn( styles$Y.root ),
-          children: jsx( "div", {
-            className: cn( styles$Y.contentWrapper, c && styles$Y.opened, styles$Y[ `type-${o || "success"}` ] ),
-            children: jsxs( "div", {
-              className: styles$Y.content,
-              children: [
-                !o || o === "success"
-                  ? jsx( "svg", {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    width: "28",
-                    height: "28",
-                    viewBox: "0 0 28 28",
-                    fill: "none",
-                    children: jsx( "path", {
-                      fillRule: "evenodd",
-                      clipRule: "evenodd",
-                      d: "M14 25C20.0751 25 25 20.0751 25 14C25 7.92487 20.0751 3 14 3C7.92487 3 3 7.92487 3 14C3 20.0751 7.92487 25 14 25ZM19.1826 9.91716C19.413 9.54016 19.2942 9.04777 18.9172 8.81737C18.5402 8.58698 18.0478 8.70584 17.8174 9.08284L12.8851 17.1538L10.1021 13.9732C9.81112 13.6407 9.30571 13.607 8.9732 13.8979C8.64069 14.1889 8.60699 14.6943 8.89794 15.0268L12.3979 19.0268C12.5656 19.2184 12.8144 19.3188 13.068 19.2971C13.3217 19.2755 13.5499 19.1344 13.6826 18.9172L19.1826 9.91716Z",
-                      fill: "white",
-                    } ),
-                  } )
-                  : null,
-                o === "loading"
-                  ? jsx( "svg", {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    width: "28",
-                    height: "28",
-                    viewBox: "0 0 28 28",
-                    fill: "none",
-                    children: jsx( "path", {
-                      d: "M23.165 14C23.165 12.4319 22.7626 10.89 21.9964 9.52179C21.2302 8.1536 20.1257 7.0049 18.7887 6.18555C17.4516 5.36621 15.9267 4.90363 14.3598 4.84207C12.7929 4.7805 11.2364 5.12201 9.83918 5.83393C8.44196 6.54584 7.25079 7.60435 6.37958 8.9082C5.50838 10.2121 4.98629 11.7176 4.86325 13.2809C4.74022 14.8442 5.02036 16.4129 5.67687 17.837C6.33338 19.2611 7.34431 20.4929 8.61295 21.4146",
-                      stroke: "white",
-                      strokeWidth: "2.33",
-                      strokeLinecap: "round",
-                    } ),
-                  } )
-                  : null,
-                o === "error"
-                  ? jsx( "svg", {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    width: "28",
-                    height: "28",
-                    viewBox: "0 0 28 28",
-                    fill: "none",
-                    children: jsx( "path", { d: "M6 6L22 22M6 22L22 6", stroke: "white", strokeWidth: "2", strokeLinecap: "round" } ),
-                  } )
-                  : null,
-                e,
-              ],
+        reactExports.useEffect( () => {
+          setTimeout( () => {
+            i( !0 );
+          }, 50 );
+        }, [] ),
+        jsx(
+          "div",
+          {
+            className: cn( styles$Y.root ),
+            children: jsx( "div", {
+              className: cn( styles$Y.contentWrapper, c && styles$Y.opened, styles$Y[ `type-${o || "success"}` ] ),
+              children: jsxs( "div", {
+                className: styles$Y.content,
+                children: [
+                  !o || o === "success"
+                    ? jsx( "svg", {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "28",
+                      height: "28",
+                      viewBox: "0 0 28 28",
+                      fill: "none",
+                      children: jsx( "path", {
+                        fillRule: "evenodd",
+                        clipRule: "evenodd",
+                        d: "M14 25C20.0751 25 25 20.0751 25 14C25 7.92487 20.0751 3 14 3C7.92487 3 3 7.92487 3 14C3 20.0751 7.92487 25 14 25ZM19.1826 9.91716C19.413 9.54016 19.2942 9.04777 18.9172 8.81737C18.5402 8.58698 18.0478 8.70584 17.8174 9.08284L12.8851 17.1538L10.1021 13.9732C9.81112 13.6407 9.30571 13.607 8.9732 13.8979C8.64069 14.1889 8.60699 14.6943 8.89794 15.0268L12.3979 19.0268C12.5656 19.2184 12.8144 19.3188 13.068 19.2971C13.3217 19.2755 13.5499 19.1344 13.6826 18.9172L19.1826 9.91716Z",
+                        fill: "white",
+                      } ),
+                    } )
+                    : null,
+                  o === "loading"
+                    ? jsx( "svg", {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "28",
+                      height: "28",
+                      viewBox: "0 0 28 28",
+                      fill: "none",
+                      children: jsx( "path", {
+                        d: "M23.165 14C23.165 12.4319 22.7626 10.89 21.9964 9.52179C21.2302 8.1536 20.1257 7.0049 18.7887 6.18555C17.4516 5.36621 15.9267 4.90363 14.3598 4.84207C12.7929 4.7805 11.2364 5.12201 9.83918 5.83393C8.44196 6.54584 7.25079 7.60435 6.37958 8.9082C5.50838 10.2121 4.98629 11.7176 4.86325 13.2809C4.74022 14.8442 5.02036 16.4129 5.67687 17.837C6.33338 19.2611 7.34431 20.4929 8.61295 21.4146",
+                        stroke: "white",
+                        strokeWidth: "2.33",
+                        strokeLinecap: "round",
+                      } ),
+                    } )
+                    : null,
+                  o === "error"
+                    ? jsx( "svg", {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      width: "28",
+                      height: "28",
+                      viewBox: "0 0 28 28",
+                      fill: "none",
+                      children: jsx( "path", { d: "M6 6L22 22M6 22L22 6", stroke: "white", strokeWidth: "2", strokeLinecap: "round" } ),
+                    } )
+                    : null,
+                  e,
+                ],
+              } ),
             } ),
-          } ),
-        },
-        t
-      )
+          },
+          t
+        )
     );
   },
   ToastContainer = ( { toasts: e } ) =>
@@ -2407,12 +2407,12 @@ function getTheme() {
 }
 React.createContext( { theme: getTheme(), mode: "dark" } );
 const extractInitials = ( e, t = "" ) =>
-  e
-    ? e
-      .split( /\s/ )
-      .reduce( ( s, n ) => ( s += n.slice( 0, 1 ) ), "" )
-      .toUpperCase()
-    : t,
+    e
+      ? e
+        .split( /\s/ )
+        .reduce( ( s, n ) => ( s += n.slice( 0, 1 ) ), "" )
+        .toUpperCase()
+      : t,
   index = "";
 class LocalStorageService {
   static setItem( t, s, n = !0 ) {
@@ -2492,28 +2492,28 @@ const apiHost = config$1.apiHost,
   };
 new TonConnect( { manifestUrl: config$1.tonConnectManifestUrl, walletsListSource: config$1.tonConnectWalletsListSource } );
 const useBoostStore = create( ( e, t ) => ( {
-  isLoaded: !1,
-  partnerBoosts: [],
-  classicBoosts: [],
-  specialBoosts: [],
-  leagueBoosts: [],
-  skins: [],
-  tasks: [],
-  currentSkin: LocalStorageService.getItem( "skin", "default" ),
-  fetchBoosts: async () => {
-    const { ok: s, data: n } = await ApiService.get( { endpoint: "/clicker/store/merged" } );
-    if ( s && n && n.length ) {
-      const o = n.filter( ( i ) => i.isPartner ),
-        r = n.filter( ( i ) => !i.isPartner && i.type !== "skin" ),
-        a = n.filter( ( i ) => i.type === "skin" ),
-        c = n.filter( ( i ) => i.challengeId );
-      e( { partnerBoosts: o, classicBoosts: r, specialBoosts: c, skins: a, isLoaded: !0 } );
-    } else console.error( n );
-  },
-  setCurrentSkin: ( s ) => {
-    LocalStorageService.setItem( "skin", s ), e( { currentSkin: s } );
-  },
-} ) ),
+    isLoaded: !1,
+    partnerBoosts: [],
+    classicBoosts: [],
+    specialBoosts: [],
+    leagueBoosts: [],
+    skins: [],
+    tasks: [],
+    currentSkin: LocalStorageService.getItem( "skin", "default" ),
+    fetchBoosts: async () => {
+      const { ok: s, data: n } = await ApiService.get( { endpoint: "/clicker/store/merged" } );
+      if ( s && n && n.length ) {
+        const o = n.filter( ( i ) => i.isPartner ),
+          r = n.filter( ( i ) => !i.isPartner && i.type !== "skin" ),
+          a = n.filter( ( i ) => i.type === "skin" ),
+          c = n.filter( ( i ) => i.challengeId );
+        e( { partnerBoosts: o, classicBoosts: r, specialBoosts: c, skins: a, isLoaded: !0 } );
+      } else console.error( n );
+    },
+    setCurrentSkin: ( s ) => {
+      LocalStorageService.setItem( "skin", s ), e( { currentSkin: s } );
+    },
+  } ) ),
   fetchBidsApi = async () => {
     const { ok: e, data: t } = await ApiService.get( { endpoint: "/clicker/bid/board" } );
     return { ok: e, data: t || [] };
@@ -2762,11 +2762,11 @@ const useBoostStore = create( ( e, t ) => ( {
     switchTurbo: ( s ) => {
       const n = getProf().userProfile;
       n &&
-        ( s
-          ? activeTurboApi().then( ( o ) => {
-            setProf( { isTurboMode: !0, turboSettings: o, clicksThreshold: calculateClicksThreshold( n, !0, o ), cooldown: 0 } );
-          } )
-          : setProf( { isTurboMode: !1, turboSettings: null, clicksThreshold: calculateClicksThreshold( n, !1, null ) } ) );
+      ( s
+        ? activeTurboApi().then( ( o ) => {
+          setProf( { isTurboMode: !0, turboSettings: o, clicksThreshold: calculateClicksThreshold( n, !0, o ), cooldown: 0 } );
+        } )
+        : setProf( { isTurboMode: !1, turboSettings: null, clicksThreshold: calculateClicksThreshold( n, !1, null ) } ) );
     },
     fetchRobotBalance: async () => {
       const { ok: s, data: n } = await fetchRobotBalance();
@@ -2868,7 +2868,7 @@ const useBoostStore = create( ( e, t ) => ( {
       minLeagueId: 1,
       challengeId: 71,
     },
-    
+  
   ],
   LeagueTypes = [ "silverLeague", "goldLeague", "platinumLeague", "diamondLeague" ],
   useTaskStore = create( ( e, t ) => ( {
@@ -2916,17 +2916,17 @@ const useBoostStore = create( ( e, t ) => ( {
       fetchProfile: async () => {
         const { ok: s, data: n } = await fetchUserProfileApi();
         s &&
-          e( () => ( {
-            profile: {
-              id: n.id,
-              telegramId: n.telegramId,
-              firstName: n.firstName,
-              username: n.username,
-              friendlyAddress: n.friendlyAddress,
-              role: n.role,
-              isSudo: () => n.role === "superadmin",
-            },
-          } ) );
+        e( () => ( {
+          profile: {
+            id: n.id,
+            telegramId: n.telegramId,
+            firstName: n.firstName,
+            username: n.username,
+            friendlyAddress: n.friendlyAddress,
+            role: n.role,
+            isSudo: () => n.role === "superadmin",
+          },
+        } ) );
       },
       fetchUserRank: async ( s ) => {
         const n = `user-${s}-place`;
@@ -3016,28 +3016,28 @@ const background$1 = "_background_6spwk_1",
         a.current && a.current.classList.add( styles$X[ `theme-${s}` ] );
       }, [] );
     const o = ( c, i ) => {
-      if ( r.current && a.current ) {
-        const l = a.current,
-          d = r.current;
-        ( d.style.display = "block" ),
-          d.classList.add( styles$X[ `theme-${c}` ] ),
-          l.classList.forEach( ( _ ) => {
-            _.match( /theme-\S+/g ) && l.classList.remove( _ );
-          } ),
-          l.classList.add( styles$X[ `theme-${i}` ] ),
-          setTimeout( () => {
-            ( d.style.transition = "opacity 0.35s ease" ), ( d.style.opacity = "0" );
-          }, 10 ),
-          setTimeout( () => {
-            d.classList.forEach( ( _ ) => {
-              _.match( /theme-\S+/g ) && d.classList.remove( _ );
+        if ( r.current && a.current ) {
+          const l = a.current,
+            d = r.current;
+          ( d.style.display = "block" ),
+            d.classList.add( styles$X[ `theme-${c}` ] ),
+            l.classList.forEach( ( _ ) => {
+              _.match( /theme-\S+/g ) && l.classList.remove( _ );
             } ),
-              ( d.style.transition = "none" ),
-              ( d.style.display = "none" ),
-              ( d.style.opacity = "1" );
-          }, 400 );
-      }
-    },
+            l.classList.add( styles$X[ `theme-${i}` ] ),
+            setTimeout( () => {
+              ( d.style.transition = "opacity 0.35s ease" ), ( d.style.opacity = "0" );
+            }, 10 ),
+            setTimeout( () => {
+              d.classList.forEach( ( _ ) => {
+                _.match( /theme-\S+/g ) && d.classList.remove( _ );
+              } ),
+                ( d.style.transition = "none" ),
+                ( d.style.display = "none" ),
+                ( d.style.opacity = "1" );
+            }, 400 );
+        }
+      },
       r = reactExports.useRef( null ),
       a = reactExports.useRef( null );
     return jsxs( Content, {
@@ -3151,16 +3151,16 @@ const beautifyMoney$2 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
       },
       buyB = async ( k ) => {
         r ||
-          ( a( !0 ),
-            t( { message: "Buying...", type: "loading" } ),
-            await buyBoost( k ).then( async ( h ) => {
-              if ( h != null && h.ok ) await d(), e();
-              else {
-                const b = h != null && h.data.message ? ( h == null ? void 0 : h.data.message ) : "¯\\_(ツ)_/¯ Buying error. Try again later.";
-                t( { message: b, type: "error" } );
-              }
-            } ),
-            a( !1 ) );
+        ( a( !0 ),
+          t( { message: "Buying...", type: "loading" } ),
+          await buyBoost( k ).then( async ( h ) => {
+            if ( h != null && h.ok ) await d(), e();
+            else {
+              const b = h != null && h.data.message ? ( h == null ? void 0 : h.data.message ) : "¯\\_(ツ)_/¯ Buying error. Try again later.";
+              t( { message: b, type: "error" } );
+            }
+          } ),
+          a( !1 ) );
       },
       f = p != null && p.clickerBoostXProfile ? p.clickerBoostXProfile : [],
       g = l.sort( ( k, h ) => ( k.id > h.id ? 1 : -1 ) ).sort( ( k ) => ( isMaxLevelAchieved( k, f ) ? 1 : -1 ) );
@@ -3498,8 +3498,8 @@ const root$a = "_root_19mhq_1",
 function FrenItem( { id: e, name: t, score: s, reward: n, leagueId: o, isPremium: r, avatar: a, link: c } ) {
   var d;
   const i = ( _ ) => {
-    c && window.Telegram.WebApp.openTelegramLink( c );
-  },
+      c && window.Telegram.WebApp.openTelegramLink( c );
+    },
     l = ( d = getLeagueById( o ) ) == null ? void 0 : d.name;
   return jsx( "div", {
     className: cn( styles$N.root, c && styles$N.rippleEffect ),
@@ -3933,7 +3933,7 @@ const placeAndLeague = "_placeAndLeague_xg9t0_1",
       places.forEach( ( s ) => {
         e[ s - 1 ] && t.push( e[ s - 1 ] );
       } ),
-      t
+        t
     );
   },
   Promote = ( { isOpen: e, onClose: t, squadId: s } ) => {
@@ -3964,16 +3964,16 @@ const placeAndLeague = "_placeAndLeague_xg9t0_1",
       []
     );
     const g = async () => {
-      if ( !c && ( i( !0 ), m[ _ ] && m[ _ ].value ) ) {
-        const { ok: h, data: b } = await generateBidPaymentLinkApi( s, m[ _ ].value );
-        h && r.openTelegramLink( b );
-      }
-    },
+        if ( !c && ( i( !0 ), m[ _ ] && m[ _ ].value ) ) {
+          const { ok: h, data: b } = await generateBidPaymentLinkApi( s, m[ _ ].value );
+          h && r.openTelegramLink( b );
+        }
+      },
       k = async () => {
         const { ok: h, data: b } = await fetchBidStatusApi();
         h &&
-          ( b.isPaid && ( n( { type: "success", message: "Payment is successfully done" } ), d( null ), i( !1 ) ),
-            b.isFalse && ( n( { type: "success", message: "Payment processing error" } ), d( null ), i( !1 ) ) );
+        ( b.isPaid && ( n( { type: "success", message: "Payment is successfully done" } ), d( null ), i( !1 ) ),
+        b.isFalse && ( n( { type: "success", message: "Payment processing error" } ), d( null ), i( !1 ) ) );
       };
     return (
       reactExports.useEffect(
@@ -3982,62 +3982,62 @@ const placeAndLeague = "_placeAndLeague_xg9t0_1",
         },
         []
       ),
-      reactExports.useEffect( () => {
-        d( c ? 3e3 : null );
-      }, [ c ] ),
-      useInterval( () => {
-        k();
-      }, l ),
-      jsx( Fragment, {
-        children: jsx( Sheet, {
-          opened: e,
-          onClose: t,
-          onBackdropClick: t,
-          contentClassName: styles$B.modal,
-          backdropClassName: styles$B.backdrop,
-          children: jsxs( "div", {
-            className: styles$B.body,
-            children: [
-              jsx( Stars, { className: styles$B.stars, keyId: "stars", amount: 3 } ),
-              jsx( "img", { className: styles$B.image, src: "https://yescoin.space/clicker/league/squad.png" } ),
-              jsxs( "div", { className: styles$B.title, children: [ "Boost your Squad", jsx( "br", {} ), " for 24 hours" ] } ),
-              jsxs( "div", {
-                className: styles$B.subTitle,
-                children: [
-                  "And recruit more people. Anyone can donate to boost the Squad to the top",
-                  " ",
-                  jsx( "span", { className: styles$B.link, onClick: () => a( "/clicker/league/squad" ), children: "of the list" } ),
-                ],
-              } ),
-              jsx( "div", { className: styles$B.subTitle, children: "The current price for a place on the list." } ),
-              jsxs( "div", {
-                className: styles$B.subTitle,
-                children: [
-                  jsx( "b", { children: "Auction style:" } ),
-                  " the squad with the higher bid goes to the higher position. Anyone can add bids to the same squad. Add more bids to move your squad to the top.",
-                ],
-              } ),
-              jsxs( "div", {
-                className: styles$B.buttons,
-                children: [
-                  m.length ? null : "Loading...",
-                  jsx( "div", {
-                    className: styles$B.buttonsRow,
-                    children: m.map( ( h, b ) =>
-                      jsxs(
-                        Button$1,
-                        { type: "basic", className: cn( styles$B.button, _ === b && styles$B.isActive ), onClick: () => p( b ), children: [ h.place, nth( h.place ), " - $", h.value ] },
-                        b
-                      )
-                    ),
-                  } ),
-                ],
-              } ),
-              jsx( Button$1, { type: "blue", disabled: c, onClick: g, children: c ? "Processing..." : "Boost for 24 hours" } ),
-            ],
+        reactExports.useEffect( () => {
+          d( c ? 3e3 : null );
+        }, [ c ] ),
+        useInterval( () => {
+          k();
+        }, l ),
+        jsx( Fragment, {
+          children: jsx( Sheet, {
+            opened: e,
+            onClose: t,
+            onBackdropClick: t,
+            contentClassName: styles$B.modal,
+            backdropClassName: styles$B.backdrop,
+            children: jsxs( "div", {
+              className: styles$B.body,
+              children: [
+                jsx( Stars, { className: styles$B.stars, keyId: "stars", amount: 3 } ),
+                jsx( "img", { className: styles$B.image, src: "https://yescoin.space/clicker/league/squad.png" } ),
+                jsxs( "div", { className: styles$B.title, children: [ "Boost your Squad", jsx( "br", {} ), " for 24 hours" ] } ),
+                jsxs( "div", {
+                  className: styles$B.subTitle,
+                  children: [
+                    "And recruit more people. Anyone can donate to boost the Squad to the top",
+                    " ",
+                    jsx( "span", { className: styles$B.link, onClick: () => a( "/clicker/league/squad" ), children: "of the list" } ),
+                  ],
+                } ),
+                jsx( "div", { className: styles$B.subTitle, children: "The current price for a place on the list." } ),
+                jsxs( "div", {
+                  className: styles$B.subTitle,
+                  children: [
+                    jsx( "b", { children: "Auction style:" } ),
+                    " the squad with the higher bid goes to the higher position. Anyone can add bids to the same squad. Add more bids to move your squad to the top.",
+                  ],
+                } ),
+                jsxs( "div", {
+                  className: styles$B.buttons,
+                  children: [
+                    m.length ? null : "Loading...",
+                    jsx( "div", {
+                      className: styles$B.buttonsRow,
+                      children: m.map( ( h, b ) =>
+                        jsxs(
+                          Button$1,
+                          { type: "basic", className: cn( styles$B.button, _ === b && styles$B.isActive ), onClick: () => p( b ), children: [ h.place, nth( h.place ), " - $", h.value ] },
+                          b
+                        )
+                      ),
+                    } ),
+                  ],
+                } ),
+                jsx( Button$1, { type: "blue", disabled: c, onClick: g, children: c ? "Processing..." : "Boost for 24 hours" } ),
+              ],
+            } ),
           } ),
-        } ),
-      } )
+        } )
     );
   },
   characters = "_characters_3nbxi_1",
@@ -4067,17 +4067,17 @@ const placeAndLeague = "_placeAndLeague_xg9t0_1",
     let r = t;
     return (
       t === 0 ? ( r = 10 ) : t === 1 ? ( r = 11 ) : ( r = t ),
-      jsxs(
-        motion.div,
-        {
-          className: styles$A.characterList,
-          initial: { y: 0 },
-          animate: { y: r * -n },
-          transition: { ease: "easeOut", duration: 0.5 + durationStep[ Math.floor( Math.random() * durationStep.length ) ], delay: s * 0.1 },
-          children: [ jsx( "div", { children: " " }, "first" ), o, jsx( "div", { children: " " }, "last" ) ],
-        },
-        `${t}_${s}`
-      )
+        jsxs(
+          motion.div,
+          {
+            className: styles$A.characterList,
+            initial: { y: 0 },
+            animate: { y: r * -n },
+            transition: { ease: "easeOut", duration: 0.5 + durationStep[ Math.floor( Math.random() * durationStep.length ) ], delay: s * 0.1 },
+            children: [ jsx( "div", { children: " " }, "first" ), o, jsx( "div", { children: " " }, "last" ) ],
+          },
+          `${t}_${s}`
+        )
     );
   },
   generateLetterList = ( e, t, s ) =>
@@ -4392,7 +4392,7 @@ const getSkinDetails = ( e ) => ( skinsData[ e ] ? skinsData[ e ] : { title: "Bo
       i = renderSkinFooterByStatus( { skin: Object.assign( { ...skin, price: a } ), skinStatus: t } );
     let l = null;
     t === SkinStatusEnum.purchased && ( l = jsx( "div", { className: styles$y.badge, children: "turn on" } ) ),
-      t === SkinStatusEnum.enabled && ( l = jsx( "div", { className: cn( styles$y.badge, styles$y.isEnabled ), children: "enabled" } ) );
+    t === SkinStatusEnum.enabled && ( l = jsx( "div", { className: cn( styles$y.badge, styles$y.isEnabled ), children: "enabled" } ) );
     const d = t === SkinStatusEnum.available,
       _ = jsx( MediaIcon, { media: c, imageSize: "48", size: "72", borderRadius: "12" } ),
       p = t === SkinStatusEnum.enabled || t === SkinStatusEnum.lockedByPrice,
@@ -4485,7 +4485,7 @@ const getSkinDetails = ( e ) => ( skinsData[ e ] ? skinsData[ e ] : { title: "Bo
                 isEnough || ( avail = SkinStatusEnum.lockedByPrice ),
                 x && ( avail = SkinStatusEnum.purchased ),
                 v && ( avail = SkinStatusEnum.enabled ),
-                jsx( SkinItem, { skin: sc, userBalance: score, skinStatus: avail, onClick: () => u( sc.id ) }, sc.id )
+                  jsx( SkinItem, { skin: sc, userBalance: score, skinStatus: avail, onClick: () => u( sc.id ) }, sc.id )
               );
             } ),
           ],
@@ -4531,8 +4531,8 @@ const getSkinDetails = ( e ) => ( skinsData[ e ] ? skinsData[ e ] : { title: "Bo
   },
   SkinSheet = ( { isOpened: e, onClose: t, skin: s, onBuy: n, onApply: o, isPurchased: r } ) => {
     const a = async () => {
-      await n( s.id );
-    },
+        await n( s.id );
+      },
       c = () => {
         t(), s.image && o( s.image );
       };
@@ -4577,8 +4577,8 @@ const getSkinDetails = ( e ) => ( skinsData[ e ] ? skinsData[ e ] : { title: "Bo
   styles$w = { solidRoot, activeBar, tabPanel, tabPanelActive, solidTabButton, isActive: isActive$1, flatRoot, tabButton, flatTabButton };
 function Tabs( { flat: e, onChange: t, children: s, className: n, activeIndex: o } ) {
   const r = ( p ) => {
-    t( p );
-  },
+      t( p );
+    },
     a = React.Children.map( s, ( p, m ) => React.cloneElement( p, { index: m, activeIndex: o, onClick: r } ) ),
     c = "4px",
     i = e ? "0px" : "4px",
@@ -4588,7 +4588,7 @@ function Tabs( { flat: e, onChange: t, children: s, className: n, activeIndex: o
     reactExports.useEffect( () => {
       _( { transform: `translateX(calc(${o} * 100% + ${o} * ${c}))`, width: `calc((100% - ${i} * 2 - ${c} * (${l} - 1)) / ${l})` } );
     }, [ o ] ),
-    jsxs( "div", { className: cn( e && styles$w.flatRoot, !e && styles$w.solidRoot, n ), children: [ a, jsx( "div", { className: cn( styles$w.activeBar ), style: d } ) ] } )
+      jsxs( "div", { className: cn( e && styles$w.flatRoot, !e && styles$w.solidRoot, n ), children: [ a, jsx( "div", { className: cn( styles$w.activeBar ), style: d } ) ] } )
   );
 }
 Tabs.displayName = "Tabs";
@@ -4632,22 +4632,22 @@ function getTaskStatus( { type: e, completions: t = 0, max: s } ) {
   return t >= s ? getMidnightStatus() : `${s - t}/${s} available`;
 }
 const TaskDailyItem = ( { task: e, onClick: t } ) => {
-  const { type: s, completions: n, max: o } = e,
-    { title: r, icon: a } = e,
-    c = () => {
-      l || t();
-    },
-    i = getTaskStatus( e ),
-    l = n === o;
-  return jsxs( "div", {
-    className: cn( styles$u.taskDailyItem, l && styles$u.completed ),
-    onClick: c,
-    children: [
-      jsxs( "div", { className: styles$u.bodyWrap, children: [ jsx( "div", { className: styles$u.title, children: r } ), jsx( "div", { className: styles$u.status, children: i } ) ] } ),
-      jsx( "div", { className: styles$u.icon, children: a } ),
-    ],
-  } );
-},
+    const { type: s, completions: n, max: o } = e,
+      { title: r, icon: a } = e,
+      c = () => {
+        l || t();
+      },
+      i = getTaskStatus( e ),
+      l = n === o;
+    return jsxs( "div", {
+      className: cn( styles$u.taskDailyItem, l && styles$u.completed ),
+      onClick: c,
+      children: [
+        jsxs( "div", { className: styles$u.bodyWrap, children: [ jsx( "div", { className: styles$u.title, children: r } ), jsx( "div", { className: styles$u.status, children: i } ) ] } ),
+        jsx( "div", { className: styles$u.icon, children: a } ),
+      ],
+    } );
+  },
   TaskCarousel = ( { onSuccess: e } ) => {
     const { addToast: t, hideToasts: s } = useToast(),
       [ n, o ] = useToggle( !1 ),
@@ -4655,8 +4655,8 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
       { dailyTasks: tasks, fetchTasks: i, isLoaded: l, completeTask: d } = useTaskStore();
     useClickerStore();
     const _ = ( u ) => {
-      s(), a( u ), o();
-    },
+        s(), a( u ), o();
+      },
       p = async ( u ) => {
         t( { message: "Claiming...", type: "loading" } );
         const { ok: y } = await d( u );
@@ -5006,9 +5006,9 @@ function Score( { score: e, size: t = 48, duration: s = 1 } ) {
       };
     return (
       l(),
-      () => {
-        a !== null && cancelAnimationFrame( a );
-      }
+        () => {
+          a !== null && cancelAnimationFrame( a );
+        }
     );
   }, [ e, s ] );
   function r( a, c, i ) {
@@ -5068,7 +5068,7 @@ function Progress( { current: e, profile: t } ) {
                   jsxs( "div", {
                     className: styles$p.scoreInner,
                     children: [
-                      jsx( "span", { className: styles$p.scoreSlash, children: " / " } ),
+                      jsx( "span", { className: styles$p.scoreSlash, children: " " } ),
                       jsx( "span", { className: styles$p.scoreLimit, children: t == null ? void 0 : t.limitCoins } ),
                     ],
                   } ),
@@ -5129,6 +5129,7 @@ const root$3 = "_root_9azk3_2",
   countdown$1 = "_countdown_9azk3_1",
   clickAmount$1 = "_clickAmount_9azk3_126",
   click$1 = "_click_9azk3_126",
+  btn$1 = "_btn_9azk3_50",
   styles$o = {
     root: root$3,
     container: container$1,
@@ -5151,6 +5152,7 @@ const root$3 = "_root_9azk3_2",
     countdown: countdown$1,
     clickAmount: clickAmount$1,
     click: click$1,
+    btn: btn$1,
   },
   numberAnimationDurationMs = 1e3,
   numberAnimationDurationSec = numberAnimationDurationMs / 1e3,
@@ -5162,12 +5164,12 @@ const root$3 = "_root_9azk3_2",
   },
   cooldownAppearence = { initial: { opacity: 0, scale: 0.7 }, animate: { opacity: 1, scale: 1 }, exit: { opacity: 0, scale: 0.5 }, transition: { duration: 0.7 } },
   Notcoin = ( {
-    canIClickPlease: canIClickPlease,
-    sleep: sleep,
-    funMode: funMode,
-    clickValue: clickValue,
-    cooldown: cooldown,
-    handleClick: handleClick } ) => {
+                canIClickPlease: canIClickPlease,
+                sleep: sleep,
+                funMode: funMode,
+                clickValue: clickValue,
+                cooldown: cooldown,
+                handleClick: handleClick } ) => {
     const a = reactExports.useRef( null ),
       [ getPos, setPos ] = reactExports.useState( { translateZ: 0, rotateX: 0, rotateY: 0 } ),
       [ l, d ] = reactExports.useState( [] ),
@@ -5216,6 +5218,10 @@ const root$3 = "_root_9azk3_2",
                 rotateY(${getPos.rotateY}deg)
               `,
                   },
+                  children: jsx("button", {
+                    className: styles$o.btn,
+                    children: "BUY",
+                  }),
                 } ),
               } ),
               jsx( "div", {
@@ -5371,83 +5377,83 @@ const root$3 = "_root_9azk3_2",
       reactExports.useEffect( () => {
         o( getLeagueById( t == null ? void 0 : t.leagueId ) );
       }, [ t ] ),
-      e && t
-        ? jsx( "div", {
-          className: styles$m.root,
-          children: jsxs( Content, {
-            onClick: () => {
-              s( `/clicker/squad/${t.id}` );
-            },
-            className: styles$m.squadInfoRoot,
-            fadeIn: !0,
-            children: [
-              jsxs( Content, {
-                align: "center",
-                children: [
-                  jsx( "img", {
-                    src: t.logo,
-                    className: styles$m.squadLogo,
-                    width: "48",
-                    alt: `${t.name} logo`,
-                    onError: ( { currentTarget: r } ) => {
-                      ( r.onerror = null ), ( r.src = "https://yescoin.space/clicker/travolta.gif" );
-                    },
-                  } ),
-                  jsxs( "div", {
-                    style: { overflow: "hidden" },
-                    children: [
-                      jsx( Text, { type: "headline", sfRounded: !0, className: styles$m.squadName, children: t.name } ),
-                      t.coins
-                        ? jsx( Text, { type: "subheadline-1", semibold: !0, sfRounded: !0, className: styles$m.squadScore, children: beautifyMoney$2( String( t.coins ) ) } )
-                        : "",
-                    ],
-                  } ),
-                ],
-              } ),
-              jsxs( "div", {
-                style: { flexShrink: "0" },
-                children: [
-                  t.rank
-                    ? jsxs( Content, {
-                      justify: "center",
-                      align: "center",
-                      spacingBottom: "4",
-                      className: styles$m.squadPlaceWrap,
-                      children: [
-                        jsx( Icon, { name: "Laurel" } ),
-                        jsx( "div", { className: styles$m.squadPlace, children: rankToString( t.rank.rank ) } ),
-                        jsx( Icon, { name: "Laurel", className: styles$m.laurelIconReversed } ),
-                      ],
-                    } )
-                    : "",
-                  n
-                    ? jsxs( Text, {
-                      type: "subheadline-1",
-                      semibold: !0,
-                      sfRounded: !0,
-                      className: styles$m.squadLeague,
-                      children: [ jsx( "img", { src: `https://yescoin.space/clicker/league/${n.name}.png`, height: "24", alt: "League cup" } ), n.name ],
-                    } )
-                    : "",
-                ],
-              } ),
-            ],
-          } ),
-        } )
-        : e
-          ? jsx( Button, { className: styles$m.joinSquadButton, type: "Hollow", disabled: !0, children: "Loading from the Potato Sarvar 🥔" } )
-          : jsx( "div", {
+        e && t
+          ? jsx( "div", {
             className: styles$m.root,
-            children: jsxs( Button, {
-              className: styles$m.joinSquadButton,
-              type: "Hollow",
+            children: jsxs( Content, {
               onClick: () => {
-                s( "/clicker/league/squad" );
+                s( `/clicker/squad/${t.id}` );
               },
-              fullwidth: !0,
-              children: [ "Join squad", jsx( Icon, { name: "chevron-right", className: styles$m.chevron } ) ],
+              className: styles$m.squadInfoRoot,
+              fadeIn: !0,
+              children: [
+                jsxs( Content, {
+                  align: "center",
+                  children: [
+                    jsx( "img", {
+                      src: t.logo,
+                      className: styles$m.squadLogo,
+                      width: "48",
+                      alt: `${t.name} logo`,
+                      onError: ( { currentTarget: r } ) => {
+                        ( r.onerror = null ), ( r.src = "https://yescoin.space/clicker/travolta.gif" );
+                      },
+                    } ),
+                    jsxs( "div", {
+                      style: { overflow: "hidden" },
+                      children: [
+                        jsx( Text, { type: "headline", sfRounded: !0, className: styles$m.squadName, children: t.name } ),
+                        t.coins
+                          ? jsx( Text, { type: "subheadline-1", semibold: !0, sfRounded: !0, className: styles$m.squadScore, children: beautifyMoney$2( String( t.coins ) ) } )
+                          : "",
+                      ],
+                    } ),
+                  ],
+                } ),
+                jsxs( "div", {
+                  style: { flexShrink: "0" },
+                  children: [
+                    t.rank
+                      ? jsxs( Content, {
+                        justify: "center",
+                        align: "center",
+                        spacingBottom: "4",
+                        className: styles$m.squadPlaceWrap,
+                        children: [
+                          jsx( Icon, { name: "Laurel" } ),
+                          jsx( "div", { className: styles$m.squadPlace, children: rankToString( t.rank.rank ) } ),
+                          jsx( Icon, { name: "Laurel", className: styles$m.laurelIconReversed } ),
+                        ],
+                      } )
+                      : "",
+                    n
+                      ? jsxs( Text, {
+                        type: "subheadline-1",
+                        semibold: !0,
+                        sfRounded: !0,
+                        className: styles$m.squadLeague,
+                        children: [ jsx( "img", { src: `https://yescoin.space/clicker/league/${n.name}.png`, height: "24", alt: "League cup" } ), n.name ],
+                      } )
+                      : "",
+                  ],
+                } ),
+              ],
             } ),
           } )
+          : e
+            ? jsx( Button, { className: styles$m.joinSquadButton, type: "Hollow", disabled: !0, children: "Loading from the Potato Sarvar 🥔" } )
+            : jsx( "div", {
+              className: styles$m.root,
+              children: jsxs( Button, {
+                className: styles$m.joinSquadButton,
+                type: "Hollow",
+                onClick: () => {
+                  s( "/clicker/league/squad" );
+                },
+                fullwidth: !0,
+                children: [ "Join squad", jsx( Icon, { name: "chevron-right", className: styles$m.chevron } ) ],
+              } ),
+            } )
     );
   },
   root$2 = "_root_1cnlb_1",
@@ -5495,21 +5501,21 @@ const root$3 = "_root_9azk3_2",
           _ = d[ randomNumber( 0, d.length - 1 ) ];
         a( _ ), o( { top: i, left: l } );
       }, [] ),
-      jsx( AnimatePresence, {
-        children:
-          e &&
-          jsx( motion.img, {
-            className: styles$k.root,
-            initial: { opacity: 0 },
-            animate: { opacity: 1 },
-            style: n,
-            alt: t.toString(),
-            width: "120",
-            transition: { opacity: { duration: 3, ease: "linear", delay: 2 } },
-            onClick: c,
-            src: "https://yescoin.space/clicker/ny-rocket-o.gif",
-          } ),
-      } )
+        jsx( AnimatePresence, {
+          children:
+            e &&
+            jsx( motion.img, {
+              className: styles$k.root,
+              initial: { opacity: 0 },
+              animate: { opacity: 1 },
+              style: n,
+              alt: t.toString(),
+              width: "120",
+              transition: { opacity: { duration: 3, ease: "linear", delay: 2 } },
+              onClick: c,
+              src: "https://yescoin.space/clicker/ny-rocket-o.gif",
+            } ),
+        } )
     );
   },
   page$c = "_page_rq9m2_12",
@@ -5546,18 +5552,18 @@ const root$3 = "_root_9azk3_2",
       c && ( a(), d() );
     }, [ c ] );
     const p = ( f ) => {
-      var g;
-      ( g = document.querySelector( "#page" ) ) == null || g.scrollTo( { top: 0, behavior: "smooth" } ),
-        u(),
-        e( { message: "Boost is yours!" } ),
-        setTimeout( () => {
-          m();
-        }, 250 ),
+        var g;
+        ( g = document.querySelector( "#page" ) ) == null || g.scrollTo( { top: 0, behavior: "smooth" } ),
+          u(),
+          e( { message: "Boost is yours!" } ),
+          setTimeout( () => {
+            m();
+          }, 250 ),
         f === "daily" &&
         setTimeout( () => {
           s( "/clicker" );
         }, 350 );
-    },
+      },
       m = () => {
         o( "enter" ),
           setTimeout( () => {
@@ -5667,10 +5673,10 @@ const root$3 = "_root_9azk3_2",
   feturedPartners = [ 105, 72 ],
   sortPartners = ( e, t, s ) => {
     const n = e
-      .map(
-        ( c ) => ( c.challengeId && feturedPartners.indexOf( c.challengeId ) !== -1 && ( c.isFeatured = !0 ), t.filter( ( i ) => i.boostId === c.id ).length > 0 && ( c.isCompleted = !0 ), c )
-      )
-      .filter( ( c ) => ( c.locale ? c.locale.indexOf( s ) !== -1 : !0 ) ),
+        .map(
+          ( c ) => ( c.challengeId && feturedPartners.indexOf( c.challengeId ) !== -1 && ( c.isFeatured = !0 ), t.filter( ( i ) => i.boostId === c.id ).length > 0 && ( c.isCompleted = !0 ), c )
+        )
+        .filter( ( c ) => ( c.locale ? c.locale.indexOf( s ) !== -1 : !0 ) ),
       o = n.filter( ( c ) => c.isCompleted ),
       r = n.filter( ( c ) => c.isFeatured && !c.isCompleted ),
       a = n.filter( ( c ) => !c.isFeatured && !c.isCompleted ).sort( () => Math.random() - 0.5 );
@@ -5684,7 +5690,7 @@ const root$3 = "_root_9azk3_2",
         const r = LeagueTypes.indexOf( o.type );
         ( ( r < s && !o.isCompleted ) || r === s ) && n.push( o );
       } ),
-      n
+        n
     );
   },
   EarnPage = () => {
@@ -5724,8 +5730,8 @@ const root$3 = "_root_9azk3_2",
         N( S === null ? null : 3e3 );
       }, [ S ] );
     const I = ( w ) => {
-      P( w );
-    },
+        P( w );
+      },
       T = jsxs( Fragment, {
         children: [
           jsx( Content, { column: !0, padding: "16-0-12", spacingChild: "2", children: jsx( Text, { type: "title-2", weight: "semibold", children: "Onboarding" } ) } ),
@@ -6088,17 +6094,17 @@ function ClickerFrensPage() {
       const i = await fetchFrens(),
         l = await fetchFrensStatApi();
       l.ok && n( { score: l.data.bonus ? l.data.bonus : 0, amount: l.data.count ? l.data.count : 0, rank: l.data.rank ? l.data.rank : 0 } ),
-        i &&
-        ( i.sort( ( d, _ ) => {
-          const p = parseInt( d.score ),
-            m = parseInt( _.score );
-          if ( d.reward === _.reward ) {
-            if ( p < m ) return 1;
-            if ( p > m ) return -1;
-          }
-          return 0;
-        } ),
-          r( i ) );
+      i &&
+      ( i.sort( ( d, _ ) => {
+        const p = parseInt( d.score ),
+          m = parseInt( _.score );
+        if ( d.reward === _.reward ) {
+          if ( p < m ) return 1;
+          if ( p > m ) return -1;
+        }
+        return 0;
+      } ),
+        r( i ) );
     };
   reactExports.useEffect( () => {
     t && a();
@@ -6273,10 +6279,10 @@ function ClickerLeagueInfluencerPage() {
     a && c();
   }, [ a ] );
   const c = async () => {
-    var u, y;
-    const { ok: l, items: d, rank: _, score: p, bonus: m } = await fetchReferralLeaderboardApi();
-    l
-      ? ( p &&
+      var u, y;
+      const { ok: l, items: d, rank: _, score: p, bonus: m } = await fetchReferralLeaderboardApi();
+      l
+        ? ( p &&
         ( d.some( ( g ) => g.userId === ( a == null ? void 0 : a.userId ) ) ||
           d.push( {
             index: _,
@@ -6288,11 +6294,11 @@ function ClickerLeagueInfluencerPage() {
             points: p,
             bonus: m,
           } ) ),
-        setTimeout( () => {
-          r( d );
-        }, 350 ) )
-      : t( { message: "Can't fetch data. Try again later.", type: "error" } );
-  },
+          setTimeout( () => {
+            r( d );
+          }, 350 ) )
+        : t( { message: "Can't fetch data. Try again later.", type: "error" } );
+    },
     i = !!a;
   return jsxs( Page, {
     className: styles$n.page,
@@ -6439,10 +6445,10 @@ function ClickerStatisticsPage() {
   reactExports.useEffect(
     () => (
       s(),
-      y( 1e4 ),
-      () => {
-        y( null );
-      }
+        y( 1e4 ),
+        () => {
+          y( null );
+        }
     ),
     []
   ),
@@ -6593,27 +6599,27 @@ function StatisticsBoard() {
     reactExports.useEffect( () => {
       s();
     }, [] ),
-    t !== null && o
-      ? jsxs( Content, {
-        className: styles$c.statisticsBoard,
-        fadeIn: !0,
-        onClick: () => e( "/clicker/statistics" ),
-        children: [
-          jsxs( "div", {
-            className: styles$c.avas,
-            children: [
-              jsx( "div", { className: styles$c.ava, children: jsx( "img", { src: `${prefix}${avatars[ 0 ]}` } ) } ),
-              jsx( "div", { className: styles$c.ava, children: jsx( "img", { src: `${prefix}${avatars[ 1 ]}` } ) } ),
-              jsx( "div", { className: styles$c.ava, children: jsx( "img", { src: r } ) } ),
-            ],
-          } ),
-          jsxs( "div", { className: styles$c.title, children: [ beautifyLongNumber( n, "standard" ), " NFCoiners" ] } ),
-          jsx( "div", { className: styles$c.separator, children: "・" } ),
-          jsx( "div", { className: styles$c.link, children: "Stats" } ),
-          jsx( Icon, { className: styles$c.linkIcon, name: "ChevronRight" } ),
-        ],
-      } )
-      : null
+      t !== null && o
+        ? jsxs( Content, {
+          className: styles$c.statisticsBoard,
+          fadeIn: !0,
+          onClick: () => e( "/clicker/statistics" ),
+          children: [
+            jsxs( "div", {
+              className: styles$c.avas,
+              children: [
+                jsx( "div", { className: styles$c.ava, children: jsx( "img", { src: `${prefix}${avatars[ 0 ]}` } ) } ),
+                jsx( "div", { className: styles$c.ava, children: jsx( "img", { src: `${prefix}${avatars[ 1 ]}` } ) } ),
+                jsx( "div", { className: styles$c.ava, children: jsx( "img", { src: r } ) } ),
+              ],
+            } ),
+            jsxs( "div", { className: styles$c.title, children: [ beautifyLongNumber( n, "standard" ), " NFCoiners" ] } ),
+            jsx( "div", { className: styles$c.separator, children: "・" } ),
+            jsx( "div", { className: styles$c.link, children: "Stats" } ),
+            jsx( Icon, { className: styles$c.linkIcon, name: "ChevronRight" } ),
+          ],
+        } )
+        : null
   );
 }
 const typeIndex = [ "user", "team" ],
@@ -6642,18 +6648,18 @@ function ClickerLeaguePage() {
       r( typeIndex.indexOf( s ) ), _( null ), u && k();
     }, [ a, i, s, u ] );
   const k = async () => {
-    var M, A;
-    const T = timeIndex[ a ];
-    let z = y[ T ];
-    !I && t !== "1" && ( z = await p( T ) );
-    const { ok: w, items: q } = I
-      ? await fetchReferralLeaderboardApi()
-      : await fetchLeaderboard( { type: s, league: i.enum, time: T, squadId: ( s === "team" && ( u == null ? void 0 : u.teamId ) ) || void 0 } );
-    if ( w ) {
-      if ( ( I || s === "user" ) && v ) {
-        const R = z.rank,
-          F = z.score;
-        !q.some( ( W ) => W.userId === ( u == null ? void 0 : u.userId ) ) &&
+      var M, A;
+      const T = timeIndex[ a ];
+      let z = y[ T ];
+      !I && t !== "1" && ( z = await p( T ) );
+      const { ok: w, items: q } = I
+        ? await fetchReferralLeaderboardApi()
+        : await fetchLeaderboard( { type: s, league: i.enum, time: T, squadId: ( s === "team" && ( u == null ? void 0 : u.teamId ) ) || void 0 } );
+      if ( w ) {
+        if ( ( I || s === "user" ) && v ) {
+          const R = z.rank,
+            F = z.score;
+          !q.some( ( W ) => W.userId === ( u == null ? void 0 : u.userId ) ) &&
           R &&
           q.push( {
             index: R,
@@ -6663,15 +6669,15 @@ function ClickerLeaguePage() {
             title: ( ( M = u == null ? void 0 : u.user ) == null ? void 0 : M.firstName ) ?? ( ( A = u == null ? void 0 : u.user ) == null ? void 0 : A.userName ),
             points: F,
           } );
-      }
-      setTimeout(
-        () => {
-          _( q );
-        },
-        v ? 350 : 200
-      );
-    } else n( { message: "Can't fetch data. Try again later.", type: "error" } );
-  },
+        }
+        setTimeout(
+          () => {
+            _( q );
+          },
+          v ? 350 : 200
+        );
+      } else n( { message: "Can't fetch data. Try again later.", type: "error" } );
+    },
     h = () => {
       !I && i.id - 1 >= 1 && e( `/clicker/league/${i.id - 1}/${s}` );
     },
@@ -6820,10 +6826,10 @@ function ClickerLeaguePage() {
   } );
 }
 const ukranian$4 = {
-  title: "Королі Вечірок",
-  subtitle: jsxs( Fragment, { children: [ "Ці скводы зараз набирають нових членів", jsx( "br", {} ), "Хочеш приєднатися?" ] } ),
-  button: "Вибрати інший сквод",
-},
+    title: "Королі Вечірок",
+    subtitle: jsxs( Fragment, { children: [ "Ці скводы зараз набирають нових членів", jsx( "br", {} ), "Хочеш приєднатися?" ] } ),
+    button: "Вибрати інший сквод",
+  },
   LeagueSquadPageL10n = {
     en: { title: "Join Squad!", subtitle: jsxs( Fragment, { children: [ "These squads recruiting now.", jsx( "br", {} ), " Do you wanna join?" ] } ), button: "Join another squad" },
     ru: {
@@ -6849,11 +6855,11 @@ function LeagueSquadPage() {
     a();
   }, [ r ] );
   const a = async () => {
-    if ( r ) {
-      const { ok: d, data: _ } = await fetchBidsApi();
-      d && n( _ );
-    }
-  },
+      if ( r ) {
+        const { ok: d, data: _ } = await fetchBidsApi();
+        d && n( _ );
+      }
+    },
     c = !!r && s.length,
     i = () => {
       createSquadViaBotStartRef();
@@ -7113,16 +7119,16 @@ const page$6 = "_page_1vpj3_12",
       [ a, c ] = reactExports.useState( !1 ),
       i = async () => {
         a ||
-          ( c( !0 ),
-            o( { message: "Claiming...", type: "loading" } ),
-            await n( t )
-              .then( () => {
-                r(), o( { message: "Claimed!" } ), c( !1 );
-              } )
-              .catch( ( d ) => {
-                o( { message: d || "Try later", type: "error" } );
-              } ),
-            s( !1 ) );
+        ( c( !0 ),
+          o( { message: "Claiming...", type: "loading" } ),
+          await n( t )
+            .then( () => {
+              r(), o( { message: "Claimed!" } ), c( !1 );
+            } )
+            .catch( ( d ) => {
+              o( { message: d || "Try later", type: "error" } );
+            } ),
+          s( !1 ) );
       },
       l = getUserLang( Object.keys( RobotL10n ) );
     return jsx( "div", {
@@ -7153,29 +7159,29 @@ const page$6 = "_page_1vpj3_12",
   };
 function ClickerMainPage() {
   const {
-    userProfile: userProfile,
-    score: score,
-    isLoading: isLoad,
-    isTurboMode: isTurbo,
-    availableToClick: availableToClick,
-    lastMiningAt: lastMiningAt,
-    robotMined: robotMined,
-    clickValue: clickValue,
-    turboSettings: turboS,
-    turboTimes: turboTimes,
-    turboGift: turboGift,
-    cooldown: cooldown,
-    isSleep: isSleep,
-    isNewbie: newbie,
-    clickerTeam: u,
-    click: click,
-    restoreClicks: restoreClicks,
-    switchTurbo: switchTurbo,
-    checkTurboGiftValidity: checkTurboGiftValidity,
-    checkTurbo: h,
-    fetchRobotBalance: b,
-    claimRobotMinedCoins: claimRobot,
-  } = useClickerStore(),
+      userProfile: userProfile,
+      score: score,
+      isLoading: isLoad,
+      isTurboMode: isTurbo,
+      availableToClick: availableToClick,
+      lastMiningAt: lastMiningAt,
+      robotMined: robotMined,
+      clickValue: clickValue,
+      turboSettings: turboS,
+      turboTimes: turboTimes,
+      turboGift: turboGift,
+      cooldown: cooldown,
+      isSleep: isSleep,
+      isNewbie: newbie,
+      clickerTeam: u,
+      click: click,
+      restoreClicks: restoreClicks,
+      switchTurbo: switchTurbo,
+      checkTurboGiftValidity: checkTurboGiftValidity,
+      checkTurbo: h,
+      fetchRobotBalance: b,
+      claimRobotMinedCoins: claimRobot,
+    } = useClickerStore(),
     [ getA, setA ] = reactExports.useState( !!( !newbie && !isTurbo && ( turboTimes >= 1 || turboGift ) ) ),
     [ getB, setB ] = reactExports.useState( !1 ),
     { currentSkin: L } = useBoostStore(),
@@ -7198,14 +7204,14 @@ function ClickerMainPage() {
     reactExports.useEffect( () => {
       tgapp.isExpanded || tgapp.expand();
       const cb = ( F ) => {
-        F.preventDefault();
-      },
+          F.preventDefault();
+        },
         R = { passive: !1 };
       return (
         window.addEventListener( "touchmove", cb, R ),
-        () => {
-          window.removeEventListener( "touchmove", cb );
-        }
+          () => {
+            window.removeEventListener( "touchmove", cb );
+          }
       );
     }, [] ),
     reactExports.useEffect( () => {
@@ -7271,16 +7277,16 @@ const squadLogo = "_squadLogo_j73ez_1",
   styles$6 = { page: page$5, hypno: hypno$2 };
 new JSConfetti();
 const ukranian$2 = {
-  oneTitle: "Канали та групи це сквади",
-  oneDescr: "Об'єднуйся с улюбленими та грай",
-  twoTitle: "Запросіть усю спільноту",
-  twoDescr: "І отримуйте купу бонусів",
-  threeTitle: "Зроби свiй сквад найкращим",
-  threeDescr: "Навчай грати та прокачувати бусти",
-  more: "Повний гід",
-  moreLink: "https://foxhustle.site",
-  button: "Файно",
-},
+    oneTitle: "Канали та групи це сквади",
+    oneDescr: "Об'єднуйся с улюбленими та грай",
+    twoTitle: "Запросіть усю спільноту",
+    twoDescr: "І отримуйте купу бонусів",
+    threeTitle: "Зроби свiй сквад найкращим",
+    threeDescr: "Навчай грати та прокачувати бусти",
+    more: "Повний гід",
+    moreLink: "https://foxhustle.site",
+    button: "Файно",
+  },
   ClickerSquadDetailsPageL10n = {
     en: {
       oneTitle: "Channels & chats are Squads",
@@ -7445,16 +7451,16 @@ function ClickerSquadDetailsPage() {
   } );
 }
 const ukranian$1 = {
-  title: "Приєднуйся ",
-  subtitle: jsxs( Fragment, {
-    children: [
-      jsx( "p", { children: 'Кожний "тап" зараховується в рахунок вашої команди. Таблиця лідерів команди покаже ваш внесок.' } ),
-      jsx( "br", {} ),
-      jsx( "p", { children: "Разом грати веселіше ✨" } ),
-    ],
-  } ),
-  button: "Приєднатися",
-},
+    title: "Приєднуйся ",
+    subtitle: jsxs( Fragment, {
+      children: [
+        jsx( "p", { children: 'Кожний "тап" зараховується в рахунок вашої команди. Таблиця лідерів команди покаже ваш внесок.' } ),
+        jsx( "br", {} ),
+        jsx( "p", { children: "Разом грати веселіше ✨" } ),
+      ],
+    } ),
+    button: "Приєднатися",
+  },
   ClickerSquadJoinPageL10n = {
     en: {
       title: "Join ",
@@ -7529,9 +7535,9 @@ function ClickerSquadJoinPage() {
     t && p();
   }, [ t ] );
   const p = async () => {
-    const y = await fetchSquadInfo( Number( c ) );
-    y && ( l( y ), o( !1 ) );
-  },
+      const y = await fetchSquadInfo( Number( c ) );
+      y && ( l( y ), o( !1 ) );
+    },
     m = async () => {
       a( !0 ), await joinSquadApi( c ), await s(), a( !1 ), d( { message: `You joined ${i == null ? void 0 : i.name} Squad!` } ), e( `/clicker/squad/${c}` );
     },
@@ -7592,25 +7598,25 @@ function ClickerSquadJoinPage() {
   } );
 }
 const ukranian = {
-  how: "Як це працює?",
-  total: "скор",
-  inviteTitle: "Отримай бонус",
-  inviteSubtitle: "за запрошення",
-  inviteButton: "Запросити друга",
-  leaveButton: "Вийти з команди",
-  joinButton: "Приєднатися до команди",
-  promoteButton: "Boost",
-  dayPeriod: "День",
-  weekPeriod: "Тиждень",
-  you: "Ти",
-  fetchErrorToast: "Не вдається отримати дані. Спробуйте знову пізніше.",
-  leftSquadToast: "Ви вийшли",
-  leaveSquadTitle: "Ви впевнені?",
-  leaveSquadContent: "Ви збираєтеся вийти ",
-  leaveSquadCancel: "Скасувати",
-  leaveSquadLeave: "Вийти",
-  players: "игроков",
-},
+    how: "Як це працює?",
+    total: "скор",
+    inviteTitle: "Отримай бонус",
+    inviteSubtitle: "за запрошення",
+    inviteButton: "Запросити друга",
+    leaveButton: "Вийти з команди",
+    joinButton: "Приєднатися до команди",
+    promoteButton: "Boost",
+    dayPeriod: "День",
+    weekPeriod: "Тиждень",
+    you: "Ти",
+    fetchErrorToast: "Не вдається отримати дані. Спробуйте знову пізніше.",
+    leftSquadToast: "Ви вийшли",
+    leaveSquadTitle: "Ви впевнені?",
+    leaveSquadContent: "Ви збираєтеся вийти ",
+    leaveSquadCancel: "Скасувати",
+    leaveSquadLeave: "Вийти",
+    players: "игроков",
+  },
   ClickerSquadPageL10n = {
     en: {
       how: "How it works?",
@@ -7727,17 +7733,17 @@ function ClickerSquadSkeleton() {
 }
 function getSizeMessage( e ) {
   const t = {
-    0: "Your squad is emptier than a vacuum in space 🌌",
-    1: "When your squad size matches the number of people who find pineapple on pizza acceptable 🍍🍕",
-    10: "Congratulations! You now have enough squad members to form a soccer team ⚽️👏",
-    20: "Your squad size is larger than the font size on your grandma's phone 📱👵",
-    50: "You now have more squad members than the number of tabs open in my browser 📑🤯",
-    100: "You've reached the century mark! Your squad is now officially a party 🎉💯",
-    500: 'With 500 squad members, you could host a conference on "How to Clickbait 101" 🎤🤓',
-    1e3: "Your squad size is now officially a small army – ready for the emoji war! 🚀🤖",
-    5e3: "Your squad is so massive that it's the reason why WiFi is slow in your area 📡🐌",
-    1e4: "Congratulations! You now have enough squad members to form a nation, complete with a flag and national anthem 🏴🎶",
-  },
+      0: "Your squad is emptier than a vacuum in space 🌌",
+      1: "When your squad size matches the number of people who find pineapple on pizza acceptable 🍍🍕",
+      10: "Congratulations! You now have enough squad members to form a soccer team ⚽️👏",
+      20: "Your squad size is larger than the font size on your grandma's phone 📱👵",
+      50: "You now have more squad members than the number of tabs open in my browser 📑🤯",
+      100: "You've reached the century mark! Your squad is now officially a party 🎉💯",
+      500: 'With 500 squad members, you could host a conference on "How to Clickbait 101" 🎤🤓',
+      1e3: "Your squad size is now officially a small army – ready for the emoji war! 🚀🤖",
+      5e3: "Your squad is so massive that it's the reason why WiFi is slow in your area 📡🐌",
+      1e4: "Congratulations! You now have enough squad members to form a nation, complete with a flag and national anthem 🏴🎶",
+    },
     s = Object.keys( t ).reduce( ( n, o ) => ( Math.abs( Number( o ) - e ) < Math.abs( Number( n ) - e ) ? o : n ) );
   return t[ Number( s ) ] || "";
 }
@@ -7766,8 +7772,8 @@ function ClickerSquadPage() {
     c && ( j(), L( u[ n ] ), f( !1 ) );
   }, [ c ] );
   const j = async () => {
-    await fetchSquadInfo( Number( m ) ).then( k ).catch( console.error );
-  },
+      await fetchSquadInfo( Number( m ) ).then( k ).catch( console.error );
+    },
     L = async ( S ) => {
       c || d();
       const { ok: P, items: I } = await fetchLeaderboard( { type: "in-team", league: ( p == null ? void 0 : p.enum ) || "all", time: S, squadId: Number( m ) } );
@@ -7779,144 +7785,144 @@ function ClickerSquadPage() {
     E = g && !y;
   return (
     c && c.user.role,
-    jsxs( Page, {
-      className: styles$3.page,
-      children: [
-        g != null && g.leagueId ? jsx( Background, { type: getLeagueColor( g.leagueId ) } ) : null,
-        jsx( MainButton, { hidden: !0 } ),
-        jsx( BackButton, { onClick: () => t( "/clicker" ) } ),
-        jsx( Promote, { isOpen: h, onClose: () => b( !1 ), squadId: m } ),
-        jsxs( "div", {
-          className: styles$3.pageInner,
-          children: [
-            E ? null : jsx( ClickerSquadSkeleton, {} ),
-            E
-              ? jsxs( Fragment, {
-                children: [
-                  jsx( Content, {
-                    justify: "center",
-                    padding: "0-0-24",
-                    children: jsx( Image, { src: g == null ? void 0 : g.logo, placeholder: extractInitials( g == null ? void 0 : g.name ), borderRadius: "32", size: "112" } ),
-                  } ),
-                  jsx( Text, {
-                    type: "title-large",
-                    weight: "bold",
-                    margin: "0-0-10-0",
-                    center: !0,
-                    className: styles$3.outerLink,
-                    children: jsxs( Content, {
+      jsxs( Page, {
+        className: styles$3.page,
+        children: [
+          g != null && g.leagueId ? jsx( Background, { type: getLeagueColor( g.leagueId ) } ) : null,
+          jsx( MainButton, { hidden: !0 } ),
+          jsx( BackButton, { onClick: () => t( "/clicker" ) } ),
+          jsx( Promote, { isOpen: h, onClose: () => b( !1 ), squadId: m } ),
+          jsxs( "div", {
+            className: styles$3.pageInner,
+            children: [
+              E ? null : jsx( ClickerSquadSkeleton, {} ),
+              E
+                ? jsxs( Fragment, {
+                  children: [
+                    jsx( Content, {
+                      justify: "center",
+                      padding: "0-0-24",
+                      children: jsx( Image, { src: g == null ? void 0 : g.logo, placeholder: extractInitials( g == null ? void 0 : g.name ), borderRadius: "32", size: "112" } ),
+                    } ),
+                    jsx( Text, {
+                      type: "title-large",
+                      weight: "bold",
+                      margin: "0-0-10-0",
+                      center: !0,
+                      className: styles$3.outerLink,
+                      children: jsxs( Content, {
+                        justify: "center",
+                        align: "center",
+                        onClick: () => {
+                          e.openTelegramLink( `https://t.me/${g.slug}` );
+                        },
+                        children: [ g == null ? void 0 : g.name, " ", jsx( Icon, { name: "LinkOuter", className: styles$3.outerIcon } ) ],
+                      } ),
+                    } ),
+                    jsx( Content, {
                       justify: "center",
                       align: "center",
-                      onClick: () => {
-                        e.openTelegramLink( `https://t.me/${g.slug}` );
-                      },
-                      children: [ g == null ? void 0 : g.name, " ", jsx( Icon, { name: "LinkOuter", className: styles$3.outerIcon } ) ],
-                    } ),
-                  } ),
-                  jsx( Content, {
-                    justify: "center",
-                    align: "center",
-                    padding: "0-0-12",
-                    column: !0,
-                    children: jsx( PlaceAndLeague, {
-                      place: g != null && g.rank ? ( ( N = g == null ? void 0 : g.rank ) == null ? void 0 : N.rank ) : 0,
-                      leagueId: g == null ? void 0 : g.leagueId,
-                      type: "squad",
-                    } ),
-                  } ),
-                  jsx( Content, {
-                    onClick: () => t( "/clicker/squad-details" ),
-                    padding: "0-0-20",
-                    children: jsx( Text, { type: "subheadline-1", semibold: !0, center: !0, children: ClickerSquadPageL10n[ l ].how } ),
-                  } ),
-                  $ &&
-                  l === "en" &&
-                  ( g == null ? void 0 : g.count ) &&
-                  jsx( Text, { type: "subheadline-1", margin: "0-0-24-0", color: "white", center: !0, children: getSizeMessage( g == null ? void 0 : g.count ) } ),
-                  jsxs( Content, {
-                    padding: "16",
-                    column: !0,
-                    background: "fourth",
-                    borderRadius: "20",
-                    spacingChild: "16",
-                    children: [
-                      jsxs( Content, {
-                        padding: "8-0-8",
-                        children: [
-                          jsxs( Content, {
-                            column: !0,
-                            children: [
-                              jsx( "div", {
-                                className: styles$3.squadScore,
-                                children: jsx( Text, {
-                                  type: "title-3",
-                                  semibold: !0,
-                                  children: g != null && g.coins ? beautifyLongNumber( g == null ? void 0 : g.coins.toString(), "compact", 3 ) : null,
-                                } ),
-                              } ),
-                              jsx( Content, { padding: "0-0-0-32", children: jsx( Text, { type: "subheadline-1", color: "secondary", children: ClickerSquadPageL10n[ l ].total } ) } ),
-                            ],
-                          } ),
-                          jsx( "div", { className: styles$3.separator } ),
-                          jsxs( Content, {
-                            column: !0,
-                            padding: "0-8-0-0",
-                            children: [
-                              jsx( Text, { type: "title-3", semibold: !0, noWrap: !0, children: beautifyLongNumber( g == null ? void 0 : g.count, "standard" ) } ),
-                              jsx( Text, { type: "subheadline-1", color: "secondary", children: ClickerSquadPageL10n[ l ].players } ),
-                            ],
-                          } ),
-                        ],
+                      padding: "0-0-12",
+                      column: !0,
+                      children: jsx( PlaceAndLeague, {
+                        place: g != null && g.rank ? ( ( N = g == null ? void 0 : g.rank ) == null ? void 0 : N.rank ) : 0,
+                        leagueId: g == null ? void 0 : g.leagueId,
+                        type: "squad",
                       } ),
-                      $
-                        ? jsxs( Fragment, {
+                    } ),
+                    jsx( Content, {
+                      onClick: () => t( "/clicker/squad-details" ),
+                      padding: "0-0-20",
+                      children: jsx( Text, { type: "subheadline-1", semibold: !0, center: !0, children: ClickerSquadPageL10n[ l ].how } ),
+                    } ),
+                    $ &&
+                    l === "en" &&
+                    ( g == null ? void 0 : g.count ) &&
+                    jsx( Text, { type: "subheadline-1", margin: "0-0-24-0", color: "white", center: !0, children: getSizeMessage( g == null ? void 0 : g.count ) } ),
+                    jsxs( Content, {
+                      padding: "16",
+                      column: !0,
+                      background: "fourth",
+                      borderRadius: "20",
+                      spacingChild: "16",
+                      children: [
+                        jsxs( Content, {
+                          padding: "8-0-8",
                           children: [
-                            jsx( Button, {
-                              type: "Blue",
-                              onClick: () => {
-                                inviteFrenViaBotStartRef();
-                              },
-                              children: ClickerSquadPageL10n[ l ].inviteButton,
+                            jsxs( Content, {
+                              column: !0,
+                              children: [
+                                jsx( "div", {
+                                  className: styles$3.squadScore,
+                                  children: jsx( Text, {
+                                    type: "title-3",
+                                    semibold: !0,
+                                    children: g != null && g.coins ? beautifyLongNumber( g == null ? void 0 : g.coins.toString(), "compact", 3 ) : null,
+                                  } ),
+                                } ),
+                                jsx( Content, { padding: "0-0-0-32", children: jsx( Text, { type: "subheadline-1", color: "secondary", children: ClickerSquadPageL10n[ l ].total } ) } ),
+                              ],
                             } ),
-                            jsx( Button, { type: "Alpha", onClick: x, children: ClickerSquadPageL10n[ l ].leaveButton } ),
+                            jsx( "div", { className: styles$3.separator } ),
+                            jsxs( Content, {
+                              column: !0,
+                              padding: "0-8-0-0",
+                              children: [
+                                jsx( Text, { type: "title-3", semibold: !0, noWrap: !0, children: beautifyLongNumber( g == null ? void 0 : g.count, "standard" ) } ),
+                                jsx( Text, { type: "subheadline-1", color: "secondary", children: ClickerSquadPageL10n[ l ].players } ),
+                              ],
+                            } ),
                           ],
-                        } )
-                        : jsx( Button, { type: "Blue", onClick: () => t( `/clicker/squad-join/${m}` ), children: ClickerSquadPageL10n[ l ].joinButton } ),
-                      jsx( Button, { type: "Alpha", onClick: () => b( !0 ), children: ClickerSquadPageL10n[ l ].promoteButton } ),
-                    ],
+                        } ),
+                        $
+                          ? jsxs( Fragment, {
+                            children: [
+                              jsx( Button, {
+                                type: "Blue",
+                                onClick: () => {
+                                  inviteFrenViaBotStartRef();
+                                },
+                                children: ClickerSquadPageL10n[ l ].inviteButton,
+                              } ),
+                              jsx( Button, { type: "Alpha", onClick: x, children: ClickerSquadPageL10n[ l ].leaveButton } ),
+                            ],
+                          } )
+                          : jsx( Button, { type: "Blue", onClick: () => t( `/clicker/squad-join/${m}` ), children: ClickerSquadPageL10n[ l ].joinButton } ),
+                        jsx( Button, { type: "Alpha", onClick: () => b( !0 ), children: ClickerSquadPageL10n[ l ].promoteButton } ),
+                      ],
+                    } ),
+                  ],
+                } )
+                : null,
+              jsx( Content, {
+                padding: "16-0",
+                column: !0,
+                children: jsx( Leaderboard, {
+                  highlightText: ClickerSquadPageL10n[ l ].you,
+                  highlightId: c == null ? void 0 : c.userId,
+                  list: r,
+                  tabs: jsxs( Tabs$1, {
+                    onChange: _,
+                    activeIndex: n,
+                    flat: !0,
+                    children: [ jsx( Tab$1, { label: ClickerSquadPageL10n[ l ].dayPeriod, flat: !0 } ), jsx( Tab$1, { label: ClickerSquadPageL10n[ l ].weekPeriod, flat: !0 } ) ],
                   } ),
-                ],
-              } )
-              : null,
-            jsx( Content, {
-              padding: "16-0",
-              column: !0,
-              children: jsx( Leaderboard, {
-                highlightText: ClickerSquadPageL10n[ l ].you,
-                highlightId: c == null ? void 0 : c.userId,
-                list: r,
-                tabs: jsxs( Tabs$1, {
-                  onChange: _,
-                  activeIndex: n,
-                  flat: !0,
-                  children: [ jsx( Tab$1, { label: ClickerSquadPageL10n[ l ].dayPeriod, flat: !0 } ), jsx( Tab$1, { label: ClickerSquadPageL10n[ l ].weekPeriod, flat: !0 } ) ],
                 } ),
               } ),
-            } ),
-          ],
-        } ),
-        jsx( Dialog, {
-          title: ClickerSquadPageL10n[ l ].leaveSquadTitle,
-          content: `${ClickerSquadPageL10n[ l ].leaveSquadContent} ${g == null ? void 0 : g.name} Squad.`,
-          opened: C,
-          onClose: x,
-          buttons: [
-            jsx( DialogButton, { onClick: x, children: ClickerSquadPageL10n[ l ].leaveSquadCancel }, "cancel" ),
-            jsx( DialogButton, { onClick: B, children: ClickerSquadPageL10n[ l ].leaveSquadLeave }, "delete" ),
-          ],
-        } ),
-      ],
-    } )
+            ],
+          } ),
+          jsx( Dialog, {
+            title: ClickerSquadPageL10n[ l ].leaveSquadTitle,
+            content: `${ClickerSquadPageL10n[ l ].leaveSquadContent} ${g == null ? void 0 : g.name} Squad.`,
+            opened: C,
+            onClose: x,
+            buttons: [
+              jsx( DialogButton, { onClick: x, children: ClickerSquadPageL10n[ l ].leaveSquadCancel }, "cancel" ),
+              jsx( DialogButton, { onClick: B, children: ClickerSquadPageL10n[ l ].leaveSquadLeave }, "delete" ),
+            ],
+          } ),
+        ],
+      } )
   );
 }
 const page$1 = "_page_11cnl_1",
@@ -7928,14 +7934,14 @@ function ClickerTeamNewPage() {
   const e = window.Telegram.WebApp,
     nav = useNavigate(),
     navHome = () => nav( "/clicker" );
-
+  
   reactExports.useEffect(
     () => (
       e == null || e.BackButton.show(),
       e == null || e.onEvent( "backButtonClicked", navHome ),
-      () => {
-        e == null || e.offEvent( "backButtonClicked", navHome );
-      }
+        () => {
+          e == null || e.offEvent( "backButtonClicked", navHome );
+        }
     )
   );
   const [ getName, setName ] = reactExports.useState( "" ),
@@ -7951,7 +7957,7 @@ function ClickerTeamNewPage() {
         name: getName, url: getU
       }
     } );
-
+  
   return jsxs( Page, {
     className: styles$1.page,
     children: [
@@ -7978,19 +7984,19 @@ function ClickerWalletPage() {
       () => (
         e == null || e.BackButton.show(),
         e == null || e.onEvent( "backButtonClicked", s ),
-        () => {
-          e == null || e.offEvent( "backButtonClicked", s );
-        }
+          () => {
+            e == null || e.offEvent( "backButtonClicked", s );
+          }
       )
     ),
-    jsxs( Page, {
-      className: styles.page,
-      children: [
-        jsx( "div", { className: styles.title, children: "Wallet balance" } ),
-        jsxs( "div", { className: styles.score, children: [ jsx( "div", { className: styles.scoreIcon } ), "10 000" ] } ),
-        jsx( "img", { src: "https://yescoin.space/clicker/travolta.gif" } ),
-      ],
-    } )
+      jsxs( Page, {
+        className: styles.page,
+        children: [
+          jsx( "div", { className: styles.title, children: "Wallet balance" } ),
+          jsxs( "div", { className: styles.score, children: [ jsx( "div", { className: styles.scoreIcon } ), "10 000" ] } ),
+          jsx( "img", { src: "https://yescoin.space/clicker/travolta.gif" } ),
+        ],
+      } )
   );
 }
 ApiService.after401 = () => {
@@ -8023,51 +8029,51 @@ function App() {
     reactExports.useEffect( () => {
       t();
     }, [] ),
-    reactExports.useEffect( () => {
-      c && !s && o();
-    }, [ c ] ),
-    reactExports.useEffect( () => {
-      s && s.teamId && !n && r(), s && s.user.role === "superadmin" && config$1.isProd && includeDebugger();
-    }, [ s ] ),
-    reactExports.useEffect( () => {
-      const m = setInterval( () => {
-        a( 1500 );
-      }, 1500 );
-      return () => clearInterval( m );
-    }, [] ),
-    jsx( MyErrorBoundary, {
-      children: jsx( ToastProvider, {
-        children: jsx( BrowserRouter, {
-          children: jsx( Routes, {
-            children: jsxs(
-              Route,
-              {
-                path: "clicker",
-                children: [
-                  jsx( Route, { path: "", element: canOpen ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} ) } ),
-                  jsx( Route, { path: "houmie", element: jsx( ClickerMainPage, {} ) } ),
-                  jsx( Route, { path: "league/:leagueId/:type?", element: jsx( ClickerLeaguePage, {} ) } ),
-                  jsx( Route, { path: "league/influencer", element: jsx( ClickerLeagueInfluencerPage, {} ) } ),
-                  jsx( Route, { path: "league/squad", element: jsx( LeagueSquadPage, {} ) } ),
-                  jsx( Route, { path: "squad/:squadId", element: jsx( ClickerSquadPage, {} ) } ),
-                  jsx( Route, { path: "squad-join/:squadId", element: jsx( ClickerSquadJoinPage, {} ) } ),
-                  jsx( Route, { path: "squad-details", element: jsx( ClickerSquadDetailsPage, {} ) } ),
-                  jsx( Route, { path: "boosts", element: jsx( ClickerBoostsPage, {} ) } ),
-                  jsx( Route, { path: "earn", element: jsx( EarnPage, {} ) } ),
-                  jsx( Route, { path: "statistics", element: jsx( ClickerStatisticsPage, {} ) } ),
-                  jsx( Route, { path: "boosts-explanation", element: jsx( ClickerBoostsExplanationPage, {} ) } ),
-                  jsx( Route, { path: "team-new", element: jsx( ClickerTeamNewPage, {} ) } ),
-                  jsx( Route, { path: "wallet", element: jsx( ClickerWalletPage, {} ) } ),
-                  jsx( Route, { path: "frens", element: jsx( ClickerFrensPage, {} ) } ),
-                  jsx( Route, { path: "frens-details", element: jsx( ClickerFrensDetailsPage, {} ) } ),
-                ],
-              },
-              "clicker"
-            ),
+      reactExports.useEffect( () => {
+        c && !s && o();
+      }, [ c ] ),
+      reactExports.useEffect( () => {
+        s && s.teamId && !n && r(), s && s.user.role === "superadmin" && config$1.isProd && includeDebugger();
+      }, [ s ] ),
+      reactExports.useEffect( () => {
+        const m = setInterval( () => {
+          a( 1500 );
+        }, 1500 );
+        return () => clearInterval( m );
+      }, [] ),
+      jsx( MyErrorBoundary, {
+        children: jsx( ToastProvider, {
+          children: jsx( BrowserRouter, {
+            children: jsx( Routes, {
+              children: jsxs(
+                Route,
+                {
+                  path: "clicker",
+                  children: [
+                    jsx( Route, { path: "", element: jsx( ClickerMainPage, {} ) } ),
+                    jsx( Route, { path: "houmie", element: jsx( ClickerMainPage, {} ) } ),
+                    jsx( Route, { path: "league/:leagueId/:type?", element: jsx( ClickerLeaguePage, {} ) } ),
+                    jsx( Route, { path: "league/influencer", element: jsx( ClickerLeagueInfluencerPage, {} ) } ),
+                    jsx( Route, { path: "league/squad", element: jsx( LeagueSquadPage, {} ) } ),
+                    jsx( Route, { path: "squad/:squadId", element: jsx( ClickerSquadPage, {} ) } ),
+                    jsx( Route, { path: "squad-join/:squadId", element: jsx( ClickerSquadJoinPage, {} ) } ),
+                    jsx( Route, { path: "squad-details", element: jsx( ClickerSquadDetailsPage, {} ) } ),
+                    jsx( Route, { path: "boosts", element: jsx( ClickerBoostsPage, {} ) } ),
+                    jsx( Route, { path: "earn", element: jsx( EarnPage, {} ) } ),
+                    jsx( Route, { path: "statistics", element: jsx( ClickerStatisticsPage, {} ) } ),
+                    jsx( Route, { path: "boosts-explanation", element: jsx( ClickerBoostsExplanationPage, {} ) } ),
+                    jsx( Route, { path: "team-new", element: jsx( ClickerTeamNewPage, {} ) } ),
+                    jsx( Route, { path: "wallet", element: jsx( ClickerWalletPage, {} ) } ),
+                    jsx( Route, { path: "frens", element: jsx( ClickerFrensPage, {} ) } ),
+                    jsx( Route, { path: "frens-details", element: jsx( ClickerFrensDetailsPage, {} ) } ),
+                  ],
+                },
+                "clicker"
+              ),
+            } ),
           } ),
         } ),
-      } ),
-    } )
+      } )
   );
 }
 client.createRoot( document.getElementById( "root" ) ).render( jsx( App, {} ) );
