@@ -953,6 +953,8 @@ body[data-mode="dark"] ._button_1l3ii_86:active {
   min-width: 100px;
   width: 100px;
   height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px 2px rgba(255, 255, 255, 1);
 }
 ._size-112_76zp5_71 {
   min-width: 112px;
@@ -2293,22 +2295,38 @@ body[data-mode="dark"] ._solidTabButton_1aach_48 {
   --elevation-1: var(--elevation-light-1);
 }
 [data-mode="dark"] {
-  --color-bg-primary: var(--palette-dark);
-  --color-bg-secondary: var(--palette-dark-90);
-  --color-bg-button-tertiary: var(--palette-transparent-grey-18);
-  --color-bg-tertiary: var(--palette-transparent-white-05);
-  --color-bg-fourth: var(--palette-transparent-white-08);
-  --color-bg-fifth: var(--palette-transparent-white-12);
-  --color-text-primary: var(--palette-white);
-  --color-text-secondary: var(--palette-transparent-white-80);
-  --color-text-tertiary: var(--palette-transparent-white-30);
-  --color-text-fourth: var(--palette-transparent-white-18);
-  --color-separator: var(--palette-transparent-grey-65);
-  --color-accent-brand: var(--palette-brand-light);
-  --color-accent-red: var(--palette-red-dark);
-  --color-accent-green: var(--palette-green-light);
-  --color-link: var(--palette-brand-light);
-  --elevation-1: var(--elevation-dark-1);
+  --color-bg-primary: var(
+    --palette-dark);
+  --color-bg-secondary: var(
+    --palette-dark-90);
+  --color-bg-button-tertiary: var(
+    --palette-transparent-grey-18);
+  --color-bg-tertiary: var(
+    --palette-transparent-white-05);
+  --color-bg-fourth: var(
+    --palette-transparent-white-08);
+  --color-bg-fifth: var(
+    --palette-transparent-white-12);
+  --color-text-primary: var(
+    --palette-white);
+  --color-text-secondary: var(
+    --palette-transparent-white-80);
+  --color-text-tertiary: var(
+    --palette-transparent-white-30);
+  --color-text-fourth: var(
+    --palette-transparent-white-18);
+  --color-separator: var(
+    --palette-transparent-grey-65);
+  --color-accent-brand: var(
+    --palette-brand-light);
+  --color-accent-red: var(
+    --palette-red-dark);
+  --color-accent-green: var(
+    --palette-green-light);
+  --color-link: var(
+    --palette-brand-light);
+  --elevation-1: var(
+    --elevation-dark-1);
 }
 *,
 *:before,
@@ -4333,7 +4351,9 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   width: 16px;
   min-width: 16px;
   height: 16px;
-  background: url(https://yescoin.space/clicker/penny.png) center center/contain;
+  background: url(https://yescoin.space/clicker/moneta-small.png) center center/contain;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 1);
 }
 ._priceWrap_1qnug_19 {
   display: flex;
@@ -5446,7 +5466,9 @@ body[data-mode="dark"] ._rippleEffect_dasiz_93:active {
   width: 16px;
   min-width: 16px;
   height: 16px;
-  background: url(https://yescoin.space/clicker/penny.png) center center/contain;
+  background: url(https://yescoin.space/clicker/moneta-small.png) center center/contain;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 1);
 }
 ._priceAfterWrap_ofiuy_102 {
   display: flex;

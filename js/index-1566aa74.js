@@ -2808,18 +2808,18 @@ const useBoostStore = create( ( e, t ) => ( {
       completions: 0,
       isCompleted: !1,
     },
-    {
-      id: 5,
-      title: "Full Solana",
-      description: jsxs( Fragment, { children: [ "Recharge your energy to the limit ", jsx( "br", {} ), "and do another round of mining" ] } ),
-      // icon: "⚡️",
-      icon: "https://yescoin.space/clicker/coin-icon.png",
-      imageSize: "72",
-      type: "fullEnergy",
-      max: 3,
-      completions: 0,
-      isCompleted: !1,
-    },
+    // {
+    //   id: 5,
+    //   title: "Full Solana",
+    //   description: jsxs( Fragment, { children: [ "Recharge your energy to the limit ", jsx( "br", {} ), "and do another round of mining" ] } ),
+    //   // icon: "⚡️",
+    //   icon: "https://yescoin.space/clicker/coin-icon.png",
+    //   imageSize: "72",
+    //   type: "fullEnergy",
+    //   max: 3,
+    //   completions: 0,
+    //   isCompleted: !1,
+    // },
   ],
   useStatisticsStore = create( ( e, t ) => ( {
     isLoading: !0,
@@ -2850,10 +2850,10 @@ const useBoostStore = create( ( e, t ) => ( {
     },
   } ) ),
   onboardingTasksData = [
-    /* { id: 6, title: "Join Squad", icon: "🐤", type: "joinsquad", coins: 5e3, isCompleted: !1 },
-    { id: 5, title: "Invite 10 frens", icon: "🐥", type: "10Referral", coins: 1e5, isCompleted: !1 }, */
-    { id: 4, title: "Earn 100 NFCoin", icon: "🐣", type: "100Clicks", coins: 200, isCompleted: 0 },
-    { id: 3, title: "Earn 1000 NFCoin", icon: "🐤", type: "1000Clicks", coins: 2000, isCompleted: 0 },
+    { id: 6, title: "Join Squad", icon: "😸", type: "joinsquad", coins: 5e3, isCompleted: !0 },
+    { id: 5, title: "Invite 5 frens", icon: "😸", type: "5Referral", coins: 5e4, isCompleted: !0 },
+    { id: 4, title: "Invite 10 frens", icon: "😸", type: "10Referral", coins: 100000, isCompleted: !0 },
+    { id: 3, title: "Invite 20 frens", icon: "😸", type: "20Referral", coins: 200000, isCompleted: 0 },
   ],
   specialTasksData = [
     {
@@ -4629,7 +4629,7 @@ function getMidnightStatus() {
   return `${e} min${e > 1 ? "s" : ""} left`;
 }
 function getTaskStatus( { type: e, completions: t = 0, max: s } ) {
-  return t >= s ? getMidnightStatus() : `${s - t}/${s} available`;
+  return t >= s ? getMidnightStatus() : `${s - t}/${s}`;
 }
 const TaskDailyItem = ( { task: e, onClick: t } ) => {
     const { type: s, completions: n, max: o } = e,
@@ -5592,12 +5592,7 @@ const root$3 = "_root_9azk3_2",
                 padding: "26-0-24",
                 column: !0,
                 children: [
-                  jsx( Text, { type: "subheadline-1", color: "secondary", center: !0, children: "Your balance" } ),
                   jsx( Content, { padding: "0-0-4", justify: "center", children: jsx( Score, { score: i } ) } ),
-                  jsx( Content, {
-                    onClick: () => s( "/clicker/boosts-explanation" ),
-                    children: jsx( Text, { asLink: !0, type: "subheadline-1", semibold: !0, center: !0, children: "How boost works" } ),
-                  } ),
                 ],
               } ),
               jsx( Content, { column: !0, padding: "16-0-12", spacingChild: "2", children: jsx( Text, { type: "title-3", weight: "semibold", children: "Free daily boosters" } ) } ),
@@ -5741,15 +5736,7 @@ const root$3 = "_root_9azk3_2",
           } ),
         ],
       } ),
-      z = jsxs( Fragment, {
-        children: [
-          jsx( Content, { column: !0, padding: "8-0-12", spacingChild: "2", children: jsx( Text, { type: "title-2", weight: "semibold", children: "Specials" } ) } ),
-          jsx( Content, {
-            padding: "0-0-24",
-            children: jsx( Carousel, { list: special.map( ( w ) => jsx( TaskEarn, { userBoosts: [], task: w, userBalance: userBalance, onClick: () => { } }, `special-${w.id}` ) ), slideSize: 4 } ),
-          } ),
-        ],
-      } );
+      z = jsxs( Fragment, {} );
     return jsxs( Page, {
       className: styles$h.page,
       children: [
@@ -5789,9 +5776,9 @@ const root$3 = "_root_9azk3_2",
                       type: "subheadline-2",
                       color: "secondary",
                       className: styles$h.priceAfterWrap,
-                      children: [ jsx( "span", { className: styles$h.priceAfter, children: "up to 100K" } ), " for fren" ],
+                      children: [ jsx( "span", { className: styles$h.priceAfter, children: "+10K" } ), "" ],
                     } ),
-                    before: jsx( MediaIcon, { media: { type: "cover-emoji", value: "🤝", color: "pale-grey" }, imageSize: "72", size: "72", borderRadius: "12" } ),
+                    before: jsx( MediaIcon, { media: { type: "cover-emoji", value: '🤝', color: "pale-grey" }, imageSize: "72", size: "72", borderRadius: "12" } ),
                     large: !0,
                     ripple: !0,
                     chevron: !0,
@@ -5800,25 +5787,6 @@ const root$3 = "_root_9azk3_2",
               } ),
               L ? null : T,
               B ? null : z,
-              jsx( Content, {
-                column: !0,
-                padding: "8-0-12",
-                spacingChild: "2",
-                children: jsxs( Text, {
-                  type: "title-2",
-                  weight: "semibold",
-                  children: [ "Web3 world", " ", jsxs( "span", { className: styles$h.slideIndex, children: [ s + 1, "/", Math.floor( y.length / 3 ) ] } ) ],
-                } ),
-              } ),
-              jsx( Content, {
-                padding: "0-0-24",
-                className: styles$h.carouselWrap,
-                children: jsx( Carousel, {
-                  onSlideChange: n,
-                  list: C.map( ( w ) => jsx( TaskEarn, { userLeagueId: i == null ? void 0 : i.leagueId, userBoosts: [], task: w, userBalance: userBalance, onClick: I }, `special-${w.id}` ) ),
-                  slideSize: 4,
-                } ),
-              } ),
               L ? T : null,
               B ? z : null,
               jsxs( Text, {
