@@ -2647,14 +2647,14 @@ const useBoostStore = create( ( e, t ) => ( {
       o = diffInSeconds( new Date( t ), new Date() ) * s + e.lastAvailableCoins;
     return o > e.limitCoins ? e.limitCoins : o;
   },
-  calculateClickValue = ( isTurbo, t, def ) => ( isTurbo && t && def ? Number( t.multiple ) * Number( def ) : def || 1 ),
+  calculateClickValue = ( isTurbo, t, value ) => ( isTurbo && t && value ? Number( t.multiple ) * Number( value ) : value || 1 ),
   calculateAvailableToClick = ( e, t, s ) => {
     const n = e + t;
     return Math.min( n, s );
   },
-  calculateClicksThreshold = ( e, t, s ) => {
-    const o = 159 * ( calculateClickValue( t, s, e.multipleClicks ) ?? 1 );
-    return o > e.limitCoins ? e.limitCoins : o;
+  calculateClicksThreshold = ( me, isTurbo, settings ) => {
+    const temp = 159 * ( calculateClickValue( isTurbo, settings, me.multipleClicks ) ?? 1 );
+    return temp > me.limitCoins ? me.limitCoins : temp;
   },
   NEWBIE_UNLOCK_SCORE = 14,
   useClickerStore = create( ( setProf, getProf ) => ( {
@@ -2708,11 +2708,12 @@ const useBoostStore = create( ( e, t ) => ( {
       } );
     },
     click: () => {
-      const s = getProf().isTurboMode,
-        n = getProf().turboSettings,
-        o = calculateClickValue( s, n, getProf().clickValue ),
-        r = s ? getProf().availableToClick : getProf().availableToClick - o;
-      if ( ( n && n.expire - 2e3 < Date.now() && ( getProf().saveClicks(), getProf().switchTurbo( !1 ) ), r <= 0 ) ) {
+      const isTurbo = getProf().isTurboMode,
+        turboSettings = getProf().turboSettings,
+        o = calculateClickValue( isTurbo, turboSettings, getProf().clickValue ),
+        r = isTurbo ? getProf().availableToClick : getProf().availableToClick - o;
+      console.log( o, r, isTurbo, turboSettings, getProf().clickValue);
+      if ( ( turboSettings && turboSettings.expire - 2000 < Date.now() && ( getProf().saveClicks(), getProf().switchTurbo( !1 ) ), r <= 0 ) ) {
         const a = o + r;
         setProf( { unsavedClicks: getProf().unsavedClicks + a, score: getProf().score + a, lastTimeClicked: Date.now(), availableToClick: 0, cooldown: 10 } );
       } else {
@@ -2765,9 +2766,10 @@ const useBoostStore = create( ( e, t ) => ( {
       n &&
       ( s
         ? activeTurboApi().then( ( o ) => {
-          setProf( { isTurboMode: !0, turboSettings: o, clicksThreshold: calculateClicksThreshold( n, !0, o ), cooldown: 0 } );
+          console.log( "turbo", o );
+          setProf( { isTurboMode: 1, turboSettings: o, clicksThreshold: calculateClicksThreshold( n, 1, o ), cooldown: 0 } );
         } )
-        : setProf( { isTurboMode: !1, turboSettings: null, clicksThreshold: calculateClicksThreshold( n, !1, null ) } ) );
+        : setProf( { isTurboMode: 0, turboSettings: null, clicksThreshold: calculateClicksThreshold( n, 0, null ) } ) );
     },
     fetchRobotBalance: async () => {
       const { ok: s, data: n } = await fetchRobotBalance();
@@ -7055,7 +7057,7 @@ function ClickerMainPage() {
       lastMiningAt: lastMiningAt,
       robotMined: robotMined,
       clickValue: clickValue,
-      turboSettings: turboS,
+      turboSettings: turboSettings,
       turboTimes: turboTimes,
       turboGift: turboGift,
       cooldown: cooldown,
@@ -7121,7 +7123,7 @@ function ClickerMainPage() {
       jsx( BackButton, { hidden: !0 } ),
       newbie && jsx( "div", { className: styles$b.background, style: { backgroundPositionY: getC + "px" } } ),
       jsx( TurboPussy, { show: getA, times: turboTimes, onClick: onRocket } ),
-      jsx( Coinfall, { show: isTurbo, multiple: turboS == null ? void 0 : turboS.multiple } ),
+      jsx( Coinfall, { show: isTurbo, multiple: turboSettings == null ? void 0 : turboSettings.multiple } ),
       !newbie && jsx( Squad, { squadInfo: u, teamId: userProfile == null ? void 0 : userProfile.teamId } ),
       !newbie &&
       jsxs( Content, {
@@ -7133,7 +7135,7 @@ function ClickerMainPage() {
         ],
       } ),
       newbie && jsx( "div", { style: { height: "195px" } } ),
-      jsx( Notcoin, { canIClickPlease: okToClick, sleep: isSleep, funMode: isTurbo, clickValue: calculateClickValue( isTurbo, turboS, clickValue ), cooldown: cooldown, handleClick: I } ),
+      jsx( Notcoin, { canIClickPlease: okToClick, sleep: isSleep, funMode: isTurbo, clickValue: calculateClickValue( isTurbo, turboSettings, clickValue ), cooldown: cooldown, handleClick: I } ),
       !newbie && userProfile && jsx( Progress, { current: availableToClick, profile: userProfile } ),
       jsx( Robot, { isShown: getB, minedAmount: robotMined, setShow: setB, claimAction: claimRobot } ),
     ],
