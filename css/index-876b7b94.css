@@ -2370,6 +2370,7 @@ img,
 picture {
   max-width: 100%;
   display: block;
+  /* height: 120px; */
 }
 input,
 button,
@@ -4432,10 +4433,12 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   margin-bottom: 20px;
 }
 ._image_kzxmr_18 {
+  display: flex;
   width: 120px;
   margin: 0 auto;
   border-radius: 24px;
   font-size: 120px;
+  justify-content: center;
 }
 ._backButton_kzxmr_25 {
   padding: var(--body-padding);

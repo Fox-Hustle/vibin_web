@@ -4751,7 +4751,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
         ? jsxs( "div", {
           className: styles$s.body,
           children: [
-            jsx( "div", { className: styles$s.image, children: s.icon } ),
+            jsx( "div", { className: styles$s.image, children: !s.iconType ? s.icon : jsx("img", { src: s.icon }) } ),
             jsx( Text, { type: "title-0", weight: "bold", margin: "0-0-4-0", align: "center", color: "white", children: s.title } ),
             jsx( Text, { type: "subheadline-1", margin: "0-0-16-0", align: "center", color: "secondary", children: s.description } ),
             jsx( "div", { className: styles$s.board, children: jsx( "div", { className: cn( styles$s.cardTitle, styles$s.score ), children: "Free" } ) } ),
@@ -7930,7 +7930,7 @@ function App() {
                 {
                   path: "clicker",
                   children: [
-                    jsx( Route, { path: "", element: canOpen ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} )  } ),
+                    jsx( Route, { path: "", element: canOpen ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} ) } ),
                     jsx( Route, { path: "houmie", element: jsx( ClickerMainPage, {} ) } ),
                     jsx( Route, { path: "league/:leagueId/:type?", element: jsx( ClickerLeaguePage, {} ) } ),
                     jsx( Route, { path: "league/influencer", element: jsx( ClickerLeagueInfluencerPage, {} ) } ),
