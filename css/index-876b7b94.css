@@ -4730,7 +4730,7 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   height: 320px;
   min-height: 320px;
   border-radius: 0;
-  background-image: url(https://yescoin.space/clicker/mainCoin.png); /* url(https://fast.image.delivery/toufgsh.jpg); */
+  /*background-image: url(https://yescoin.space/clicker/mainCoin.png);  url(https://fast.image.delivery/toufgsh.jpg); */
   font-size: 72px;
   font-weight: 700;
   text-align: center;
@@ -4778,8 +4778,11 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   transform: translate(-50%, 0) scale(1.1);
   transition: .1s;
 }
+._btn_9azk3_51 {
+  width: 100%;
+}
 ._skin-default_9azk3_60 {
-  background-image: url(https://yescoin.space/clicker/gold.png);
+  /* background-image: url(https://yescoin.space/clicker/gold.png); */
 }
 ._skin-fallout_9azk3_64 {
   background-image: url(https://imagedelivery.net/B4lKhBZXBr2ZrOdPiT3vew/fbe68931-5923-43c2-6522-3db9f58b2500/public);

@@ -5130,6 +5130,7 @@ const root$3 = "_root_9azk3_2",
   clickAmount$1 = "_clickAmount_9azk3_126",
   click$1 = "_click_9azk3_126",
   btn$1 = "_btn_9azk3_50",
+  video$1 = "_btn_9azk3_51",
   styles$o = {
     root: root$3,
     container: container$1,
@@ -5153,6 +5154,7 @@ const root$3 = "_root_9azk3_2",
     clickAmount: clickAmount$1,
     click: click$1,
     btn: btn$1,
+    video: video$1,
   },
   numberAnimationDurationMs = 1e3,
   numberAnimationDurationSec = numberAnimationDurationMs / 1e3,
@@ -5218,10 +5220,46 @@ const root$3 = "_root_9azk3_2",
                 rotateY(${getPos.rotateY}deg)
               `,
                   },
-                  children: jsx("button", {
-                    className: styles$o.btn,
-                    children: "BUY",
-                  }),
+                  onClick: () => {
+                    const video = document.querySelector('._btn_9azk3_51');
+                    const container = document.querySelector('._notcoin_9azk3_34');
+                    let timer = null;
+                    console.log('inner');
+                    
+                    function playPauseVideo() {
+                      console.log('play')
+                      if (timer) {
+                        clearTimeout(timer)
+                        setTimer();
+                      }
+                      
+                      if (video.paused) {
+                        video.play();
+                        setTimer()
+                      }
+                      
+                      function setTimer() {
+                        timer = setTimeout(() => {
+                          video.pause();
+                          timer = null;
+                        }, 500);
+                      }
+                    }
+                    
+                    container.addEventListener('click', playPauseVideo);
+                  },
+                  children: [
+                    jsx("video", {
+                      className: styles$o.video,
+                      muted: true,
+                      loop: true,
+                      src: "/clicker/candles/Button.webm",
+                    }),
+                    jsx("button", {
+                      className: styles$o.btn,
+                      children: "BUY",
+                    })
+                  ],
                 } ),
               } ),
               jsx( "div", {
