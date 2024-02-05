@@ -3361,21 +3361,8 @@ const getBoostDetails = ( e ) => ( boostData[ e ] ? boostData[ e ] : { title: "B
           ? jsxs( "div", {
             className: cn( styles$T.footer, styles$T.isLocked ),
             children: [
-              jsx( "svg", {
-                width: "16",
-                height: "16",
-                viewBox: "0 0 16 16",
-                fill: "none",
-                xmlns: "http://www.w3.org/2000/svg",
-                children: jsx( "path", {
-                  d: "M4.69554 15H11.3038C12.2167 15 12.6663 14.5336 12.6663 13.5018V8.20848C12.6663 7.27562 12.2985 6.80212 11.5354 6.72438V4.9788C11.5354 2.29329 9.81184 1 7.99968 1C6.18751 1 4.46391 2.29329 4.46391 4.9788V6.74558C3.75539 6.85866 3.33301 7.32509 3.33301 8.20848V13.5018C3.33301 14.5336 3.78264 15 4.69554 15ZM5.77194 4.85159C5.77194 3.20495 6.78021 2.30035 7.99968 2.30035C9.21233 2.30035 10.2274 3.20495 10.2274 4.85159V6.71025L5.77194 6.71731V4.85159Z",
-                  fill: "#FEB803",
-                } ),
-              } ),
-              s === BoostStatusEnum.lockedByPrice ? beautifyMoney$1( String( t.price ) ) : null,
-              s === BoostStatusEnum.lockedByLeague ? `${getLeagueById( t.minLeagueId ).name} league` : null,
               n !== null
-                ? jsxs( Fragment, { children: [ jsx( "span", { className: styles$T.separator, children: "・" } ), jsxs( "span", { className: styles$T.level, children: [ n, " lvl" ] } ) ] } )
+                ? jsxs( Fragment, { children: [ jsxs( "span", { className: styles$T.level, children: [ n, " lvl" ] } ) ] } )
                 : null,
             ],
           } )
@@ -3521,16 +3508,9 @@ function FrenItem( { id: e, name: t, score: s, reward: n, leagueId: o, isPremium
             jsxs( "div", { className: styles$N.title, children: [ t, r && jsx( "span", { className: styles$N.premium } ) ] } ),
             jsxs( "div", {
               className: styles$N.score,
-              children: [
-                jsx( "img", { src: `https://yescoin.space/clicker/league/${l}.png`, height: "16", alt: "League cup", className: styles$N.leagueCup } ),
-                jsx( "div", { className: styles$N.leagueName, children: l } ),
-                jsx( "div", { className: styles$N.dot, children: "・" } ),
-                jsx( "p", { className: styles$N.reward, children: beautifyMoney$2( String( s ) ) } ),
-              ],
             } ),
           ],
         } ),
-        jsxs( "div", { className: styles$N.broughtYou, children: [ "+", formatNumberAbbreviation( Number( n ) ) ] } ),
         jsx( "div", { className: styles$N.chevronWrap, children: c ? jsx( Icon, { name: "ChevronRight", className: styles$N.chevron } ) : null } ),
       ],
     } ),
@@ -3815,7 +3795,6 @@ const placeAndLeague = "_placeAndLeague_xg9t0_1",
     const i = c.weekly.rank;
     return jsxs( "div", {
       className: cn( styles$E.placeAndLeague, e === "column" && styles$E.gridColumn ),
-      onClick: () => ( s ? a( `/clicker/league/${t}/${o === "user" ? "user" : "team"}` ) : () => { } ),
       children: [
         i
           ? jsxs( "div", {
@@ -3830,11 +3809,7 @@ const placeAndLeague = "_placeAndLeague_xg9t0_1",
         i && e === "row" ? jsx( "div", { className: styles$E.dot, children: "・" } ) : null,
         jsxs( "div", {
           className: styles$E.league,
-          children: [
-            jsx( "img", { src: `https://yescoin.space/clicker/league/${r}.png`, height: "24", alt: "League cup", className: styles$E.cup } ),
-            jsx( "div", { className: styles$E.leagueName, children: r } ),
-            s ? jsx( Icon, { name: "ChevronRight", className: styles$E.leagueChevron, size: "12" } ) : null,
-          ],
+          children: "POINTS!!!",
         } ),
       ],
     } );
@@ -5415,83 +5390,10 @@ const root$3 = "_root_9azk3_2",
       reactExports.useEffect( () => {
         o( getLeagueById( t == null ? void 0 : t.leagueId ) );
       }, [ t ] ),
-        e && t
-          ? jsx( "div", {
-            className: styles$m.root,
-            children: jsxs( Content, {
-              onClick: () => {
-                s( `/clicker/squad/${t.id}` );
-              },
-              className: styles$m.squadInfoRoot,
-              fadeIn: !0,
-              children: [
-                jsxs( Content, {
-                  align: "center",
-                  children: [
-                    jsx( "img", {
-                      src: t.logo,
-                      className: styles$m.squadLogo,
-                      width: "48",
-                      alt: `${t.name} logo`,
-                      onError: ( { currentTarget: r } ) => {
-                        ( r.onerror = null ), ( r.src = "https://yescoin.space/clicker/travolta.gif" );
-                      },
-                    } ),
-                    jsxs( "div", {
-                      style: { overflow: "hidden" },
-                      children: [
-                        jsx( Text, { type: "headline", sfRounded: !0, className: styles$m.squadName, children: t.name } ),
-                        t.coins
-                          ? jsx( Text, { type: "subheadline-1", semibold: !0, sfRounded: !0, className: styles$m.squadScore, children: beautifyMoney$2( String( t.coins ) ) } )
-                          : "",
-                      ],
-                    } ),
-                  ],
-                } ),
-                jsxs( "div", {
-                  style: { flexShrink: "0" },
-                  children: [
-                    t.rank
-                      ? jsxs( Content, {
-                        justify: "center",
-                        align: "center",
-                        spacingBottom: "4",
-                        className: styles$m.squadPlaceWrap,
-                        children: [
-                          jsx( Icon, { name: "Laurel" } ),
-                          jsx( "div", { className: styles$m.squadPlace, children: rankToString( t.rank.rank ) } ),
-                          jsx( Icon, { name: "Laurel", className: styles$m.laurelIconReversed } ),
-                        ],
-                      } )
-                      : "",
-                    n
-                      ? jsxs( Text, {
-                        type: "subheadline-1",
-                        semibold: !0,
-                        sfRounded: !0,
-                        className: styles$m.squadLeague,
-                        children: [ jsx( "img", { src: `https://yescoin.space/clicker/league/${n.name}.png`, height: "24", alt: "League cup" } ), n.name ],
-                      } )
-                      : "",
-                  ],
-                } ),
-              ],
-            } ),
-          } )
-          : e
-            ? jsx( Button, { className: styles$m.joinSquadButton, type: "Hollow", disabled: !0, children: "Loading from the Potato Sarvar 🥔" } )
-            : jsx( "div", {
-              className: styles$m.root,
-              children: jsxs( Button, {
-                className: styles$m.joinSquadButton,
-                type: "Hollow",
-                onClick: () => {
-                  s( "/clicker/league/squad" );
-                },
-                fullwidth: !0,
-                children: [ "Join squad", jsx( Icon, { name: "chevron-right", className: styles$m.chevron } ) ],
-              } ),
-            } )
+        jsx( "div", {
+          className: styles$m.root,
+          children: '',
+        } )
     );
   },
   root$2 = "_root_1cnlb_1",
@@ -8025,7 +7927,7 @@ function App() {
                 {
                   path: "clicker",
                   children: [
-                    jsx( Route, { path: "", element: canOpen ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} ) } ),
+                    jsx( Route, { path: "", element: canOpen ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} )  } ),
                     jsx( Route, { path: "houmie", element: jsx( ClickerMainPage, {} ) } ),
                     jsx( Route, { path: "league/:leagueId/:type?", element: jsx( ClickerLeaguePage, {} ) } ),
                     jsx( Route, { path: "league/influencer", element: jsx( ClickerLeagueInfluencerPage, {} ) } ),
