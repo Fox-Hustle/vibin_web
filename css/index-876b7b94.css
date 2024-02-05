@@ -1261,6 +1261,7 @@ body[data-mode="dark"] ._withDivider_idmys_42:after {
 }
 ._content_luci1_59 {
   flex-grow: 1;
+  position: relative;
 }
 ._header_luci1_63 {
   color: #3c3c4399;
@@ -1275,9 +1276,15 @@ body[data-mode="dark"] ._header_luci1_63 {
   line-height: 18px;
   font-size: 14px;
   margin-top: 3px;
+  /* position: absolute; */
+  /* top:  0; */
+  /* right: 0; */
+  /* background: rgba(255, 255, 255, 0.2); */
+  /* padding: 4px; */
+  /* border-radius: 7px; */
 }
 body[data-mode="dark"] ._footer_luci1_72 {
-  color: #ebebf599;
+  color: #ebebf5;
 }
 ._title_luci1_82 {
   width: 100%;
@@ -2363,6 +2370,7 @@ img,
 picture {
   max-width: 100%;
   display: block;
+  /* height: 120px; */
 }
 input,
 button,
@@ -2698,6 +2706,12 @@ body {
 ._level_dmcml_54 {
   color: #ffffff4d;
   font-weight: 400;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px;
+  border-radius: 7px;
 }
 ._separator_dmcml_59 {
   font-size: 20px;
@@ -2976,7 +2990,9 @@ body {
   left: -1px;
   width: 16px;
   height: 16px;
-  background: url(https://yescoin.space/clicker/coin-min.svg) center center/contain;
+  background: url(https://yescoin.space/clicker/moneta-small.png) center center/contain;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 1);
 }
 ._broughtYou_4dk1f_84 {
   margin-left: auto;
@@ -4303,6 +4319,7 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   padding: 12px 16px;
   display: flex;
   align-items: center;
+  width: 50%;
   border-radius: 16px;
   background-color: var(--color-bg-fifth);
   flex-grow: 1;
@@ -4416,10 +4433,12 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   margin-bottom: 20px;
 }
 ._image_kzxmr_18 {
+  display: flex;
   width: 120px;
   margin: 0 auto;
   border-radius: 24px;
   font-size: 120px;
+  justify-content: center;
 }
 ._backButton_kzxmr_25 {
   padding: var(--body-padding);
@@ -4502,7 +4521,7 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   height: 14px;
   left: 3px;
   top: 8px;
-  background-color: #e4a502;
+  /* background-color: #e4a502; */
 }
 ._successIcon_kzxmr_114 {
   font-size: 156px;
@@ -4730,7 +4749,7 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   height: 320px;
   min-height: 320px;
   border-radius: 0;
-  background-image: url(https://yescoin.space/clicker/mainCoin.png); /* url(https://fast.image.delivery/toufgsh.jpg); */
+  /*background-image: url(https://yescoin.space/clicker/mainCoin.png);  url(https://fast.image.delivery/toufgsh.jpg); */
   font-size: 72px;
   font-weight: 700;
   text-align: center;
@@ -4778,8 +4797,11 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   transform: translate(-50%, 0) scale(1.1);
   transition: .1s;
 }
+._btn_9azk3_51 {
+  width: 100%;
+}
 ._skin-default_9azk3_60 {
-  background-image: url(https://yescoin.space/clicker/gold.png);
+  /* background-image: url(https://yescoin.space/clicker/gold.png); */
 }
 ._skin-fallout_9azk3_64 {
   background-image: url(https://imagedelivery.net/B4lKhBZXBr2ZrOdPiT3vew/fbe68931-5923-43c2-6522-3db9f58b2500/public);

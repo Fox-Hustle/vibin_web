@@ -2808,18 +2808,18 @@ const useBoostStore = create( ( e, t ) => ( {
       completions: 0,
       isCompleted: !1,
     },
-    // {
-    //   id: 5,
-    //   title: "Full Solana",
-    //   description: jsxs( Fragment, { children: [ "Recharge your energy to the limit ", jsx( "br", {} ), "and do another round of mining" ] } ),
-    //   // icon: "⚡️",
-    //   icon: "https://yescoin.space/clicker/coin-icon.png",
-    //   imageSize: "72",
-    //   type: "fullEnergy",
-    //   max: 3,
-    //   completions: 0,
-    //   isCompleted: !1,
-    // },
+    {
+      id: 2,
+      title: "Full Solana",
+      description: jsxs( Fragment, { children: [ "Recharge your energy to the limit ", jsx( "br", {} ), "and do another round of mining" ] } ),
+      // icon: "⚡️",
+      icon: "https://yescoin.space/clicker/coin-icon.png",
+      iconType: "img",
+      type: "fullEnergy",
+      max: 3,
+      completions: 0,
+      isCompleted: !1,
+    },
   ],
   useStatisticsStore = create( ( e, t ) => ( {
     isLoading: !0,
@@ -2850,10 +2850,12 @@ const useBoostStore = create( ( e, t ) => ( {
     },
   } ) ),
   onboardingTasksData = [
-    { id: 6, title: "Join Squad", icon: "😸", type: "joinsquad", coins: 5e3, isCompleted: !0 },
-    { id: 5, title: "Invite 5 frens", icon: "😸", type: "5Referral", coins: 5e4, isCompleted: !0 },
-    { id: 4, title: "Invite 10 frens", icon: "😸", type: "10Referral", coins: 100000, isCompleted: !0 },
-    { id: 3, title: "Invite 20 frens", icon: "😸", type: "20Referral", coins: 200000, isCompleted: 0 },
+    // { id: 8, title: "Invite 20 frens", icon: "😸", type: "20Referral", coins: 1e5, isCompleted: !0 },
+    // { id: 7, title: "Invite 10 frens", icon: "😸", type: "10Referral", coins: 5e4, isCompleted: !0 },
+    // { id: 6, title: "Invite 5 frens", icon: "😸", type: "5Referral", coins: 25e3, isCompleted: !0 },
+    // { id: 5, title: "Invite 1 frens", icon: "😸", type: "1Referral", coins: 5e3, isCompleted: !0 },
+    { id: 4, title: "Earn 100 NFCoin", icon: "😸", type: "100Clicks", coins: 200, isCompleted: !1 },
+    { id: 3, title: "Earn 1000 NFCoin", icon: "😸", type: "1000Clicks", coins: 2000, isCompleted: !1 },
   ],
   specialTasksData = [
     {
@@ -3361,21 +3363,8 @@ const getBoostDetails = ( e ) => ( boostData[ e ] ? boostData[ e ] : { title: "B
           ? jsxs( "div", {
             className: cn( styles$T.footer, styles$T.isLocked ),
             children: [
-              jsx( "svg", {
-                width: "16",
-                height: "16",
-                viewBox: "0 0 16 16",
-                fill: "none",
-                xmlns: "http://www.w3.org/2000/svg",
-                children: jsx( "path", {
-                  d: "M4.69554 15H11.3038C12.2167 15 12.6663 14.5336 12.6663 13.5018V8.20848C12.6663 7.27562 12.2985 6.80212 11.5354 6.72438V4.9788C11.5354 2.29329 9.81184 1 7.99968 1C6.18751 1 4.46391 2.29329 4.46391 4.9788V6.74558C3.75539 6.85866 3.33301 7.32509 3.33301 8.20848V13.5018C3.33301 14.5336 3.78264 15 4.69554 15ZM5.77194 4.85159C5.77194 3.20495 6.78021 2.30035 7.99968 2.30035C9.21233 2.30035 10.2274 3.20495 10.2274 4.85159V6.71025L5.77194 6.71731V4.85159Z",
-                  fill: "#FEB803",
-                } ),
-              } ),
-              s === BoostStatusEnum.lockedByPrice ? beautifyMoney$1( String( t.price ) ) : null,
-              s === BoostStatusEnum.lockedByLeague ? `${getLeagueById( t.minLeagueId ).name} league` : null,
               n !== null
-                ? jsxs( Fragment, { children: [ jsx( "span", { className: styles$T.separator, children: "・" } ), jsxs( "span", { className: styles$T.level, children: [ n, " lvl" ] } ) ] } )
+                ? jsxs( Fragment, { children: [ jsxs( "span", { className: styles$T.level, children: [ n, " lvl" ] } ) ] } )
                 : null,
             ],
           } )
@@ -3521,16 +3510,9 @@ function FrenItem( { id: e, name: t, score: s, reward: n, leagueId: o, isPremium
             jsxs( "div", { className: styles$N.title, children: [ t, r && jsx( "span", { className: styles$N.premium } ) ] } ),
             jsxs( "div", {
               className: styles$N.score,
-              children: [
-                jsx( "img", { src: `https://yescoin.space/clicker/league/${l}.png`, height: "16", alt: "League cup", className: styles$N.leagueCup } ),
-                jsx( "div", { className: styles$N.leagueName, children: l } ),
-                jsx( "div", { className: styles$N.dot, children: "・" } ),
-                jsx( "p", { className: styles$N.reward, children: beautifyMoney$2( String( s ) ) } ),
-              ],
             } ),
           ],
         } ),
-        jsxs( "div", { className: styles$N.broughtYou, children: [ "+", formatNumberAbbreviation( Number( n ) ) ] } ),
         jsx( "div", { className: styles$N.chevronWrap, children: c ? jsx( Icon, { name: "ChevronRight", className: styles$N.chevron } ) : null } ),
       ],
     } ),
@@ -3815,7 +3797,6 @@ const placeAndLeague = "_placeAndLeague_xg9t0_1",
     const i = c.weekly.rank;
     return jsxs( "div", {
       className: cn( styles$E.placeAndLeague, e === "column" && styles$E.gridColumn ),
-      onClick: () => ( s ? a( `/clicker/league/${t}/${o === "user" ? "user" : "team"}` ) : () => { } ),
       children: [
         i
           ? jsxs( "div", {
@@ -3830,11 +3811,7 @@ const placeAndLeague = "_placeAndLeague_xg9t0_1",
         i && e === "row" ? jsx( "div", { className: styles$E.dot, children: "・" } ) : null,
         jsxs( "div", {
           className: styles$E.league,
-          children: [
-            jsx( "img", { src: `https://yescoin.space/clicker/league/${r}.png`, height: "24", alt: "League cup", className: styles$E.cup } ),
-            jsx( "div", { className: styles$E.leagueName, children: r } ),
-            s ? jsx( Icon, { name: "ChevronRight", className: styles$E.leagueChevron, size: "12" } ) : null,
-          ],
+          children: "POINTS!!!",
         } ),
       ],
     } );
@@ -4632,19 +4609,20 @@ function getTaskStatus( { type: e, completions: t = 0, max: s } ) {
   return t >= s ? getMidnightStatus() : `${s - t}/${s}`;
 }
 const TaskDailyItem = ( { task: e, onClick: t } ) => {
-    const { type: s, completions: n, max: o } = e,
+    const { type: s, completions: n, max: o, iconType: ab } = e,
       { title: r, icon: a } = e,
       c = () => {
         l || t();
       },
       i = getTaskStatus( e ),
-      l = n === o;
+      l = n === o,
+      condition = ab === "img";
     return jsxs( "div", {
       className: cn( styles$u.taskDailyItem, l && styles$u.completed ),
       onClick: c,
       children: [
         jsxs( "div", { className: styles$u.bodyWrap, children: [ jsx( "div", { className: styles$u.title, children: r } ), jsx( "div", { className: styles$u.status, children: i } ) ] } ),
-        jsx( "div", { className: styles$u.icon, children: a } ),
+        jsx( "div", { className: styles$u.icon, children: !condition ? a : jsx("img", { src: a }) } ),
       ],
     } );
   },
@@ -4773,7 +4751,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
         ? jsxs( "div", {
           className: styles$s.body,
           children: [
-            jsx( "div", { className: styles$s.image, children: s.icon } ),
+            jsx( "div", { className: styles$s.image, children: !s.iconType ? s.icon : jsx("img", { src: s.icon }) } ),
             jsx( Text, { type: "title-0", weight: "bold", margin: "0-0-4-0", align: "center", color: "white", children: s.title } ),
             jsx( Text, { type: "subheadline-1", margin: "0-0-16-0", align: "center", color: "secondary", children: s.description } ),
             jsx( "div", { className: styles$s.board, children: jsx( "div", { className: cn( styles$s.cardTitle, styles$s.score ), children: "Free" } ) } ),
@@ -5130,6 +5108,7 @@ const root$3 = "_root_9azk3_2",
   clickAmount$1 = "_clickAmount_9azk3_126",
   click$1 = "_click_9azk3_126",
   btn$1 = "_btn_9azk3_50",
+  video$1 = "_btn_9azk3_51",
   styles$o = {
     root: root$3,
     container: container$1,
@@ -5153,6 +5132,7 @@ const root$3 = "_root_9azk3_2",
     clickAmount: clickAmount$1,
     click: click$1,
     btn: btn$1,
+    video: video$1,
   },
   numberAnimationDurationMs = 1e3,
   numberAnimationDurationSec = numberAnimationDurationMs / 1e3,
@@ -5218,10 +5198,46 @@ const root$3 = "_root_9azk3_2",
                 rotateY(${getPos.rotateY}deg)
               `,
                   },
-                  children: jsx("button", {
-                    className: styles$o.btn,
-                    children: "BUY",
-                  }),
+                  onClick: () => {
+                    const video = document.querySelector('._btn_9azk3_51');
+                    const container = document.querySelector('._notcoin_9azk3_34');
+                    let timer = null;
+                    console.log('inner');
+                    
+                    function playPauseVideo() {
+                      console.log('play')
+                      if (timer) {
+                        clearTimeout(timer)
+                        setTimer();
+                      }
+                      
+                      if (video.paused) {
+                        video.play();
+                        setTimer()
+                      }
+                      
+                      function setTimer() {
+                        timer = setTimeout(() => {
+                          video.pause();
+                          timer = null;
+                        }, 500);
+                      }
+                    }
+                    
+                    container.addEventListener('click', playPauseVideo);
+                  },
+                  children: [
+                    jsx("video", {
+                      className: styles$o.video,
+                      muted: true,
+                      loop: true,
+                      src: "/clicker/candles/Button.webm",
+                    }),
+                    jsx("button", {
+                      className: styles$o.btn,
+                      children: "BUY",
+                    })
+                  ],
                 } ),
               } ),
               jsx( "div", {
@@ -5377,83 +5393,10 @@ const root$3 = "_root_9azk3_2",
       reactExports.useEffect( () => {
         o( getLeagueById( t == null ? void 0 : t.leagueId ) );
       }, [ t ] ),
-        e && t
-          ? jsx( "div", {
-            className: styles$m.root,
-            children: jsxs( Content, {
-              onClick: () => {
-                s( `/clicker/squad/${t.id}` );
-              },
-              className: styles$m.squadInfoRoot,
-              fadeIn: !0,
-              children: [
-                jsxs( Content, {
-                  align: "center",
-                  children: [
-                    jsx( "img", {
-                      src: t.logo,
-                      className: styles$m.squadLogo,
-                      width: "48",
-                      alt: `${t.name} logo`,
-                      onError: ( { currentTarget: r } ) => {
-                        ( r.onerror = null ), ( r.src = "https://yescoin.space/clicker/travolta.gif" );
-                      },
-                    } ),
-                    jsxs( "div", {
-                      style: { overflow: "hidden" },
-                      children: [
-                        jsx( Text, { type: "headline", sfRounded: !0, className: styles$m.squadName, children: t.name } ),
-                        t.coins
-                          ? jsx( Text, { type: "subheadline-1", semibold: !0, sfRounded: !0, className: styles$m.squadScore, children: beautifyMoney$2( String( t.coins ) ) } )
-                          : "",
-                      ],
-                    } ),
-                  ],
-                } ),
-                jsxs( "div", {
-                  style: { flexShrink: "0" },
-                  children: [
-                    t.rank
-                      ? jsxs( Content, {
-                        justify: "center",
-                        align: "center",
-                        spacingBottom: "4",
-                        className: styles$m.squadPlaceWrap,
-                        children: [
-                          jsx( Icon, { name: "Laurel" } ),
-                          jsx( "div", { className: styles$m.squadPlace, children: rankToString( t.rank.rank ) } ),
-                          jsx( Icon, { name: "Laurel", className: styles$m.laurelIconReversed } ),
-                        ],
-                      } )
-                      : "",
-                    n
-                      ? jsxs( Text, {
-                        type: "subheadline-1",
-                        semibold: !0,
-                        sfRounded: !0,
-                        className: styles$m.squadLeague,
-                        children: [ jsx( "img", { src: `https://yescoin.space/clicker/league/${n.name}.png`, height: "24", alt: "League cup" } ), n.name ],
-                      } )
-                      : "",
-                  ],
-                } ),
-              ],
-            } ),
-          } )
-          : e
-            ? jsx( Button, { className: styles$m.joinSquadButton, type: "Hollow", disabled: !0, children: "Loading from the Potato Sarvar 🥔" } )
-            : jsx( "div", {
-              className: styles$m.root,
-              children: jsxs( Button, {
-                className: styles$m.joinSquadButton,
-                type: "Hollow",
-                onClick: () => {
-                  s( "/clicker/league/squad" );
-                },
-                fullwidth: !0,
-                children: [ "Join squad", jsx( Icon, { name: "chevron-right", className: styles$m.chevron } ) ],
-              } ),
-            } )
+        jsx( "div", {
+          className: styles$m.root,
+          children: '',
+        } )
     );
   },
   root$2 = "_root_1cnlb_1",
@@ -6101,39 +6044,8 @@ function ClickerFrensPage() {
                 spacingChild: "12",
                 children: [
                   s !== null && s.amount > 0 ? jsxs( Content, { justify: "center", children: [ s.amount, " Fren", s.amount > 1 ? "s" : "" ] } ) : "Fren zone",
-                  jsx( Button$1, {
-                    type: "inline-link",
-                    onClick: () => e( "/clicker/frens-details" ),
-                    children: jsx( Text, { type: "subheadline-1", center: !0, semibold: !0, children: "How to make 1M?" } ),
-                  } ),
                 ],
               } ),
-            } ),
-            jsxs( "div", {
-              className: styles$f.place,
-              onClick: () => e( "/clicker/league/influencer" ),
-              children: [
-                jsxs( "div", {
-                  className: styles$f.frenScore,
-                  children: [
-                    s !== null
-                      ? jsx( "span", { children: jsx( RollingNumbers, { value: `+${beautifyLongNumber( s.score )}`, height: 40 } ) } )
-                      : jsx( "div", { className: styles$f.frenScoreSkeleton } ),
-                    jsx( "img", { src: "https://yescoin.space/clicker/coin-min.svg", alt: "min coin", width: 24 } ),
-                  ],
-                } ),
-                jsx( "div", { className: styles$f.delimeter } ),
-                jsxs( "div", {
-                  className: styles$f.text,
-                  children: [
-                    jsx( "img", { src: "https://yescoin.space/clicker/league/influencer.png" } ),
-                    s.rank ? `${s.rank} ${nth( s.rank )}` : "Top 300",
-                    " ",
-                    jsx( "span", { className: styles$f.textShadow, children: "leaders" } ),
-                  ],
-                } ),
-                jsx( Icon, { className: styles$f.icon, name: "ChevronRight" } ),
-              ],
             } ),
             jsx( Text, { type: "title-2", margin: "24-0-12-0", semibold: !0, children: "Frens List" } ),
             jsxs( Content, {
@@ -8018,7 +7930,7 @@ function App() {
                 {
                   path: "clicker",
                   children: [
-                    jsx( Route, { path: "", element: jsx( ClickerMainPage, {} ) } ),
+                    jsx( Route, { path: "", element: canOpen ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} ) } ),
                     jsx( Route, { path: "houmie", element: jsx( ClickerMainPage, {} ) } ),
                     jsx( Route, { path: "league/:leagueId/:type?", element: jsx( ClickerLeaguePage, {} ) } ),
                     jsx( Route, { path: "league/influencer", element: jsx( ClickerLeagueInfluencerPage, {} ) } ),
