@@ -2746,6 +2746,7 @@ const useBoostStore = create( ( e, t ) => ( {
       try {
         const n = await saveClickerCountApi( s, getProf().hash, getProf().isTurboMode, getProf().availableToClick );
         setProf( { hash: n.hash, availableToClick: n.lastAvailableCoins, lastMiningAt: n.lastMiningAt, turboTimes: n.turboTimes, isSaving: !1 } );
+        getProf().isTurboMode || setTimeout( () => getProf().checkTurbo(), 1e4 );
       } catch ( n ) {
         console.error( n ), setProf( { isSaving: !1 } ), ( n.message == "Try Later" || n.response.status === 502 ) && setProf( { unsavedClicks: getProf().unsavedClicks + s } );
       }
@@ -2754,7 +2755,7 @@ const useBoostStore = create( ( e, t ) => ( {
       if ( !( getProf().turboTimes > 0 || getProf().isTurboMode || getProf().turboGift ) )
         try {
           const s = await checkTurboApi();
-          s != null && s.turbo && setProf( { turboGift: !0, turboGiftExpire: Date.now() + 6e3 } );
+          s != null && s.turbo && setProf( { turboGift: !0, turboGiftExpire: Date.now() + 7e3 } );
         } catch ( s ) {
           console.error( s );
         }
@@ -7079,7 +7080,7 @@ function ClickerMainPage() {
     I = () => {
       isSleep || ( tgapp.HapticFeedback.impactOccurred( "light" ), tgapp.isExpanded || tgapp.expand(), click(), newbie && getC - N / ( NEWBIE_UNLOCK_SCORE - 1 ) > 0 && setC( getC - N / ( NEWBIE_UNLOCK_SCORE - 1 ) ) );
     },
-    T = async () => {
+    onRocket = async () => {
       setA( !1 ), switchTurbo( !0 );
     };
   reactExports.useEffect( () => {
@@ -7119,7 +7120,7 @@ function ClickerMainPage() {
       jsx( MainButton, { hidden: !0 } ),
       jsx( BackButton, { hidden: !0 } ),
       newbie && jsx( "div", { className: styles$b.background, style: { backgroundPositionY: getC + "px" } } ),
-      jsx( TurboPussy, { show: getA, times: turboTimes, onClick: T } ),
+      jsx( TurboPussy, { show: getA, times: turboTimes, onClick: onRocket } ),
       jsx( Coinfall, { show: isTurbo, multiple: turboS == null ? void 0 : turboS.multiple } ),
       !newbie && jsx( Squad, { squadInfo: u, teamId: userProfile == null ? void 0 : userProfile.teamId } ),
       !newbie &&
