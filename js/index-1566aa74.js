@@ -3583,7 +3583,7 @@ const leaderboard = "_leaderboard_x95tw_1",
   placeholderText = "_placeholderText_x95tw_18",
   listInner = "_listInner_x95tw_25",
   styles$K = { leaderboard, placeholder: placeholder$1, placeholderImage, placeholderText, listInner },
-  Leaderboard = ( { list: e, tabs: t, highlightId: s, highlightText: n, boardType: o = "coins" } ) =>
+  Leaderboard = ( { list: top, tabs: t, highlightId: highlightId, highlightText: n, boardType: o = "coins" } ) =>
     jsxs( "div", {
       className: styles$K.leaderboard,
       children: [
@@ -3591,7 +3591,7 @@ const leaderboard = "_leaderboard_x95tw_1",
         jsxs( "div", {
           className: styles$K.listInner,
           children: [
-            e === null
+            top === null
               ? jsxs( Content, {
                 column: !0,
                 fadeIn: !0,
@@ -3604,7 +3604,7 @@ const leaderboard = "_leaderboard_x95tw_1",
                 ],
               } )
               : null,
-            e !== null && e.length === 0
+            top !== null && top.length === 0
               ? jsx( Content, {
                 column: !0,
                 fadeIn: !0,
@@ -3617,27 +3617,27 @@ const leaderboard = "_leaderboard_x95tw_1",
                 } ),
               } )
               : null,
-            e !== null && e.length > 0
+            top !== null && top.length > 0
               ? jsx( Content, {
                 column: !0,
                 fadeIn: !0,
-                children: e.map( ( r, a ) =>
+                children: top.map( ( x, index ) =>
                   jsx(
                     LeaderboardItem,
                     {
                       boardType: o,
-                      i: r.index ? r.index : a,
-                      indexText: r.indexText,
-                      id: r.id,
-                      title: r.title,
-                      points: r.points,
-                      bonus: r.bonus,
-                      avatar: r == null ? void 0 : r.img,
-                      isSticked: s && e.length > 3 ? r.id.toString() === s.toString() : !1,
-                      link: r.link,
-                      after: r.id === s ? n : null,
+                      i: x.index ? x.index : index,
+                      indexText: x.indexText,
+                      id: x.id,
+                      title: x.title,
+                      points: x.points,
+                      bonus: x.bonus,
+                      avatar: x == null ? void 0 : x.img,
+                      isSticked: highlightId && top.length > 3 ? x.id.toString() === highlightId.toString() : !1,
+                      link: x.link,
+                      after: x.id === highlightId ? n : null,
                     },
-                    r.id
+                    x.id
                   )
                 ),
               } )
@@ -6613,23 +6613,23 @@ function ClickerLeaguePage() {
     t && Number( t ) !== i.id && l( getLeagueById( Number( t ) ) );
   }, [ t ] ),
     reactExports.useEffect( () => {
-      r( typeIndex.indexOf( s ) ), _( null ), u && k();
+      r( typeIndex.indexOf( s ) ), _( null ), u && getLEaderboard();
     }, [ a, i, s, u ] );
-  const k = async () => {
+  const getLEaderboard = async () => {
       var M, A;
       const T = timeIndex[ a ];
       let z = y[ T ];
-      !I && t !== "1" && ( z = await p( T ) );
-      const { ok: w, items: q } = I
+      !isSkvad && t !== "1" && ( z = await p( T ) );
+      const { ok: w, items: items } = isSkvad
         ? await fetchReferralLeaderboardApi()
         : await fetchLeaderboard( { type: s, league: i.enum, time: T, squadId: ( s === "team" && ( u == null ? void 0 : u.teamId ) ) || void 0 } );
       if ( w ) {
-        if ( ( I || s === "user" ) && v ) {
+        if ( ( isSkvad || s === "user" ) && v ) {
           const R = z.rank,
             F = z.score;
-          !q.some( ( W ) => W.userId === ( u == null ? void 0 : u.userId ) ) &&
+          !items.some( ( x ) => x.userId === ( u == null ? void 0 : u.userId ) ) &&
           R &&
-          q.push( {
+          items.push( {
             index: R,
             i: R,
             id: u == null ? void 0 : u.userId,
@@ -6640,17 +6640,17 @@ function ClickerLeaguePage() {
         }
         setTimeout(
           () => {
-            _( q );
+            _( items );
           },
           v ? 350 : 200
         );
       } else n( { message: "Can't fetch data. Try again later.", type: "error" } );
     },
     h = () => {
-      !I && i.id - 1 >= 1 && e( `/clicker/league/${i.id - 1}/${s}` );
+      !isSkvad && i.id - 1 >= 1 && e( `/clicker/league/${i.id - 1}/${s}` );
     },
     b = () => {
-      !I && i.id + 1 <= 5 && e( `/clicker/league/${i.id + 1}/${s}` );
+      !isSkvad && i.id + 1 <= 5 && e( `/clicker/league/${i.id + 1}/${s}` );
     },
     $ = getCurrentScore( u, typeIndex[ o ], m ),
     C = getLeagueLimitById( i.id, typeIndex[ o ] ),
@@ -6669,7 +6669,7 @@ function ClickerLeaguePage() {
         w = E - z;
       w > 5 && b(), w < -5 && h(), N( null );
     },
-    I = i.enum === "influencer";
+    isSkvad = i.enum === "influencer";
   return jsxs( Page, {
     className: styles$n.page,
     children: [
@@ -6691,7 +6691,7 @@ function ClickerLeaguePage() {
                   onTouchStart: S,
                   onTouchMove: P,
                   children: [
-                    I
+                    isSkvad
                       ? null
                       : jsxs( Fragment, {
                         children: [
@@ -6763,7 +6763,7 @@ function ClickerLeaguePage() {
                   padding: "16-0",
                   column: !0,
                   children: [
-                    I ? null : jsxs( Tabs, { onChange: f, activeIndex: o, className: styles$n.tabs, children: [ jsx( Tab, { label: "Miners" } ), jsx( Tab, { label: "Squads" } ) ] } ),
+                    isSkvad ? null : jsxs( Tabs, { onChange: f, activeIndex: o, className: styles$n.tabs, children: [ jsx( Tab, { label: "Miners" } ), jsx( Tab, { label: "Squads" } ) ] } ),
                     t === "1"
                       ? jsxs( Text, {
                         className: styles$n.zeroState,
@@ -6775,13 +6775,13 @@ function ClickerLeaguePage() {
                         ],
                       } )
                       : jsx( Leaderboard, {
-                        highlightId: s === "user" || I ? ( u == null ? void 0 : u.userId ) : ( u == null ? void 0 : u.teamId ) || null,
-                        highlightText: s === "user" || I ? "You" : "Your",
+                        highlightId: s === "user" || isSkvad ? ( u == null ? void 0 : u.userId ) : ( u == null ? void 0 : u.teamId ) || null,
+                        highlightText: s === "user" || isSkvad ? "You" : "Your",
                         list: d,
-                        boardType: I ? "frens" : "coins",
-                        tabs: I
+                        boardType: isSkvad ? "frens" : "coins",
+                        tabs: isSkvad
                           ? null
-                          : jsxs( Tabs, { onChange: g, activeIndex: a, flat: !0, children: [ jsx( Tab, { label: "Day", flat: !0 } ), jsx( Tab, { label: "Week", flat: !0 } ) ] } ),
+                          : null //jsxs( Tabs, { onChange: g, activeIndex: a, flat: !0, children: [ jsx( Tab, { label: "Day", flat: !0 } ), jsx( Tab, { label: "Week", flat: !0 } ) ] } ),
                       } ),
                   ],
                 } ),
