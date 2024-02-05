@@ -2808,18 +2808,18 @@ const useBoostStore = create( ( e, t ) => ( {
       completions: 0,
       isCompleted: !1,
     },
-    // {
-    //   id: 5,
-    //   title: "Full Solana",
-    //   description: jsxs( Fragment, { children: [ "Recharge your energy to the limit ", jsx( "br", {} ), "and do another round of mining" ] } ),
-    //   // icon: "⚡️",
-    //   icon: "https://yescoin.space/clicker/coin-icon.png",
-    //   imageSize: "72",
-    //   type: "fullEnergy",
-    //   max: 3,
-    //   completions: 0,
-    //   isCompleted: !1,
-    // },
+    {
+      id: 2,
+      title: "Full Solana",
+      description: jsxs( Fragment, { children: [ "Recharge your energy to the limit ", jsx( "br", {} ), "and do another round of mining" ] } ),
+      // icon: "⚡️",
+      icon: "https://yescoin.space/clicker/coin-icon.png",
+      iconType: "img",
+      type: "fullEnergy",
+      max: 3,
+      completions: 0,
+      isCompleted: !1,
+    },
   ],
   useStatisticsStore = create( ( e, t ) => ( {
     isLoading: !0,
@@ -2850,10 +2850,12 @@ const useBoostStore = create( ( e, t ) => ( {
     },
   } ) ),
   onboardingTasksData = [
-    { id: 6, title: "Join Squad", icon: "😸", type: "joinsquad", coins: 5e3, isCompleted: 0 },
-    { id: 5, title: "Invite 5 frens", icon: "😸", type: "5Referral", coins: 5e4, isCompleted: 0 },
-    { id: 4, title: "Invite 10 frens", icon: "😸", type: "10Referral", coins: 100000, isCompleted: 0 },
-    { id: 3, title: "Invite 20 frens", icon: "😸", type: "20Referral", coins: 200000, isCompleted: 0 },
+    // { id: 8, title: "Invite 20 frens", icon: "😸", type: "20Referral", coins: 1e5, isCompleted: !0 },
+    // { id: 7, title: "Invite 10 frens", icon: "😸", type: "10Referral", coins: 5e4, isCompleted: !0 },
+    // { id: 6, title: "Invite 5 frens", icon: "😸", type: "5Referral", coins: 25e3, isCompleted: !0 },
+    // { id: 5, title: "Invite 1 frens", icon: "😸", type: "1Referral", coins: 5e3, isCompleted: !0 },
+    { id: 4, title: "Earn 100 NFCoin", icon: "😸", type: "100Clicks", coins: 200, isCompleted: !1 },
+    { id: 3, title: "Earn 1000 NFCoin", icon: "😸", type: "1000Clicks", coins: 2000, isCompleted: !1 },
   ],
   specialTasksData = [
     {
@@ -4607,19 +4609,20 @@ function getTaskStatus( { type: e, completions: t = 0, max: s } ) {
   return t >= s ? getMidnightStatus() : `${s - t}/${s}`;
 }
 const TaskDailyItem = ( { task: e, onClick: t } ) => {
-    const { type: s, completions: n, max: o } = e,
+    const { type: s, completions: n, max: o, iconType: ab } = e,
       { title: r, icon: a } = e,
       c = () => {
         l || t();
       },
       i = getTaskStatus( e ),
-      l = n === o;
+      l = n === o,
+      condition = ab === "img";
     return jsxs( "div", {
       className: cn( styles$u.taskDailyItem, l && styles$u.completed ),
       onClick: c,
       children: [
         jsxs( "div", { className: styles$u.bodyWrap, children: [ jsx( "div", { className: styles$u.title, children: r } ), jsx( "div", { className: styles$u.status, children: i } ) ] } ),
-        jsx( "div", { className: styles$u.icon, children: a } ),
+        jsx( "div", { className: styles$u.icon, children: !condition ? a : jsx("img", { src: a }) } ),
       ],
     } );
   },
