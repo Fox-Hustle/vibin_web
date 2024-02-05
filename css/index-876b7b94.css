@@ -2976,7 +2976,9 @@ body {
   left: -1px;
   width: 16px;
   height: 16px;
-  background: url(https://yescoin.space/clicker/coin-min.svg) center center/contain;
+  background: url(https://yescoin.space/clicker/moneta-small.png) center center/contain;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 1);
 }
 ._broughtYou_4dk1f_84 {
   margin-left: auto;

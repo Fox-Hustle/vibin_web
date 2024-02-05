@@ -2850,9 +2850,9 @@ const useBoostStore = create( ( e, t ) => ( {
     },
   } ) ),
   onboardingTasksData = [
-    { id: 6, title: "Join Squad", icon: "😸", type: "joinsquad", coins: 5e3, isCompleted: !0 },
-    { id: 5, title: "Invite 5 frens", icon: "😸", type: "5Referral", coins: 5e4, isCompleted: !0 },
-    { id: 4, title: "Invite 10 frens", icon: "😸", type: "10Referral", coins: 100000, isCompleted: !0 },
+    { id: 6, title: "Join Squad", icon: "😸", type: "joinsquad", coins: 5e3, isCompleted: 0 },
+    { id: 5, title: "Invite 5 frens", icon: "😸", type: "5Referral", coins: 5e4, isCompleted: 0 },
+    { id: 4, title: "Invite 10 frens", icon: "😸", type: "10Referral", coins: 100000, isCompleted: 0 },
     { id: 3, title: "Invite 20 frens", icon: "😸", type: "20Referral", coins: 200000, isCompleted: 0 },
   ],
   specialTasksData = [
@@ -6139,39 +6139,8 @@ function ClickerFrensPage() {
                 spacingChild: "12",
                 children: [
                   s !== null && s.amount > 0 ? jsxs( Content, { justify: "center", children: [ s.amount, " Fren", s.amount > 1 ? "s" : "" ] } ) : "Fren zone",
-                  jsx( Button$1, {
-                    type: "inline-link",
-                    onClick: () => e( "/clicker/frens-details" ),
-                    children: jsx( Text, { type: "subheadline-1", center: !0, semibold: !0, children: "How to make 1M?" } ),
-                  } ),
                 ],
               } ),
-            } ),
-            jsxs( "div", {
-              className: styles$f.place,
-              onClick: () => e( "/clicker/league/influencer" ),
-              children: [
-                jsxs( "div", {
-                  className: styles$f.frenScore,
-                  children: [
-                    s !== null
-                      ? jsx( "span", { children: jsx( RollingNumbers, { value: `+${beautifyLongNumber( s.score )}`, height: 40 } ) } )
-                      : jsx( "div", { className: styles$f.frenScoreSkeleton } ),
-                    jsx( "img", { src: "https://yescoin.space/clicker/coin-min.svg", alt: "min coin", width: 24 } ),
-                  ],
-                } ),
-                jsx( "div", { className: styles$f.delimeter } ),
-                jsxs( "div", {
-                  className: styles$f.text,
-                  children: [
-                    jsx( "img", { src: "https://yescoin.space/clicker/league/influencer.png" } ),
-                    s.rank ? `${s.rank} ${nth( s.rank )}` : "Top 300",
-                    " ",
-                    jsx( "span", { className: styles$f.textShadow, children: "leaders" } ),
-                  ],
-                } ),
-                jsx( Icon, { className: styles$f.icon, name: "ChevronRight" } ),
-              ],
             } ),
             jsx( Text, { type: "title-2", margin: "24-0-12-0", semibold: !0, children: "Frens List" } ),
             jsxs( Content, {
@@ -8056,7 +8025,7 @@ function App() {
                 {
                   path: "clicker",
                   children: [
-                    jsx( Route, { path: "", element: jsx( ClickerMainPage, {} ) } ),
+                    jsx( Route, { path: "", element: canOpen ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} ) } ),
                     jsx( Route, { path: "houmie", element: jsx( ClickerMainPage, {} ) } ),
                     jsx( Route, { path: "league/:leagueId/:type?", element: jsx( ClickerLeaguePage, {} ) } ),
                     jsx( Route, { path: "league/influencer", element: jsx( ClickerLeagueInfluencerPage, {} ) } ),
