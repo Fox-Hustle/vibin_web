@@ -2534,12 +2534,12 @@ const useBoostStore = create( ( e, t ) => ( {
         : { id: e.user.id, title: e.user.firstName + " " + ( e.user.lastName ?? "" ), points: e.lcoins, img: e.avatar, userId: e.userId },
   frensNormalizer = ( { rawItem: e } ) => ( {
     id: e.userId,
-    name: e.user.firstName + " " + ( e.user.lastName ?? "" ),
+    name: e.user.first_name + " " + ( e.user.last_name ?? "" ),
     reward: e.reward,
-    score: e.user.clickerProfile.totalCoins,
-    leagueId: e.user.clickerProfile.leagueId,
-    isPremium: e.user.isPremium,
-    avatar: e.user.clickerProfile.avatar,
+    score: e.totalCoins,
+    leagueId: e.leagueId,
+    isPremium: e.is_premium,
+    avatar: e.avatar,
     link: e.user.username ? `https://t.me/${e.user.username}` : "",
   } ),
   fetchLeaderboard = async ( { type: e, league: t, time: s, squadId: n } ) => {
@@ -2799,7 +2799,7 @@ const useBoostStore = create( ( e, t ) => ( {
   ],
   dailyTasksData = [
     {
-      id: 3,
+      id: 6,
       title: "Turbo",
       description: jsxs( Fragment, { children: [ "Get a Turbo boost now.", jsx( "br", {} ), " Be ready to catch the rocket!" ] } ),
       icon: "📈",
@@ -2809,7 +2809,7 @@ const useBoostStore = create( ( e, t ) => ( {
       isCompleted: !1,
     },
     {
-      id: 2,
+      id: 5,
       title: "Full Solana",
       description: jsxs( Fragment, { children: [ "Recharge your energy to the limit ", jsx( "br", {} ), "and do another round of mining" ] } ),
       // icon: "⚡️",
@@ -3146,8 +3146,8 @@ const beautifyMoney$2 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
       [ n, o ] = useToggle( !1 ),
       [ r, a ] = reactExports.useState( !1 ),
       [ c, i ] = reactExports.useState( null ),
-      { classicBoosts: l, fetchBoosts: d, isLoaded: _ } = useBoostStore(),
-      { userProfile: p, score: m } = useClickerStore(),
+      { classicBoosts: boosts, fetchBoosts: getBoost, isLoaded: _ } = useBoostStore(),
+      { userProfile: me, score: m } = useClickerStore(),
       u = ( k ) => {
         s(), i( k ), o();
       },
@@ -3156,7 +3156,7 @@ const beautifyMoney$2 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
         ( a( !0 ),
           t( { message: "Buying...", type: "loading" } ),
           await buyBoost( k ).then( async ( h ) => {
-            if ( h != null && h.ok ) await d(), e();
+            if ( h != null && h.ok ) await getBoost(), e();
             else {
               const b = h != null && h.data.message ? ( h == null ? void 0 : h.data.message ) : "¯\\_(ツ)_/¯ Buying error. Try again later.";
               t( { message: b, type: "error" } );
@@ -3164,12 +3164,12 @@ const beautifyMoney$2 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
           } ),
           a( !1 ) );
       },
-      f = p != null && p.clickerBoostXProfile ? p.clickerBoostXProfile : [],
-      g = l.sort( ( k, h ) => ( k.id > h.id ? 1 : -1 ) ).sort( ( k ) => ( isMaxLevelAchieved( k, f ) ? 1 : -1 ) );
+      bought = me != null && me.clickerBoostXProfile ? me.clickerBoostXProfile : [],
+      g = boosts.sort( ( k, h ) => ( k.id > h.id ? 1 : -1 ) ).sort( ( k ) => ( isMaxLevelAchieved( k, bought ) ? 1 : -1 ) );
     return _
       ? jsxs( Fragment, {
         children: [
-          jsx( BoostSheet, { isOpened: n, onClose: o, boost: c, level: c ? getBoostLevel( c, f ) : null, buyBoost: buyB } ),
+          jsx( BoostSheet, { isOpened: n, onClose: o, boost: c, level: c ? getBoostLevel( c, bought ) : null, buyBoost: buyB } ),
           jsx( Content, {
             fadeIn: !0,
             className: styles$U.taskCarousel,
@@ -3178,11 +3178,11 @@ const beautifyMoney$2 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
                 jsx(
                   BoostItemBoost,
                   {
-                    userLeagueId: p != null && p.leagueId ? ( p == null ? void 0 : p.leagueId ) : 0,
-                    maxLevelAchieved: isMaxLevelAchieved( k, f ),
-                    currentLevel: getBoostLevel( k, f ),
+                    userLeagueId: me != null && me.leagueId ? ( me == null ? void 0 : me.leagueId ) : 0,
+                    maxLevelAchieved: isMaxLevelAchieved( k, bought ),
+                    currentLevel: getBoostLevel( k, bought ),
                     boost: k,
-                    userBoosts: f,
+                    userBoosts: bought,
                     userBalance: m,
                     onClick: () => u( k ),
                   },
@@ -3346,28 +3346,34 @@ const getBoostDetails = ( e ) => ( boostData[ e ] ? boostData[ e ] : { title: "B
     return s !== void 0 ? ( s[ e.id ] ? s[ e.id ] : 0 ) : null;
   },
   renderFooterByStatus = ( e ) => {
-    const { boost: t, boostStatus: s, currentLevel: n } = e;
+    const { boost: t, boostStatus: s, currentLevel: level } = e;
     return s === BoostStatusEnum.available
       ? jsxs( "div", {
         className: cn( styles$T.footer, styles$T.price ),
         children: [
           beautifyMoney$1( String( t.price ) ),
-          n !== null
-            ? jsxs( Fragment, { children: [ jsx( "span", { className: styles$T.separator, children: "・" } ), jsxs( "span", { className: styles$T.level, children: [ n, " lvl" ] } ) ] } )
+          level !== null
+            ? jsxs( Fragment, { children: [ jsx( "span", { className: styles$T.separator, children: "・" } ), jsxs( "span", { className: styles$T.level, children: [ level, " lvl" ] } ) ] } )
             : null,
         ],
       } )
       : s === BoostStatusEnum.completed
         ? jsx( "div", { className: cn( styles$T.footer, styles$T.isCompleted ), children: "Max level reached" } )
         : s === BoostStatusEnum.lockedByPrice || s === BoostStatusEnum.lockedByLeague
-          ? jsxs( "div", {
-            className: cn( styles$T.footer, styles$T.isLocked ),
-            children: [
-              n !== null
-                ? jsxs( Fragment, { children: [ jsxs( "span", { className: styles$T.level, children: [ n, " lvl" ] } ) ] } )
-                : null,
-            ],
-          } )
+          ? jsxs("div", {
+            className: cn(styles$U.footer, styles$U.isLocked),
+            children: [jsx("svg", {
+                width: "16",
+                height: "16",
+                viewBox: "0 0 16 16",
+                fill: "none",
+                xmlns: "http://www.w3.org/2000/svg",
+                children: jsx("path", {
+                    d: "M4.69554 15H11.3038C12.2167 15 12.6663 14.5336 12.6663 13.5018V8.20848C12.6663 7.27562 12.2985 6.80212 11.5354 6.72438V4.9788C11.5354 2.29329 9.81184 1 7.99968 1C6.18751 1 4.46391 2.29329 4.46391 4.9788V6.74558C3.75539 6.85866 3.33301 7.32509 3.33301 8.20848V13.5018C3.33301 14.5336 3.78264 15 4.69554 15ZM5.77194 4.85159C5.77194 3.20495 6.78021 2.30035 7.99968 2.30035C9.21233 2.30035 10.2274 3.20495 10.2274 4.85159V6.71025L5.77194 6.71731V4.85159Z",
+                    fill: "#FEB803"
+                })
+            }), s === BoostStatusEnum.lockedByPrice ? beautifyMoney$1(t.price) : null, s === BoostStatusEnum.lockedByLeague ? `${getLeagueById(t.minLeagueId).name} league` : null]
+        })
           : null;
   },
   BoostItemBoost = ( { userLeagueId: e, boost: t, userBalance: s, currentLevel: n, onClick: o, maxLevelAchieved: r } ) => {
@@ -3380,6 +3386,7 @@ const getBoostDetails = ( e ) => ( boostData[ e ] ? boostData[ e ] : { title: "B
       m = l && e < l;
     let u = BoostStatusEnum.available;
     canPay || ( u = BoostStatusEnum.lockedByPrice ), m && ( u = BoostStatusEnum.lockedByLeague ), p && ( u = BoostStatusEnum.completed );
+    console.log( s, canPay, u, i );
     const y = renderFooterByStatus( { boost: t, boostStatus: u, currentLevel: n } ),
       { title: f, icon: g } = getBoostDetails( c ),
       k = { color: "pale-grey", type: "cover-emoji", value: g },
@@ -5998,29 +6005,29 @@ const page$8 = "_page_ygi9q_12",
   };
 function ClickerFrensPage() {
   const e = useNavigate(),
-    { userProfile: t } = useClickerStore(),
-    [ s, n ] = reactExports.useState( null ),
-    [ o, r ] = reactExports.useState( null ),
-    a = async () => {
-      const i = await fetchFrens(),
-        l = await fetchFrensStatApi();
-      l.ok && n( { score: l.data.bonus ? l.data.bonus : 0, amount: l.data.count ? l.data.count : 0, rank: l.data.rank ? l.data.rank : 0 } ),
-      i &&
-      ( i.sort( ( d, _ ) => {
-        const p = parseInt( d.score ),
-          m = parseInt( _.score );
-        if ( d.reward === _.reward ) {
+    { userProfile: me } = useClickerStore(),
+    [ settats, setStats ] = reactExports.useState( null ),
+    [ frensGet, setFrens ] = reactExports.useState( null ),
+    load = async () => {
+      const frens = await fetchFrens(),
+        stats = await fetchFrensStatApi();
+      stats.ok && setStats( { score: stats.data.bonus ? stats.data.bonus : 0, amount: stats.data.count ? stats.data.count : 0, rank: stats.data.rank ? stats.data.rank : 0 } ),
+      frens &&
+      ( frens.sort( ( a, b ) => {
+        const p = parseInt( a.score ),
+          m = parseInt( b.score );
+        if ( a.reward === b.reward ) {
           if ( p < m ) return 1;
           if ( p > m ) return -1;
         }
         return 0;
       } ),
-        r( i ) );
+        setFrens( frens ) );
     };
   reactExports.useEffect( () => {
-    t && a();
-  }, [ t ] );
-  const c = s !== null && o !== null;
+    me && load();
+  }, [ me ] );
+  const c = settats !== null && frensGet !== null;
   return jsxs( Page, {
     className: styles$f.page,
     children: [
@@ -6043,7 +6050,7 @@ function ClickerFrensPage() {
                 column: !0,
                 spacingChild: "12",
                 children: [
-                  s !== null && s.amount > 0 ? jsxs( Content, { justify: "center", children: [ s.amount, " Fren", s.amount > 1 ? "s" : "" ] } ) : "Fren zone",
+                  settats !== null && settats.amount > 0 ? jsxs( Content, { justify: "center", children: [ settats.amount, " Fren", settats.amount > 1 ? "s" : "" ] } ) : "Fren zone",
                 ],
               } ),
             } ),
@@ -6052,8 +6059,8 @@ function ClickerFrensPage() {
               className: styles$f.frensList,
               column: !0,
               children: [
-                o === null ? jsxs( Content, { column: !0, fadeIn: !0, children: [ jsx( Skeleton.FrenItem, {} ), jsx( Skeleton.FrenItem, {} ), jsx( Skeleton.FrenItem, {} ) ] } ) : null,
-                o && !o.length
+                frensGet === null ? jsxs( Content, { column: !0, fadeIn: !0, children: [ jsx( Skeleton.FrenItem, {} ), jsx( Skeleton.FrenItem, {} ), jsx( Skeleton.FrenItem, {} ) ] } ) : null,
+                frensGet && !frensGet.length
                   ? jsxs( Content, {
                     className: styles$f.placeholder,
                     justify: "center",
@@ -6066,12 +6073,12 @@ function ClickerFrensPage() {
                     ],
                   } )
                   : null,
-                o !== null && o.length > 0
+                frensGet !== null && frensGet.length > 0
                   ? jsx( Content, {
                     column: !0,
                     fadeIn: !0,
                     spacingChild: "8",
-                    children: o.map( ( i, l ) =>
+                    children: frensGet.map( ( i, l ) =>
                       jsx(
                         FrenItem,
                         { id: i.id, name: i.name, score: i.score, reward: i.reward, leagueId: i.leagueId, isPremium: i.isPremium, avatar: i.avatar, link: i.link },
@@ -7930,7 +7937,7 @@ function App() {
                 {
                   path: "clicker",
                   children: [
-                    jsx( Route, { path: "", element: canOpen ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} ) } ),
+                    jsx( Route, { path: "", element: canOpen || d ? jsx( ClickerMainPage, {} ) : jsx( BoringDesktop, {} ) } ),
                     jsx( Route, { path: "houmie", element: jsx( ClickerMainPage, {} ) } ),
                     jsx( Route, { path: "league/:leagueId/:type?", element: jsx( ClickerLeaguePage, {} ) } ),
                     jsx( Route, { path: "league/influencer", element: jsx( ClickerLeagueInfluencerPage, {} ) } ),
