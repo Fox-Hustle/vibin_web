@@ -1,3 +1,7 @@
+#root {
+  background: linear-gradient(#686c77, transparent 1px), linear-gradient(90deg, #686c77, transparent 1px) #161a25;
+  background-size: 20px 20px;
+}
 ._backdrop_19oqi_1 {
   user-select: none;
   position: fixed;
@@ -6133,7 +6137,7 @@ body[data-mode="dark"] ._rippleEffect_dasiz_93:active {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: url(https://yescoin.space/clicker/main_bg.png) no-repeat center center/cover #000;
+  /*background: url(https://yescoin.space/clicker/main_bg.png) no-repeat center center/cover #000;*/
   gap: 20px;
   padding-top: 16px;
   padding-bottom: 20px;
