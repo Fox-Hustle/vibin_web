@@ -5194,13 +5194,35 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(https://yescoin.space/clicker/xmasTree.png);
+  background: url(https://yescoin.space/clicker/red-bg.png);
   background-size: 20%;
   background-position: center center;
   background-color: #000;
   z-index: -2;
 }
 ._root_1cnlb_1:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000b8;
+  z-index: -1;
+}
+._root_1cnlb_1good {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(https://yescoin.space/clicker/green-bg.png);
+  background-size: 20%;
+  background-position: center center;
+  background-color: #000;
+  z-index: -2;
+}
+._root_1cnlb_1good:after {
   content: "";
   position: absolute;
   top: 0;
