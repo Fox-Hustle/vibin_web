@@ -5589,7 +5589,7 @@ const root$3 = "_root_9azk3_2",
             width: "120",
             transition: { opacity: { duration: 3, ease: "linear", delay: 2 } },
             onClick: c,
-            src: "https://yescoin.space/clicker/ny-rocket-o.gif",
+            src: "https://yescoin.space/clicker/rocketa-men.png",
           } ),
       } )
     );
