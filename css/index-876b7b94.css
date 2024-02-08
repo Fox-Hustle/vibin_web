@@ -1,37 +1,44 @@
 #root {
   background: linear-gradient(#686c77, transparent 1px), linear-gradient(90deg, #686c77, transparent 1px) #161a25;
-  background-size: 20px 20px;
+  background-size: calc(100vw / 20) calc(100vw / 20);
 }
 .canvas_jasdeq {
-  height: 300px;
+  height: 250px;
 }
 .canvas_jasdeq_bg {
-  /* background: url(http://localhost:5173/img/1.png); */
+  background: url(https://yescoin.space/clicker/pepa-bg.png);
 }
 .box-canvas_gdahkd {
   overflow: hidden;
+  width: 250px;
+  height: 250px;
 }
 .candle_asdfjh {
+  border: solid 3px rgba(0, 21, 6, 0.8);
   position: absolute;
-  bottom: 30px;
-  left: -30px;
+  bottom: 10px;
+  left: -1px;
   max-height: 250%;
   height: 10px;
   width: 30px;
-  background-color: rgb(0, 183, 70);
+  background-color: #0d8e33;
+  -moz-box-shadow: 0px 0px 3px -1px #FFFFFF;
+  -webkit-box-shadow: 0px 0px 3px -1px #FFFFFF;
+  box-shadow: 0px 0px 3px -1px #FFFFFF;
 }
 .candle__red_sdfjkg {
   background-color: rgb(239, 64, 60);
 }
 .stick_adahfj {
-  background-color: rgb(0, 183, 70);
   position: absolute;
   transform: translate(-50%, 0);
   bottom: -10px;
   left: 50%;
-  width: 2px;
+  width: 3px;
   height: 140%;
+  background-color: #0d8e33;
   min-height: 30px;
+  opacity: 0.9;
 }
 ._backdrop_19oqi_1 {
   user-select: none;
@@ -4787,6 +4794,9 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   position: relative;
   z-index: 1;
   transform: none !important;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 ._notcoin_9azk3_34:active ._btn_9azk3_50 {
   background: rgb(71 71 71);
