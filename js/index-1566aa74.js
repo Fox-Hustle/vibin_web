@@ -3366,17 +3366,17 @@ const getBoostDetails = ( e ) => ( boostData[ e ] ? boostData[ e ] : { title: "B
           ? jsxs("div", {
             className: cn(styles$U.footer, styles$U.isLocked),
             children: [jsx("svg", {
-                width: "16",
-                height: "16",
-                viewBox: "0 0 16 16",
-                fill: "none",
-                xmlns: "http://www.w3.org/2000/svg",
-                children: jsx("path", {
-                    d: "M4.69554 15H11.3038C12.2167 15 12.6663 14.5336 12.6663 13.5018V8.20848C12.6663 7.27562 12.2985 6.80212 11.5354 6.72438V4.9788C11.5354 2.29329 9.81184 1 7.99968 1C6.18751 1 4.46391 2.29329 4.46391 4.9788V6.74558C3.75539 6.85866 3.33301 7.32509 3.33301 8.20848V13.5018C3.33301 14.5336 3.78264 15 4.69554 15ZM5.77194 4.85159C5.77194 3.20495 6.78021 2.30035 7.99968 2.30035C9.21233 2.30035 10.2274 3.20495 10.2274 4.85159V6.71025L5.77194 6.71731V4.85159Z",
-                    fill: "#FEB803"
-                })
+              width: "16",
+              height: "16",
+              viewBox: "0 0 16 16",
+              fill: "none",
+              xmlns: "http://www.w3.org/2000/svg",
+              children: jsx("path", {
+                d: "M4.69554 15H11.3038C12.2167 15 12.6663 14.5336 12.6663 13.5018V8.20848C12.6663 7.27562 12.2985 6.80212 11.5354 6.72438V4.9788C11.5354 2.29329 9.81184 1 7.99968 1C6.18751 1 4.46391 2.29329 4.46391 4.9788V6.74558C3.75539 6.85866 3.33301 7.32509 3.33301 8.20848V13.5018C3.33301 14.5336 3.78264 15 4.69554 15ZM5.77194 4.85159C5.77194 3.20495 6.78021 2.30035 7.99968 2.30035C9.21233 2.30035 10.2274 3.20495 10.2274 4.85159V6.71025L5.77194 6.71731V4.85159Z",
+                fill: "#FEB803"
+              })
             }), s === BoostStatusEnum.lockedByPrice ? beautifyMoney$1(t.price) : null, s === BoostStatusEnum.lockedByLeague ? `${getLeagueById(t.minLeagueId).name} league` : null]
-        })
+          })
           : null;
   },
   BoostItemBoost = ( { userLeagueId: e, boost: t, userBalance: s, currentLevel: n, onClick: o, maxLevelAchieved: r } ) => {
@@ -5118,7 +5118,7 @@ const root$3 = "_root_9azk3_2",
   clickAmount$1 = "_clickAmount_9azk3_126",
   click$1 = "_click_9azk3_126",
   btn$1 = "_btn_9azk3_50",
-  video$1 = "_btn_9azk3_51",
+  video$1 = "canvas_jasdeq canvas_jasdeq_bg",
   styles$o = {
     root: root$3,
     container: container$1,
@@ -5201,51 +5201,179 @@ const root$3 = "_root_9azk3_2",
                   className: cn( styles$o.notcoin, styles$o[ `skin-${currentSkin}` ], sleep ? styles$o.sleep : "" ),
                   onTouchStart: p,
                   onTouchEnd: m,
-                  style: {
-                    transform: `
-                translateZ(${getPos.translateZ}px)
-                rotateX(${getPos.rotateX}deg)
-                rotateY(${getPos.rotateY}deg)
-              `,
-                  },
                   onClick: () => {
-                    const video = document.querySelector('._btn_9azk3_51');
-                    const container = document.querySelector('._notcoin_9azk3_34');
-                    let timer = null;
-                    console.log('inner');
-                    
-                    function playPauseVideo() {
-                      console.log('play')
-                      if (timer) {
-                        clearTimeout(timer)
-                        setTimer();
+                    if (!document.hzkak) {
+                      document.hzkak = true
+                      class Sprite
+                      {
+                        constructor(options)
+                        {
+                          this.ctx = options.ctx;
+                          
+                          this.image = options.image;
+                          this.imageStars = options.imageStars;
+                          
+                          this.frameIndex = 0;
+                          this.tickCount = 0;
+                          this.ticksPerFrame = options.ticksPerFrame || 0;
+                          this.numberOfFrames = options.numberOfFrames || 1;
+                          
+                          this.width = options.width;
+                          this.height = options.height;
+                          
+                          this.clicksCount = 0;
+                          this.maxClicksPerSec = 0;
+                          this.clickTimeout = null;
+                          this.deleteMaxSpeedTimeout = null;
+                          
+                          this.tClick = new Date();
+                          
+                          this.start();
+                        }
+                        
+                        reset() {
+                          this.ticksPerFrame = 0;
+                          // this.frameIndex = 0;
+                        }
+                        
+                        update()
+                        {
+                          this.tickCount++;
+                          
+                          if (this.tickCount > this.ticksPerFrame) {
+                            this.tickCount = 0;
+                            if (this.frameIndex < this.numberOfFrames - 1) {
+                              this.frameIndex++;
+                            } else {
+                              this.frameIndex = 0;
+                            }
+                          }
+                        }
+                        
+                        render()
+                        {
+                          this.ctx.clearRect(0, 0, this.width / this.numberOfFrames, this.height);
+                          this.ctx.drawImage(
+                            this.image,
+                            this.frameIndex * this.width / this.numberOfFrames,
+                            0,
+                            this.width / this.numberOfFrames,
+                            this.height,
+                            0,
+                            0,
+                            this.width / this.numberOfFrames,
+                            this.height
+                          )
+                          if (this.ticksPerFrame !== 0) {
+                            this.ctx.drawImage(
+                              this.imageStars,
+                              this.frameIndex * this.width / this.numberOfFrames,
+                              0,
+                              this.width / this.numberOfFrames,
+                              this.height,
+                              0,
+                              0,
+                              this.width / this.numberOfFrames,
+                              this.height
+                            )
+                          }
+                        }
+                        
+                        start()
+                        {
+                          let loop = () => {
+                            this.update();
+                            this.render();
+                            
+                            if (this.ticksPerFrame !== 0) {
+                              window.requestAnimationFrame(loop);
+                            }
+                          }
+                          window.requestAnimationFrame(loop);
+                          
+                          document.querySelector('.canvas_jasdeq').addEventListener('click', ({target}) => {
+                            if (target.classList.contains('canvas_jasdeq_bg')) {
+                              target.classList.remove('canvas_jasdeq_bg');
+                            }
+                            
+                            clearTimeout(this.clickTimeout);
+                            this.clickTimeout = null;
+                            
+                            const diff = new Date() - this.tClick;
+                            
+                            if (diff < 3000) {
+                              this.ticksPerFrame = Math.floor(60 - ( diff * 16) / 1000 );
+                            } else {
+                              this.reset();
+                            }
+                            
+                            window.requestAnimationFrame(loop);
+                            this.clickTimeout = setTimeout(() => {
+                              this.reset();
+                              
+                            }, 1000)
+                            
+                            this.tClick = new Date();
+                            
+                            
+                          })
+                        }
                       }
                       
-                      if (video.paused) {
-                        video.play();
-                        setTimer()
-                      }
+                      let canvas = document.querySelector('.canvas_jasdeq');
+                      canvas.width = 2400;
+                      canvas.height = 300;
+                      let coinImage = document.createElement('img');
+                      let imageStars = document.createElement('img');
                       
-                      function setTimer() {
-                        timer = setTimeout(() => {
-                          video.pause();
-                          timer = null;
-                        }, 500);
-                      }
+                      coinImage.src = 'https://yescoin.space/clicker/pepa.png';
+                      imageStars.src = 'https://yescoin.space/clicker/eyes.png';
+                      let sprite = new Sprite({
+                        ctx: canvas.getContext('2d'),
+                        image: coinImage,
+                        imageStars: imageStars,
+                        width: 2400,
+                        height: 300,
+                        numberOfFrames: 8,
+                        ticksPerFrame: 60,
+                      })
+                      
+                      const candle = document.querySelector('.candle_asdfjh');
+                      let candleHeight = 10;
+                      
+                      canvas.addEventListener('click', () => {
+                        if (candleHeight < 300) {
+                          candleHeight += 10;
+                        }
+                        
+                      });
+                      
+                      setInterval(() => {
+                        candle.style.height = `${candleHeight.toString()}px`;
+                        if (candleHeight > 200) {
+                          candleHeight -= 30;
+                        } else if (candleHeight > 100) {
+                          candleHeight -= 20;
+                        } else {
+                          if (candleHeight > 10) {
+                            candleHeight -= 10;
+                          }
+                        }
+                      }, 500);
                     }
-                    
-                    container.addEventListener('click', playPauseVideo);
                   },
                   children: [
-                    jsx("video", {
-                      className: styles$o.video,
-                      muted: true,
-                      loop: true,
-                      src: "/clicker/candles/Button.webm",
+                    jsx("div", {
+                      className: "box-canvas_gdahkd",
+                      children: jsx("canvas", {
+                        className: styles$o.video,
+                      }),
                     }),
-                    jsx("button", {
-                      className: styles$o.btn,
-                      children: "BUY",
+                    jsx("div", {
+                      className: "candle_asdfjh",
+                      children: jsx('div', {
+                        className: "stick_adahfj",
+                      }),
                     })
                   ],
                 } ),
