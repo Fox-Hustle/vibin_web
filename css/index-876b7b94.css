@@ -2337,38 +2337,22 @@ body[data-mode="dark"] ._solidTabButton_1aach_48 {
   --elevation-1: var(--elevation-light-1);
 }
 [data-mode="dark"] {
-  --color-bg-primary: var(
-    --palette-dark);
-  --color-bg-secondary: var(
-    --palette-dark-90);
-  --color-bg-button-tertiary: var(
-    --palette-transparent-grey-18);
-  --color-bg-tertiary: var(
-    --palette-transparent-white-05);
-  --color-bg-fourth: var(
-    --palette-transparent-white-08);
-  --color-bg-fifth: var(
-    --palette-transparent-white-12);
-  --color-text-primary: var(
-    --palette-white);
-  --color-text-secondary: var(
-    --palette-transparent-white-80);
-  --color-text-tertiary: var(
-    --palette-transparent-white-30);
-  --color-text-fourth: var(
-    --palette-transparent-white-18);
-  --color-separator: var(
-    --palette-transparent-grey-65);
-  --color-accent-brand: var(
-    --palette-brand-light);
-  --color-accent-red: var(
-    --palette-red-dark);
-  --color-accent-green: var(
-    --palette-green-light);
-  --color-link: var(
-    --palette-brand-light);
-  --elevation-1: var(
-    --elevation-dark-1);
+  --color-bg-primary: var(--palette-dark);
+  --color-bg-secondary: var(--palette-dark-90);
+  --color-bg-button-tertiary: var(--palette-transparent-grey-18);
+  --color-bg-tertiary: var(--palette-transparent-white-05);
+  --color-bg-fourth: var(--palette-transparent-white-08);
+  --color-bg-fifth: var(--palette-transparent-white-12);
+  --color-text-primary: var(--palette-white);
+  --color-text-secondary: var(--palette-transparent-white-80);
+  --color-text-tertiary: var(--palette-transparent-white-30);
+  --color-text-fourth: var(--palette-transparent-white-18);
+  --color-separator: var(--palette-transparent-grey-65);
+  --color-accent-brand: var(--palette-brand-light);
+  --color-accent-red: var(--palette-red-dark);
+  --color-accent-green: var(--palette-green-light);
+  --color-link: var(--palette-brand-light);
+  --elevation-1: var(--elevation-dark-1);
 }
 *,
 *:before,
@@ -4804,10 +4788,10 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   z-index: 1;
   transform: none !important;
 }
-._notcoin_9azk3_34:active ._btn_9azk3_50{
+._notcoin_9azk3_34:active ._btn_9azk3_50 {
   background: rgb(71 71 71);
   transform: translate(-50%, 0) scale(1.1);
-  transition: .1s;
+  transition: 0.1s;
 }
 ._btn_9azk3_50 {
   padding: 13px 60px;
@@ -4825,12 +4809,12 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   transform: translate(-50%, 0) scale(1);
   border: 0;
   cursor: pointer;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 ._btn_9azk3_50:active {
   background: rgb(71 71 71);
   transform: translate(-50%, 0) scale(1.1);
-  transition: .1s;
+  transition: 0.1s;
 }
 ._btn_9azk3_51 {
   width: 100%;
