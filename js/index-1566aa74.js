@@ -7258,7 +7258,7 @@ function ClickerMainPage() {
         ],
       } ),
       newbie && jsx( "div", { style: { height: "195px" } } ),
-      jsx( Notcoin, { canIClickPlease: okToClick, sleep: isSleep, funMode: isTurbo, clickValue: calculateClickValue( isTurbo, turboSettings, clickValue ), cooldown: cooldown, handleClick: I } ),
+      jsx( Notcoin, { canIClickPlease: okToClick, sleep: isSleep, funMode: isTurbo, clickValue: calculateClickValue( isTurbo, turboSettings, clickValue ), cooldown: cooldown, handleClick: I, multiple: turboSettings == null ? void 0 : turboSettings.multiple } ),
       !newbie && userProfile && jsx( Progress, { current: availableToClick, profile: userProfile } ),
       jsx( Robot, { isShown: getB, minedAmount: robotMined, setShow: setB, claimAction: claimRobot } ),
     ],
