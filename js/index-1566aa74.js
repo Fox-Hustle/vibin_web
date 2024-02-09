@@ -5118,7 +5118,7 @@ const root$3 = "_root_9azk3_2",
   clickAmount$1 = "_clickAmount_9azk3_126",
   click$1 = "_click_9azk3_126",
   btn$1 = "_btn_9azk3_50",
-  video$1 = "canvas_jasdeq canvas_jasdeq_bg",
+  video$1 = "canvas_jasdeq",
   styles$o = {
     root: root$3,
     container: container$1,
@@ -5219,7 +5219,7 @@ const root$3 = "_root_9azk3_2",
                           this.width = options.width;
                           this.height = options.height;
                           
-                          this.clicksCount = 0;
+                          this.firstClick = false;
                           this.maxClicksPerSec = 0;
                           this.clickTimeout = null;
                           this.deleteMaxSpeedTimeout = null;
@@ -5286,27 +5286,37 @@ const root$3 = "_root_9azk3_2",
                           }
                           window.requestAnimationFrame( loop );
                           
-                          document.querySelector( '.canvas_jasdeq' ).addEventListener( 'click', ( { target } ) => {
-                            if ( target.classList.contains( 'canvas_jasdeq_bg' ) ) {
-                              target.classList.remove( 'canvas_jasdeq_bg' );
+                          document.querySelector('._notcoin_9azk3_34').addEventListener('click', () => {
+                            if  (document.querySelector('.canvas_jasdeq_bg')) {
+                              document.querySelector('.canvas_jasdeq_bg').classList.remove('canvas_jasdeq_bg');
                             }
+                            
+                          });
+                          
+                          document.querySelector( '._notcoin_9azk3_34').addEventListener( 'click', () => {
                             
                             clearTimeout( this.clickTimeout );
                             this.clickTimeout = null;
                             
                             const diff = new Date() - this.tClick;
                             
-                            if ( diff < 3000 ) {
-                              this.ticksPerFrame = Math.floor( 60 - ( diff * 16 ) / 1000 );
-                            } else {
-                              this.reset();
+                            if ( diff < 1000 ) {
+                              if (diff > 600 ) {
+                                this.ticksPerFrame = 12;
+                              } else if (diff > 300) {
+                                this.ticksPerFrame = 11;
+                              } else {
+                                this.ticksPerFrame = 10;
+                              }
+                            }
+                            else {
+                              this.ticksPerFrame = 13;
                             }
                             
-                            window.requestAnimationFrame( loop );
+                            loop();
                             this.clickTimeout = setTimeout( () => {
                               this.reset();
-                              
-                            }, 1000 )
+                            }, 1500 )
                             
                             this.tClick = new Date();
                             
@@ -5330,15 +5340,16 @@ const root$3 = "_root_9azk3_2",
                         width: 2000,
                         height: 250,
                         numberOfFrames: 8,
-                        ticksPerFrame: 60,
+                        ticksPerFrame: 0,
                       } )
                       
                       const candle = document.querySelector( '.candle_asdfjh' );
                       let candleHeight = 10;
                       
-                      canvas.addEventListener( 'click', () => {
+                      document.querySelector( '._notcoin_9azk3_34').addEventListener( 'click', () => {
                         if ( candleHeight < 300 ) {
-                          candleHeight += 10;
+                          const boost = sprite.ticksPerFrame > 0 ? 13 - sprite.ticksPerFrame : 1;
+                          candleHeight += 10 * boost;
                         }
                         
                       } );
@@ -5359,7 +5370,7 @@ const root$3 = "_root_9azk3_2",
                   },
                   children: [
                     jsx( "div", {
-                      className: "box-canvas_gdahkd",
+                      className: "box-canvas_gdahkd canvas_jasdeq_bg",
                       children: jsx( "canvas", {
                         className: styles$o.video,
                       } ),
@@ -5534,6 +5545,8 @@ const root$3 = "_root_9azk3_2",
   },
   root$2 = "_root_1cnlb_1",
   styles$l = { root: root$2 },
+  styleBadBg = "_root_1cnlb_1_bad_bg",
+  styleGoodBg = "_root_1cnlb_1_good_bg",
   Coinfall = ( { show: e, multiple: t } ) => {
     const s = t ? t * 0.1 : 0,
       n = t ? t * 0.2 : 0,
@@ -5543,7 +5556,7 @@ const root$3 = "_root_9azk3_2",
       children:
         e &&
         jsx( motion.div, {
-          className: styles$l.root,
+          className: cn( styles$l.root, t < 0 ? styleBadBg : styleGoodBg ),
           initial: { backgroundPositionY: "0" },
           animate: { backgroundPositionY: [ "0", "94%" ] },
           exit: { opacity: 0 },
@@ -5556,9 +5569,11 @@ const root$3 = "_root_9azk3_2",
   floatAnimation = "_floatAnimation_8iwg7_1",
   styles$k = { root: root$1, floatAnimation },
   randomNumber = ( e, t ) => Math.floor( Math.random() * ( t - e + 1 ) ) + e,
-  TurboPussy = ( { show: e, times: t, onClick: s } ) => {
+  TurboPussy = ( { show: e, times: t, onClick: s, multiple: mlty } ) => {
     const [ n, o ] = reactExports.useState( { top: 0, left: 0 } ),
       [ r, a ] = reactExports.useState( "" ),
+      [ imgId, setImgId ] = reactExports.useState( 1 ),
+      [ imgSrc, setImgSrc ] = reactExports.useState(() => mlty < 0 ? '/clicker/head-bad.png' : '/clicker/head-good-1.png' ),
       c = () => {
         s();
       };
@@ -5577,6 +5592,14 @@ const root$3 = "_root_9azk3_2",
           _ = d[ randomNumber( 0, d.length - 1 ) ];
         a( _ ), o( { top: i, left: l } );
       }, [] ),
+        reactExports.useEffect( () => {
+          setImgId(Math.round(Math.random()) + 1)
+          if (mlty < 0) {
+            setImgSrc("/clicker/head-bad.png");
+          } else {
+            setImgSrc(`/clicker/head-good-${imgId}.png`);
+          }
+        }, [mlty]),
         jsx( AnimatePresence, {
           children:
             e &&
@@ -5589,7 +5612,7 @@ const root$3 = "_root_9azk3_2",
               width: "120",
               transition: { opacity: { duration: 3, ease: "linear", delay: 2 } },
               onClick: c,
-              src: "https://yescoin.space/clicker/rocketa-men.png",
+              src: imgSrc,
             } ),
         } )
     );
@@ -7245,8 +7268,8 @@ function ClickerMainPage() {
       jsx( MainButton, { hidden: !0 } ),
       jsx( BackButton, { hidden: !0 } ),
       newbie && jsx( "div", { className: styles$b.background, style: { backgroundPositionY: getC + "px" } } ),
-      jsx( TurboPussy, { show: getA, times: turboTimes, onClick: onRocket } ),
-      jsx( Coinfall, { show: isTurbo, multiple: turboSettings == null ? void 0 : turboSettings.multiple } ),
+      jsx( TurboPussy, { show: getA, times: turboTimes, onClick: onRocket, multiple: turboSettings == null ? -1 : turboSettings.multiple } ),
+      jsx( Coinfall, { show: isTurbo, multiple: turboSettings == null ? -1 : turboSettings.multiple } ),
       !newbie && jsx( Squad, { squadInfo: u, teamId: userProfile == null ? void 0 : userProfile.teamId } ),
       !newbie &&
       jsxs( Content, {
@@ -7258,7 +7281,7 @@ function ClickerMainPage() {
         ],
       } ),
       newbie && jsx( "div", { style: { height: "195px" } } ),
-      jsx( Notcoin, { canIClickPlease: okToClick, sleep: isSleep, funMode: isTurbo, clickValue: calculateClickValue( isTurbo, turboSettings, clickValue ), cooldown: cooldown, handleClick: I } ),
+      jsx( Notcoin, { canIClickPlease: okToClick, sleep: isSleep, funMode: isTurbo, clickValue: calculateClickValue( isTurbo, turboSettings, clickValue ), cooldown: cooldown, handleClick: I, multiple: turboSettings == null ? void 0 : turboSettings.multiple } ),
       !newbie && userProfile && jsx( Progress, { current: availableToClick, profile: userProfile } ),
       jsx( Robot, { isShown: getB, minedAmount: robotMined, setShow: setB, claimAction: claimRobot } ),
     ],

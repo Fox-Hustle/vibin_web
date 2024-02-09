@@ -1,12 +1,9 @@
-#root {
-  background: linear-gradient(#686c77, transparent 1px), linear-gradient(90deg, #686c77, transparent 1px) #161a25;
-  background-size: calc(100vw / 20) calc(100vw / 20);
-}
 .canvas_jasdeq {
   height: 250px;
 }
 .canvas_jasdeq_bg {
   background: url(https://yescoin.space/clicker/pepa-bg.png);
+  background-size: contain;
 }
 .box-canvas_gdahkd {
   overflow: hidden;
@@ -5204,11 +5201,13 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: -2;
+}
+._root_1cnlb_1_bad_bg {
   background: url(https://yescoin.space/clicker/red-bg.png);
   background-size: 20%;
   background-position: center center;
   background-color: #000;
-  z-index: -2;
 }
 ._root_1cnlb_1:after {
   content: "";
@@ -5220,28 +5219,14 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   background-color: #000000b8;
   z-index: -1;
 }
-._root_1cnlb_1good {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
+._root_1cnlb_1_good_bg {
   background: url(https://yescoin.space/clicker/green-bg.png);
   background-size: 20%;
   background-position: center center;
   background-color: #000;
-  z-index: -2;
 }
-._root_1cnlb_1good:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000b8;
-  z-index: -1;
-}
+
 ._root_8iwg7_1 {
   position: absolute;
   top: 0;
@@ -6184,7 +6169,7 @@ body[data-mode="dark"] ._rippleEffect_dasiz_93:active {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  /*background: url(https://yescoin.space/clicker/main_bg.png) no-repeat center center/cover #000;*/
+  background: url(http://localhost:5173/img/main_bg.png) no-repeat center center/cover #000;
   gap: 20px;
   padding-top: 16px;
   padding-bottom: 20px;
@@ -6199,7 +6184,7 @@ body[data-mode="dark"] ._rippleEffect_dasiz_93:active {
   left: 0;
   width: 100%;
   height: 100%;
-  /*background: url(https://yescoin.space/clicker/main_bg.png) no-repeat center center/cover #000;*/
+  background: url(https://yescoin.space/clicker/main_bg.png) no-repeat center center/cover #000;
   will-change: background-position;
   transition: cubic-bezier(0.7, 0.55, 0.42, 0.33) 0.15s background-position;
 }
