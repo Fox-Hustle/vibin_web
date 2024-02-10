@@ -2639,7 +2639,7 @@ const useBoostStore = create( ( e, t ) => ( {
   },
   diffInSeconds = ( e, t ) => {
     const s = t.getTime() - e.getTime();
-    return Math.floor( s / 1e3 );
+    return Math.floor( s / 1000 );
   },
   calculateAvailableClicks = ( e, t ) => {
     if ( !e ) return 0;
@@ -7282,7 +7282,8 @@ function ClickerMainPage() {
       setA( !!( !newbie && !isTurbo && ( turboTimes >= 1 || turboGift ) ) );
     }, [ isTurbo, turboTimes, turboGift ] ),
     reactExports.useEffect( () => {
-      const hour = diffInSeconds( new Date( lastMiningAt ), new Date() ) > 3600;
+      const hour = diffInSeconds( new Date( lastMiningAt ), new Date() ) > 3600
+        console.log('hour', hour, diffInSeconds( new Date( lastMiningAt ), new Date() ));
       userProfile != null && userProfile.withRobot && hour && onRobot();
     }, [ userProfile, lastMiningAt ] );
   const [ getS, setS ] = reactExports.useState( !1 ),
