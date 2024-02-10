@@ -7215,11 +7215,11 @@ function ClickerMainPage() {
       switchTurbo: switchTurbo,
       checkTurboGiftValidity: checkTurboGiftValidity,
       checkTurbo: h,
-      fetchRobotBalance: b,
+      fetchRobotBalance: fetchRobot,
       claimRobotMinedCoins: claimRobot,
     } = useClickerStore(),
     [ getA, setA ] = reactExports.useState( !!( !newbie && !isTurbo && ( turboTimes >= 1 || turboGift ) ) ),
-    [ getB, setB ] = reactExports.useState( !1 ),
+    [ showRobot, setB ] = reactExports.useState( !1 ),
     { currentSkin: L } = useBoostStore(),
     okToClick = !isLoad && availableToClick > 0 && cooldown === 0,
     tgapp = window.Telegram.WebApp,
@@ -7254,12 +7254,12 @@ function ClickerMainPage() {
       setA( !!( !newbie && !isTurbo && ( turboTimes >= 1 || turboGift ) ) );
     }, [ isTurbo, turboTimes, turboGift ] ),
     reactExports.useEffect( () => {
-      const F = diffInSeconds( new Date( lastMiningAt ), new Date() ) > 3600;
-      userProfile != null && userProfile.withRobot && F && q();
+      const hour = diffInSeconds( new Date( lastMiningAt ), new Date() ) > 3600;
+      userProfile != null && userProfile.withRobot && hour && onRobot();
     }, [ userProfile, lastMiningAt ] );
-  const [ z, w ] = reactExports.useState( !1 ),
-    q = async () => {
-      z || ( w( !0 ), ( await b() ) && ( setB( !0 ), w( !1 ) ) );
+  const [ getS, setS ] = reactExports.useState( !1 ),
+    onRobot = async () => {
+      getS || ( setS( !0 ), ( await fetchRobot() ) && ( setB( !0 ), setS( !1 ) ) );
     },
     M = L === "default" ? `league-${userProfile == null ? void 0 : userProfile.leagueId}` : L;
   return jsxs( Page, {
@@ -7283,7 +7283,7 @@ function ClickerMainPage() {
       newbie && jsx( "div", { style: { height: "195px" } } ),
       jsx( Notcoin, { canIClickPlease: okToClick, sleep: isSleep, funMode: isTurbo, clickValue: calculateClickValue( isTurbo, turboSettings, clickValue ), cooldown: cooldown, handleClick: I, multiple: turboSettings == null ? void 0 : turboSettings.multiple } ),
       !newbie && userProfile && jsx( Progress, { current: availableToClick, profile: userProfile } ),
-      jsx( Robot, { isShown: getB, minedAmount: robotMined, setShow: setB, claimAction: claimRobot } ),
+      jsx( Robot, { isShown: showRobot, minedAmount: robotMined, setShow: setB, claimAction: claimRobot } ),
     ],
   } );
 }
