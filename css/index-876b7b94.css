@@ -2,19 +2,20 @@
   height: 250px;
 }
 .canvas_jasdeq_bg {
-  background: url(https://yescoin.space/clicker/pepa-bg.png);
   background-size: contain;
+  background: url(https://yescoin.space/clicker/pepa-bg.png) no-repeat;
 }
 .box-canvas_gdahkd {
+  flex: 1 0 50%;
   overflow: hidden;
   width: 250px;
   height: 250px;
+  order: 2;
 }
 .candle_asdfjh {
+  flex: 0 0 30px;
   border: solid 3px rgba(0, 21, 6, 0.8);
-  position: absolute;
-  bottom: 10px;
-  left: -1px;
+  position: relative;
   max-height: 250%;
   height: 10px;
   width: 30px;
@@ -22,6 +23,7 @@
   -moz-box-shadow: 0px 0px 3px -1px #FFFFFF;
   -webkit-box-shadow: 0px 0px 3px -1px #FFFFFF;
   box-shadow: 0px 0px 3px -1px #FFFFFF;
+  order: 1;
 }
 .candle__red_sdfjkg {
   background-color: rgb(239, 64, 60);
@@ -36,6 +38,35 @@
   background-color: #0d8e33;
   min-height: 30px;
   opacity: 0.9;
+}
+.canvas-btn_djhfsdj {
+  display: inline-flex;
+  flex-basis: 100%;
+  align-items: center;
+  width: 100%;
+  --text-color: #3bd0d8;
+  --border-color: #58f3cd;
+  --bg-board-color: rgba(59,208,216,.2);
+  --bg-board-color-2: rgba(59,208,216,0);
+  color: var(--text-color);
+  background: linear-gradient(162deg,var(--bg-board-color) 28.7%,var(--bg-board-color-2,var(--bg-board-color)));
+  border-radius: 0.7rem;
+  cursor: pointer;
+  font-size: 22px;
+  order: 3;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 1rem;
+  justify-content: center;
+  transition: 175ms;
+}
+
+.canvas-btn_djhfsdj:active {
+  filter: brightness(.9);
+  -webkit-backdrop-filter: brightness(.9);
+  backdrop-filter: brightness(.9);
+  transform: scale(.97);
+  transition: 175ms;
 }
 ._backdrop_19oqi_1 {
   user-select: none;
@@ -4769,7 +4800,7 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
 ._notcoin_9azk3_34 {
   width: 300px;
   min-width: 300px;
-  height: 320px;
+  height: 360px;
   min-height: 320px;
   border-radius: 0;
   /*background-image: url(https://yescoin.space/clicker/mainCoin.png);  url(https://fast.image.delivery/toufgsh.jpg); */
@@ -4792,13 +4823,17 @@ body[data-mode="dark"] ._chevron_1luq8_177 path {
   z-index: 1;
   transform: none !important;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-._notcoin_9azk3_34:active ._btn_9azk3_50 {
-  background: rgb(71 71 71);
-  transform: translate(-50%, 0) scale(1.1);
-  transition: 0.1s;
+._notcoin_9azk3_34:active .canvas-btn_djhfsdj {
+  filter: brightness(.9);
+  -webkit-backdrop-filter: brightness(.9);
+  backdrop-filter: brightness(.9);
+  transform: scale(.97);
+  transition: 175ms;
 }
 ._btn_9azk3_50 {
   padding: 13px 60px;
