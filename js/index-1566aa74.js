@@ -5202,7 +5202,6 @@ const root$3 = "_root_9azk3_2",
                   onTouchStart: p,
                   onTouchEnd: m,
                   onClick: () => {
-                    
                     class Sprite {
                       constructor ( options ) {
                         this.ctx = options.ctx;
