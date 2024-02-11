@@ -2,8 +2,8 @@
   height: 250px;
 }
 .canvas_jasdeq_bg {
-  background-size: contain;
   background: url(https://yescoin.space/clicker/pepa-bg.png) no-repeat;
+  background-size: contain;
 }
 .box-canvas_gdahkd {
   flex: 1 0 50%;

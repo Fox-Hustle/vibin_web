@@ -5202,66 +5202,62 @@ const root$3 = "_root_9azk3_2",
                   onTouchStart: p,
                   onTouchEnd: m,
                   onClick: () => {
-                    if ( !document.hzkak ) {
-                      document.hzkak = true
-                      class Sprite {
-                        constructor ( options ) {
-                          this.ctx = options.ctx;
-                          
-                          this.image = options.image;
-                          this.imageStars = options.imageStars;
-                          
-                          this.frameIndex = 0;
+                    class Sprite {
+                      constructor ( options ) {
+                        this.ctx = options.ctx;
+                        
+                        this.image = options.image;
+                        this.imageStars = options.imageStars;
+                        
+                        this.frameIndex = 0;
+                        this.tickCount = 0;
+                        this.ticksPerFrame = options.ticksPerFrame || 0;
+                        this.numberOfFrames = options.numberOfFrames || 1;
+                        
+                        this.width = options.width;
+                        this.height = options.height;
+                        
+                        this.clickTimeout = null;
+                        
+                        this.loop = this.start();
+                      }
+                      
+                      reset() {
+                        this.ticksPerFrame = 0;
+                      }
+                      
+                      update() {
+                        this.tickCount++;
+                        
+                        if ( this.tickCount > this.ticksPerFrame ) {
+                          //console.log( 'frame', this.tickCount );
                           this.tickCount = 0;
-                          this.ticksPerFrame = options.ticksPerFrame || 0;
-                          this.numberOfFrames = options.numberOfFrames || 1;
                           
-                          this.width = options.width;
-                          this.height = options.height;
-                          
-                          this.firstClick = false;
-                          this.maxClicksPerSec = 0;
-                          this.clickTimeout = null;
-                          this.deleteMaxSpeedTimeout = null;
-                          
-                          this.tClick = new Date();
-                          
-                          this.loop = this.start();
-                        }
-                        
-                        reset() {
-                          this.ticksPerFrame = 0;
-                          // this.frameIndex = 0;
-                          /* if ( this.frameIndex > 0 ) {
-                            for ( let i = this.frameIndex; i > 0; i-- ) {
-                              setTimeout( () => {
-                                this.frameIndex = i;
-                                this.render();
-                              }, 500 * i );
-                            }
-                          } */
-                        }
-                        
-                        update() {
-                          this.tickCount++;
-                          
-                          if ( this.tickCount > this.ticksPerFrame ) {
-                            //console.log( 'frame', this.tickCount );
-                            this.tickCount = 0;
-                            
-                            if ( this.frameIndex < this.numberOfFrames - 1 ) {
-                              this.frameIndex++;
-                            } else {
-                              this.frameIndex = 0;
-                            }
+                          if ( this.frameIndex < this.numberOfFrames - 1 ) {
+                            this.frameIndex++;
+                          } else {
+                            this.frameIndex = 0;
                           }
                         }
+                      }
+                      
+                      render() {
                         
-                        render() {
-                          
-                          this.ctx.clearRect( 0, 0, this.width / this.numberOfFrames, this.height );
+                        this.ctx.clearRect( 0, 0, this.width / this.numberOfFrames, this.height );
+                        this.ctx.drawImage(
+                          this.image,
+                          this.frameIndex * this.width / this.numberOfFrames,
+                          0,
+                          this.width / this.numberOfFrames,
+                          this.height,
+                          0,
+                          0,
+                          this.width / this.numberOfFrames,
+                          this.height
+                        )
+                        if ( this.ticksPerFrame !== 0 ) {
                           this.ctx.drawImage(
-                            this.image,
+                            this.imageStars,
                             this.frameIndex * this.width / this.numberOfFrames,
                             0,
                             this.width / this.numberOfFrames,
@@ -5271,76 +5267,46 @@ const root$3 = "_root_9azk3_2",
                             this.width / this.numberOfFrames,
                             this.height
                           )
-                          if ( this.ticksPerFrame !== 0 ) {
-                            this.ctx.drawImage(
-                              this.imageStars,
-                              this.frameIndex * this.width / this.numberOfFrames,
-                              0,
-                              this.width / this.numberOfFrames,
-                              this.height,
-                              0,
-                              0,
-                              this.width / this.numberOfFrames,
-                              this.height
-                            )
-                          }
-                        }
-                        
-                        start() {
-                          let loop = () => {
-                            this.update();
-                            this.render();
-                            
-                            if ( this.ticksPerFrame !== 0 ) {
-                              //console.log( this.ticksPerFrame );
-                              window.requestAnimationFrame( loop );
-                            }
-                          }
-                          window.requestAnimationFrame( loop );
-                          
-                          document.querySelector( '._notcoin_9azk3_34' ).addEventListener( 'click', () => {
-                            if ( document.querySelector( '.canvas_jasdeq_bg' ) ) {
-                              document.querySelector( '.canvas_jasdeq_bg' ).classList.remove( 'canvas_jasdeq_bg' );
-                            }
-                            
-                          } );
-                          
-                          document.querySelector( '._notcoin_9azk3_34' ).addEventListener( 'click', () => {
-                            
-                            clearTimeout( this.clickTimeout );
-                            this.clickTimeout = null;
-                            
-                            const diff = new Date() - this.tClick;
-                            
-                            /*  if ( diff < 1000 ) {
-                               if ( diff > 600 ) {
-                                 this.ticksPerFrame = 12;
-                               } else if ( diff > 300 ) {
-                                 this.ticksPerFrame = 11;
-                               } else {
-                                 this.ticksPerFrame = 10;
-                               }
-                             }
-                             else {
-                               this.ticksPerFrame = 13;
-                             } */
-                            
-                            if ( this.ticksPerFrame == 0 ) {
-                              this.ticksPerFrame = 15;
-                              loop();
-                            }
-                            /* sprite.ticksPerFrame -= 1; */
-                            /* this.clickTimeout = setTimeout( () => {
-                              this.reset();
-                            }, 1500 ) */
-                            
-                            this.tClick = new Date();
-                            
-                            
-                          } );
-                          return loop;
                         }
                       }
+                      
+                      start() {
+                        let loop = () => {
+                          this.update();
+                          this.render();
+                          
+                          if ( this.ticksPerFrame !== 0 ) {
+                            window.requestAnimationFrame( loop );
+                          }
+                        }
+                        window.requestAnimationFrame( loop );
+                        
+                        document.querySelector( '._notcoin_9azk3_34' ).addEventListener( 'click', () => {
+                          if ( document.querySelector( '.canvas_jasdeq_bg' ) ) {
+                            document.querySelector( '.canvas_jasdeq_bg' ).classList.remove( 'canvas_jasdeq_bg' );
+                          }
+                          
+                        } );
+                        
+                        document.querySelector( '._notcoin_9azk3_34' ).addEventListener( 'click', () => {
+                          
+                          clearTimeout( this.clickTimeout );
+                          this.clickTimeout = null;
+                          
+                          
+                          if ( this.ticksPerFrame == 0 ) {
+                            this.ticksPerFrame = 15;
+                            loop();
+                          }
+                          
+                        } );
+                        return loop;
+                      }
+                    }
+                    const candle = document.querySelector( '.candle_asdfjh' );
+                    const notcoin = document.querySelector( '._notcoin_9azk3_34' );
+                    
+                    if (!notcoin.getAttribute('listener')) {
                       
                       let canvas = document.querySelector( '.canvas_jasdeq' );
                       canvas.width = 2000;
@@ -5360,17 +5326,18 @@ const root$3 = "_root_9azk3_2",
                         ticksPerFrame: 0,
                       } )
                       
-                      const candle = document.querySelector( '.candle_asdfjh' );
+                      
                       let candleHeight = 10;
                       
-                      document.querySelector( '._notcoin_9azk3_34' ).addEventListener( 'click', () => {
+                      notcoin.setAttribute('listener', true)
+                      notcoin.addEventListener( 'click', () => {
                         if ( candleHeight < 300 ) {
-                          //const boost = sprite.ticksPerFrame > 0 ? 13 - sprite.ticksPerFrame : 1;
-                          candleHeight += 10// * boost;
+                          candleHeight += 10;
                           sprite.ticksPerFrame = Math.max( 1, sprite.ticksPerFrame - 1 );
                         }
                         
                       } );
+                      
                       function convertRange( value, r1 = [10, 200], r2 = [13,1] ) {
                         return ( value - r1[ 0 ] ) * ( r2[ 1 ] - r2[ 0 ] ) / ( r1[ 1 ] - r1[ 0 ] ) + r2[ 0 ];
                       }
@@ -5379,22 +5346,18 @@ const root$3 = "_root_9azk3_2",
                       setInterval( () => {
                         candle.style.height = `${candleHeight.toString()}px`;
                         if(sprite.ticksPerFrame) sprite.ticksPerFrame = Math.max( 1, convertRange(candleHeight) );
-                        console.log( candleHeight, sprite.ticksPerFrame );
                         if ( candleHeight > 200 ) {
                           candleHeight -= 30;
-                          //sprite.ticksPerFrame = Math.max( 2, sprite.ticksPerFrame + 0.5 );
                         } else if ( candleHeight > 150 ) {
                           candleHeight -= 20;
-                          //sprite.ticksPerFrame = Math.max(5, sprite.ticksPerFrame + 0.5 );
                         } else {
                           if ( candleHeight > 10 ) {
                             candleHeight -= 10;
-                            //sprite.ticksPerFrame += 1;
                           } else sprite.reset();
                         }
-                        //sprite.update();
                       }, 500 );
                     }
+                    
                   },
                   children: [
                     jsx( "div", {
