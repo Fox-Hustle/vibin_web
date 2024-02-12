@@ -5159,10 +5159,13 @@ const root$3 = "_root_9azk3_2",
                 funMode: funMode,
                 clickValue: clickValue,
                 cooldown: cooldown,
-                handleClick: handleClick } ) => {
+                handleClick: handleClick,
+                multiple: mty,
+              } ) => {
     const a = reactExports.useRef( null ),
       [ getPos, setPos ] = reactExports.useState( { translateZ: 0, rotateX: 0, rotateY: 0 } ),
       [ l, d ] = reactExports.useState( [] ),
+      [ mlty, setMlty ] = reactExports.useState( mty ),
       { currentSkin: currentSkin } = useBoostStore(),
       p = ( u ) => {
         if ( ( handleClick(), a.current ) ) {
@@ -5185,6 +5188,16 @@ const root$3 = "_root_9azk3_2",
       m = ( u ) => {
         setPos( { translateZ: 0, rotateX: 0, rotateY: 0 } );
       };
+    reactExports.useEffect( () => {
+      setMlty(mty);
+      // if (document.pepaSprite) {
+      //   document.pepaSprite.mlty = mlty;
+      // }
+    }, [ mty ] )
+    ;
+    if (document.pepaSprite) {
+      document.pepaSprite.mlty = mty;
+    }
     return jsx( AnimatePresence, {
       mode: "popLayout",
       children: canIClickPlease
@@ -5202,12 +5215,14 @@ const root$3 = "_root_9azk3_2",
                   onTouchStart: p,
                   onTouchEnd: m,
                   onClick: () => {
+                    
                     class Sprite {
                       constructor ( options ) {
                         this.ctx = options.ctx;
                         
                         this.image = options.image;
                         this.imageStars = options.imageStars;
+                        this.imageAngry = options.imageAngry;
                         
                         this.frameIndex = 0;
                         this.tickCount = 0;
@@ -5218,6 +5233,8 @@ const root$3 = "_root_9azk3_2",
                         this.height = options.height;
                         
                         this.clickTimeout = null;
+                        
+                        this.mlty = options.mlty;
                         
                         this.loop = this.start();
                       }
@@ -5242,10 +5259,18 @@ const root$3 = "_root_9azk3_2",
                       }
                       
                       render() {
+                        let img = this.image;
+                        if (!this.mlty) {
+                          img = this.image;
+                        } else if (this.mlty > 0) {
+                          img = this.image;
+                        } else {
+                          img = this.imageAngry;
+                        }
                         
                         this.ctx.clearRect( 0, 0, this.width / this.numberOfFrames, this.height );
                         this.ctx.drawImage(
-                          this.image,
+                          img,
                           this.frameIndex * this.width / this.numberOfFrames,
                           0,
                           this.width / this.numberOfFrames,
@@ -5255,17 +5280,20 @@ const root$3 = "_root_9azk3_2",
                           this.width / this.numberOfFrames,
                           this.height
                         )
-                        if ( this.ticksPerFrame !== 0 ) {
+                        
+                        
+                        if ( this.ticksPerFrame !== 0 && (this.mlty > 0 || !this.mlty)) {
+                          const starSize = 30 - this.ticksPerFrame * 6;
                           this.ctx.drawImage(
                             this.imageStars,
                             this.frameIndex * this.width / this.numberOfFrames,
                             0,
                             this.width / this.numberOfFrames,
                             this.height,
-                            0,
-                            0,
-                            this.width / this.numberOfFrames,
-                            this.height
+                            -starSize,
+                            -starSize,
+                            this.width / this.numberOfFrames + starSize * 2,
+                            this.height + starSize * 2
                           )
                         }
                       }
@@ -5294,44 +5322,77 @@ const root$3 = "_root_9azk3_2",
                           this.clickTimeout = null;
                           
                           
-                          if ( this.ticksPerFrame == 0 ) {
-                            this.ticksPerFrame = 15;
+                          if ( this.ticksPerFrame === 0 ) {
+                            this.ticksPerFrame = 11;
                             loop();
                           }
+                          if (this.mlty < 0) {
+                            if (!candle.classList.contains('candle__red_sdfjkg')) candle.classList.add('candle__red_sdfjkg')
+                          } else {
+                            if (candle.classList.contains('candle__red_sdfjkg')) candle.classList.remove('candle__red_sdfjkg')
+                          }
                           
+                          if (this.mlty > 0) {
+                            if (!boxCanvas.classList.contains('pepa-shaker_ajdkqt')) boxCanvas.classList.add('pepa-shaker_ajdkqt')
+                            this.ticksPerFrame = 1;
+                            let candleHeight = candleBody.offsetHeight;
+                            let stickHeight = stick.offsetHeight;
+                            if (candleBody.offsetHeight < window.innerHeight) {
+                              candleHeight += 20;
+                              stickHeight += 20;
+                              candleBody.style.height = `${ candleHeight.toString() }px`;
+                              stick.style.height = `${ stickHeight.toString() }px`;
+                            }
+                          } else {
+                            candleBody.style.height = "";
+                            stick.style.height = "";
+                            if (boxCanvas.classList.contains('pepa-shaker_ajdkqt')) boxCanvas.classList.remove('pepa-shaker_ajdkqt')
+                          }
                         } );
                         return loop;
                       }
                     }
                     const candle = document.querySelector( '.candle_asdfjh' );
+                    const candleBody = document.querySelector( '.candle-body_qpworq' );
+                    const stick = document.querySelector( '.stick_adahfj' );
                     const notcoin = document.querySelector( '._notcoin_9azk3_34' );
+                    const boxCanvas = document.querySelector('.box-canvas_gdahkd');
+                    console.log(mlty);
+                    if (document.pepaSprite) {
+                      document.pepaSprite.mlty = mlty;
+                    }
                     
                     if (!notcoin.getAttribute('listener')) {
                       
                       let canvas = document.querySelector( '.canvas_jasdeq' );
-                      canvas.width = 2000;
+                      canvas.width = 6000;
                       canvas.height = 250;
-                      let coinImage = document.createElement( 'img' );
-                      let imageStars = document.createElement( 'img' );
+                      let happyImage = document.createElement( 'img' );
+                      let starsImage = document.createElement( 'img' );
+                      let angryImage = document.createElement( 'img' );
                       
-                      coinImage.src = 'https://yescoin.space/clicker/pepa.png';
-                      imageStars.src = 'https://yescoin.space/clicker/eyes.png';
+                      happyImage.src = '/clicker/pepa-happy.png';
+                      starsImage.src = '/clicker/eyes.png';
+                      angryImage.src = '/clicker/pepa-angry.png';
                       let sprite = new Sprite( {
                         ctx: canvas.getContext( '2d' ),
-                        image: coinImage,
-                        imageStars: imageStars,
-                        width: 2000,
+                        image: happyImage,
+                        imageStars: starsImage,
+                        imageAngry: angryImage,
+                        width: 6000,
                         height: 250,
-                        numberOfFrames: 8,
+                        numberOfFrames: 24,
                         ticksPerFrame: 0,
+                        mlty: mlty,
                       } )
+                      document.pepaSprite = sprite;
                       
-                      
-                      let candleHeight = 10;
+                      let candleHeight = 20;
                       
                       notcoin.setAttribute('listener', true)
                       notcoin.addEventListener( 'click', () => {
-                        if ( candleHeight < 300 ) {
+                        sprite.mlty = mlty;
+                        if ( candleHeight < 300 && !sprite.godCandle) {
                           candleHeight += 10;
                           sprite.ticksPerFrame = Math.max( 1, sprite.ticksPerFrame - 1 );
                         }
@@ -5344,17 +5405,25 @@ const root$3 = "_root_9azk3_2",
                       
                       
                       setInterval( () => {
+                        if (sprite.godCandle) {
+                          candleHeight = 200;
+                          return
+                        }
                         candle.style.height = `${candleHeight.toString()}px`;
                         if(sprite.ticksPerFrame) sprite.ticksPerFrame = Math.max( 1, convertRange(candleHeight) );
-                        if ( candleHeight > 200 ) {
+                        if (candleHeight > 300) {
+                          candleHeight -= 50;
+                        } else if ( candleHeight > 200) {
                           candleHeight -= 30;
-                        } else if ( candleHeight > 150 ) {
+                        } else if ( candleHeight > 100 ) {
                           candleHeight -= 20;
                         } else {
-                          if ( candleHeight > 10 ) {
+                          if ( candleHeight > 20 ) {
                             candleHeight -= 10;
                           } else sprite.reset();
                         }
+                        
+                        
                       }, 500 );
                     }
                     
@@ -5368,9 +5437,14 @@ const root$3 = "_root_9azk3_2",
                     } ),
                     jsx( "div", {
                       className: "candle_asdfjh",
-                      children: jsx( 'div', {
-                        className: "stick_adahfj",
-                      } ),
+                      children: [
+                        jsx( 'div', {
+                          className: "stick_adahfj",
+                        } ),
+                        jsx( 'div', {
+                          className: "candle-body_qpworq",
+                        } )
+                      ],
                     } ),
                     jsx("button", {
                       className: "canvas-btn_djhfsdj",
