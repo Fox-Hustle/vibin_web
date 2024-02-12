@@ -51,7 +51,7 @@ const Fragment = jsxRuntimeExports.Fragment,
     apiHost: "https://test.yescoin.space",
     tonConnectManifestUrl: "https://cdn.joincommunity.xyz/assets/manifest.json",
     tonConnectWalletsListSource: "https://cdn.joincommunity.xyz/assets/wallets.json",
-    botLink: "https://t.me/NFCoin_bot",
+    botLink: "https://t.me/donotcoin_bot",
     //accessToken: {}.VITE_ACCESS_TOKEN,
   },
   prodConfig = {
@@ -59,7 +59,7 @@ const Fragment = jsxRuntimeExports.Fragment,
     apiHost: "https://clicker-api.joincommunity.xyz",
     tonConnectManifestUrl: "https://cdn.joincommunity.xyz/assets/manifest.json",
     tonConnectWalletsListSource: "https://cdn.joincommunity.xyz/assets/wallets.json",
-    botLink: "https://t.me/NFCoin_bot",
+    botLink: "https://t.me/donotcoin_bot",
   };
 let config;
 switch ( "prod1" ) {
@@ -4872,7 +4872,7 @@ function ClickerBoostsExplanationPage() {
             spacingChild: "4",
             growChild: !0,
             children: [
-              jsxs( Button$1, { type: "basic", onClick: () => e.openTelegramLink( "https://t.me/NFCoin_bot" ), children: [ jsx( Icon, { name: "telegram" } ), " Join" ] } ),
+              jsxs( Button$1, { type: "basic", onClick: () => e.openTelegramLink( "https://t.me/donotcoin_bot" ), children: [ jsx( Icon, { name: "telegram" } ), " Join" ] } ),
               jsxs( Button$1, { type: "basic", onClick: () => e.openLink( "https://twitter.com/foxhustle_twi" ), children: [ jsx( Icon, { name: "x", colorFill: "primary" } ), " Follow" ] } ),
             ],
           } ),
@@ -6539,7 +6539,7 @@ function ClickerStatisticsPage() {
   const e = useNavigate(),
     { userProfile: t } = useClickerStore(),
     { fetchStatistics: s, totalUsers: n, onlineUsers: o, onlineToday: r, totalBalance: a, totalBurned: c, isLoaded: i } = useStatisticsStore(),
-    l = `https://t.me/NFCoin_bot/start?rp_${t == null ? void 0 : t.userId}`,
+    l = `https://t.me/donotcoin_bot/start?rp_${t == null ? void 0 : t.userId}`,
     [ d, _ ] = useToggle( !1 ),
     [ p, m ] = useToggle(),
     [ u, y ] = reactExports.useState( null ),
