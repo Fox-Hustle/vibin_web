@@ -2563,12 +2563,15 @@ const useBoostStore = create( ( e, t ) => ( {
   },
   activeTurboApi = async () => {
     const e = await ApiService.post( { endpoint: "/clicker/core/active-turbo" } );
-    if ( e.ok ) return e.data[ 0 ];
+    if ( e.ok ) {
+      document.multipleValue = e.data[0].multiple;
+      return e.data[ 0 ]
+    };
     throw e.data;
   },
   checkTurboApi = async () => {
     const e = await ApiService.post( { endpoint: "/clicker/core/check-turbo" } );
-    if ( ( console.log( e.data ), e.ok ) ) return e.data[ 0 ];
+    if ( ( console.log( e.data ), e.ok ) ) return e.data[ 0 ]
     throw e.data;
   },
   saveClickerCountApi = async ( count, hash, turbo, lastAvailableCoins ) => {
@@ -2757,6 +2760,7 @@ const useBoostStore = create( ( e, t ) => ( {
         try {
           const s = await checkTurboApi();
           s != null && s.turbo && setProf( { turboGift: !0, turboGiftExpire: Date.now() + 7e3 } );
+          
         } catch ( s ) {
           console.error( s );
         }
@@ -2767,6 +2771,7 @@ const useBoostStore = create( ( e, t ) => ( {
       ( s
         ? activeTurboApi().then( ( o ) => {
           console.log( "turbo", o );
+          document.multipleValue = o.multiple;
           setProf( { isTurboMode: 1, turboSettings: o, clicksThreshold: calculateClicksThreshold( n, 1, o ), cooldown: 0 } );
         } )
         : setProf( { isTurboMode: 0, turboSettings: null, clicksThreshold: calculateClicksThreshold( n, 0, null ) } ) );
@@ -5323,7 +5328,7 @@ const root$3 = "_root_9azk3_2",
                           
                           
                           if ( this.ticksPerFrame === 0 ) {
-                            this.ticksPerFrame = 11;
+                            this.ticksPerFrame = 6;
                             loop();
                           }
                           if (this.mlty < 0) {
@@ -5357,7 +5362,7 @@ const root$3 = "_root_9azk3_2",
                     const stick = document.querySelector( '.stick_adahfj' );
                     const notcoin = document.querySelector( '._notcoin_9azk3_34' );
                     const boxCanvas = document.querySelector('.box-canvas_gdahkd');
-                    console.log(mlty);
+                    
                     if (document.pepaSprite) {
                       document.pepaSprite.mlty = mlty;
                     }
@@ -5399,7 +5404,7 @@ const root$3 = "_root_9azk3_2",
                         
                       } );
                       
-                      function convertRange( value, r1 = [10, 200], r2 = [13,1] ) {
+                      function convertRange( value, r1 = [10, 200], r2 = [5,1] ) {
                         return ( value - r1[ 0 ] ) * ( r2[ 1 ] - r2[ 0 ] ) / ( r1[ 1 ] - r1[ 0 ] ) + r2[ 0 ];
                       }
                       
@@ -5641,11 +5646,13 @@ const root$3 = "_root_9azk3_2",
   TurboPussy = ( { show: e, times: t, onClick: s, multiple: mlty } ) => {
     const [ n, o ] = reactExports.useState( { top: 0, left: 0 } ),
       [ r, a ] = reactExports.useState( "" ),
-      [ imgId, setImgId ] = reactExports.useState( 1 ),
-      [ imgSrc, setImgSrc ] = reactExports.useState( () => mlty < 0 ? '/clicker/head-bad.png' : '/clicker/head-good-1.png' ),
       c = () => {
         s();
       };
+    // let imgId = Math.round( Math.random() ) + 1;
+    let imgSrc = '/clicker/head-bad.png';
+// if (document.multipleValue > 0) imgSrc = `/clicker/head-good-${imgId}.png`;
+    
     return (
       reactExports.useEffect( () => {
         const i = randomNumber( 0, window.innerHeight - 100 ),
@@ -5661,14 +5668,6 @@ const root$3 = "_root_9azk3_2",
           _ = d[ randomNumber( 0, d.length - 1 ) ];
         a( _ ), o( { top: i, left: l } );
       }, [] ),
-        reactExports.useEffect( () => {
-          setImgId( Math.round( Math.random() ) + 1 )
-          if ( mlty < 0 ) {
-            setImgSrc( "/clicker/head-bad.png" );
-          } else {
-            setImgSrc( `/clicker/head-good-${imgId}.png` );
-          }
-        }, [ mlty ] ),
         jsx( AnimatePresence, {
           children:
             e &&
