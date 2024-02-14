@@ -2759,8 +2759,10 @@ const useBoostStore = create( ( e, t ) => ( {
       if ( !( getProf().turboTimes > 0 || getProf().isTurboMode || getProf().turboGift ) )
         try {
           const s = await checkTurboApi();
+          document.multipleImgSrc = s.multiple > 0
+            ? `/clicker/head-good-${Math.round( Math.random() ) + 1}.png`
+            : '/clicker/head-bad.png';
           s != null && s.turbo && setProf( { turboGift: !0, turboGiftExpire: Date.now() + 7e3 } );
-          
         } catch ( s ) {
           console.error( s );
         }
@@ -5649,10 +5651,10 @@ const root$3 = "_root_9azk3_2",
       c = () => {
         s();
       };
-    // let imgId = Math.round( Math.random() ) + 1;
-    let imgSrc = '/clicker/head-bad.png';
-// if (document.multipleValue > 0) imgSrc = `/clicker/head-good-${imgId}.png`;
-    
+    let imgSrc =
+      document.multipleImgSrc
+        ? document.multipleImgSrc
+        : '/clicker/head-bad.png';
     return (
       reactExports.useEffect( () => {
         const i = randomNumber( 0, window.innerHeight - 100 ),
