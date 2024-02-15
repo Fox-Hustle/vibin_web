@@ -2864,8 +2864,8 @@ const useBoostStore = create( ( e, t ) => ( {
     // { id: 7, title: "Invite 10 frens", icon: "😸", type: "10Referral", coins: 5e4, isCompleted: !0 },
     // { id: 6, title: "Invite 5 frens", icon: "😸", type: "5Referral", coins: 25e3, isCompleted: !0 },
     // { id: 5, title: "Invite 1 frens", icon: "😸", type: "1Referral", coins: 5e3, isCompleted: !0 },
-    { id: 4, title: "Earn 100 NFCoin", icon: "😸", type: "100Clicks", coins: 200, isCompleted: !1 },
-    { id: 3, title: "Earn 1000 NFCoin", icon: "😸", type: "1000Clicks", coins: 2000, isCompleted: !1 },
+    { id: 4, title: "Earn 100 DoNotCoin", icon: "😸", type: "100Clicks", coins: 200, isCompleted: !1 },
+    { id: 3, title: "Earn 1000 DoNotCoin", icon: "😸", type: "1000Clicks", coins: 2000, isCompleted: !1 },
   ],
   specialTasksData = [
     {
@@ -3309,7 +3309,7 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
     multipleClicks: {
       title: "Multitap",
       description: jsxs( Fragment, {
-        children: [ "Increase amount of NFCoin", jsx( "br", {} ), " you can earn per one tap.", jsx( "br", {} ), jsx( "br", {} ), " +1 per tap for each level." ],
+        children: [ "Increase amount of DoNotCoin", jsx( "br", {} ), " you can earn per one tap.", jsx( "br", {} ), jsx( "br", {} ), " +1 per tap for each level." ],
       } ),
       icon: "🗣️️",
     },
@@ -3317,7 +3317,7 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
       icon: "💳",
       title: "Energy Limit",
       description: jsxs( Fragment, {
-        children: [ "Increase your energy limit,", jsx( "br", {} ), " so you can mine more per session.", jsx( "br", {} ), jsx( "br", {} ), "+500 NFCoin for each level." ],
+        children: [ "Increase your energy limit,", jsx( "br", {} ), " so you can mine more per session.", jsx( "br", {} ), jsx( "br", {} ), "+500 DoNotCoin for each level." ],
       } ),
     },
     speedPerHour: {
@@ -3331,7 +3331,7 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
       title: "Tap bot",
       description: jsxs( Fragment, {
         children: [
-          "Hi sir! I will earn NFCoin for you,",
+          "Hi sir! I will earn DoNotCoin for you,",
           jsx( "br", {} ),
           "when you close the game.",
           jsx( "br", {} ),
@@ -3339,7 +3339,7 @@ const beautifyMoney$1 = ( e ) => new Intl.NumberFormat( "en-US" ).format( parseI
           "12 hours is my limit for auto-tap.",
           jsx( "br", {} ),
           jsx( "br", {} ),
-          "You need to claim NFCoin at least every 12 hour to empty my storage, so I can earn more for you.",
+          "You need to claim DoNotCoin at least every 12 hour to empty my storage, so I can earn more for you.",
         ],
       } ),
       icon: "🤖",
@@ -4690,7 +4690,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
         b( !0 );
         const { ok: L } = [ "challengeCompleted", "telegramPremium", "welcomeToTon" ].indexOf( r ) !== -1 ? await claimPartnerReward( c ) : await f( c );
         L
-          ? ( await y(), k(), g( { message: `Task is done +${beautifyMoney$1( String( a ) )} NFCoin`, type: "success" } ) )
+          ? ( await y(), k(), g( { message: `Task is done +${beautifyMoney$1( String( a ) )} DoNotCoin`, type: "success" } ) )
           : m
             ? ( n && n( t ), o.openTelegramLink( `https://t.me/community_bot/join?startapp=id_${m}-b_nb` ) )
             : g( { message: "You've not completed the task.", type: "error" } ),
@@ -4782,7 +4782,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
     oneTitle: "Тапай по монетi на екранi",
     oneDescr: "Та дивись, як зростає баланс",
     twoTitle: "Прокачуй покращення",
-    twoDescr: "Та заробляй NFCoin виконуючи завдання",
+    twoDescr: "Та заробляй DoNotCoin виконуючи завдання",
     threeTitle: "Змагайся з iншими гравцями",
     threeDescr: "Та спробуй дiйти до Diamond лiги",
     fourTitle: "Приєднуйся до команд",
@@ -4793,10 +4793,10 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
   },
   ClickerBoostsExplanationPageL10n = {
     en: {
-      oneTitle: "Tap-to-earn NFCoin",
+      oneTitle: "Tap-to-earn DoNotCoin",
       oneDescr: "Yes, that’s easy",
       twoTitle: "Upgrade your Boosts",
-      twoDescr: "And earn NFCoin for tasks",
+      twoDescr: "And earn DoNotCoin for tasks",
       threeTitle: "Climb to the top",
       threeDescr: "Get to the Diamond league",
       fourTitle: "Join Squad!",
@@ -4807,7 +4807,7 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
     },
     ru: {
       oneTitle: "Жми на монету",
-      oneDescr: "И получай NFCoin",
+      oneDescr: "И получай DoNotCoin",
       twoTitle: "Прокачивай Boosts",
       twoDescr: "Чтобы получать больше монет",
       threeTitle: "Соревнуйся с другими",
@@ -4819,10 +4819,10 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
       button: "Погнали",
     },
     tr: {
-      oneTitle: "NFCoin kazanmak için dokun",
+      oneTitle: "DoNotCoin kazanmak için dokun",
       oneDescr: "Evet, bu kadar kolay",
       twoTitle: "Takviyelerini Yükselt",
-      twoDescr: "Görevler için NFCoin kazan",
+      twoDescr: "Görevler için DoNotCoin kazan",
       threeTitle: "Zirveye tırman",
       threeDescr: "Diamond Ligine git",
       fourTitle: "Ekibe Katıl!",
@@ -4832,10 +4832,10 @@ const TaskDailyItem = ( { task: e, onClick: t } ) => {
       button: "Oyna",
     },
     fr: {
-      oneTitle: "Appuie pour gagner des NFCoin",
+      oneTitle: "Appuie pour gagner des DoNotCoin",
       oneDescr: "Oui, c'est facile",
       twoTitle: "Augmente tes Boosts",
-      twoDescr: "Et complète des tâches (pour gagner des NFCoin)",
+      twoDescr: "Et complète des tâches (pour gagner des DoNotCoin)",
       threeTitle: "Grimpe au sommet",
       threeDescr: "Vise la league de Diamond",
       fourTitle: "Rejoins une équipe!",
