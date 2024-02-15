@@ -5750,7 +5750,10 @@ const root$3 = "_root_9azk3_2",
         jsx( MainButton, { hidden: !0 } ),
         jsx( Stars, { className: styles$j.stars, keyId: "stars", amount: 4 } ),
         jsx( Background, { type: "yellow", position: "bottom" } ),
-        jsx( "div", { className: cn( styles$j.rocketPlate, n === "enter" && styles$j.enter ), children: "🚀" } ),
+        jsx( "div", { className: cn( styles$j.rocketPlate, n === "enter" && styles$j.enter ), children: jsx("img", {
+            src: "/clicker/head-good-1.png",
+            alt: "head-good",
+          }) } ),
         y
           ? jsxs( Content, {
             className: styles$j.pageInner,
