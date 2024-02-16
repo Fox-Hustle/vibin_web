@@ -56,13 +56,13 @@ const Fragment = jsxRuntimeExports.Fragment,
   },
   prodConfig = {
     isProd: !0,
-    apiHost: "https://clicker-api.joincommunity.xyz",
+    apiHost: "https://test.yescoin.space",
     tonConnectManifestUrl: "https://cdn.joincommunity.xyz/assets/manifest.json",
     tonConnectWalletsListSource: "https://cdn.joincommunity.xyz/assets/wallets.json",
     botLink: "https://t.me/donotcoin_bot",
   };
 let config;
-switch ( "prod1" ) {
+switch ( "prod" ) {
   case "prod":
     config = { ...prodConfig };
     break;
