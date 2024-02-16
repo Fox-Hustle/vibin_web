@@ -2759,7 +2759,7 @@ const useBoostStore = create( ( e, t ) => ( {
       if ( !( getProf().turboTimes > 0 || getProf().isTurboMode || getProf().turboGift ) )
         try {
           const s = await checkTurboApi();
-          document.multipleImgSrc = s.multiple > 0
+          if( s != null && s.turbo) document.multipleImgSrc = s.multiple > 0
             ? `/clicker/head-good-${Math.round( Math.random() ) + 1}.png`
             : '/clicker/head-bad.png';
           s != null && s.turbo && setProf( { turboGift: !0, turboGiftExpire: Date.now() + 7e3 } );
