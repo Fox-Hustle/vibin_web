@@ -3411,7 +3411,7 @@ const getBoostDetails = ( e ) => ( boostData[ e ] ? boostData[ e ] : { title: "B
       className: styles$R.root,
       children: [
         jsxs( Text, { type: "title-0", className: styles$R.title, center: !0, children: [ "PC bad", jsx( "br", {} ), "use mobile" ] } ),
-        jsx( "img", { src: "/png/penis.png", width: 220, className: styles$R.qrCodeImg, alt: "NFC bot QR" } ),
+        jsx( "img", { src: "/clicker/penis.png", width: 220, className: styles$R.qrCodeImg, alt: "NFC bot QR" } ),
       ],
     } ),
   root$b = "_root_1unia_1",
