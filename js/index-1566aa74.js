@@ -5490,7 +5490,7 @@ const root$3 = "_root_9azk3_2",
             children: jsxs( "div", {
               className: styles$o.cooldownContainer,
               children: [
-                jsx( "div", { className: styles$o.cooldownNumber, children: cooldown || jsx( "small", { children: "NFC" } ) } ),
+                jsx( "div", { className: styles$o.cooldownNumber, children: cooldown || jsx( "small", { children: "DONOT" } ) } ),
                 jsx( "svg", { className: styles$o.cooldown, children: jsx( "circle", { className: styles$o.cooldownCircle, r: "140", cx: "150", cy: "150" } ) } ),
               ],
             } ),
